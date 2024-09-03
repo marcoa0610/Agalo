@@ -3,17 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Jero/Desktop/Agalo/src/custom/PanelRedondeado.java</file>
-            <file>file:/C:/Users/Jero/Desktop/Agalo/src/vista/menu.java</file>
-            <file>file:/C:/Users/Jero/Desktop/Agalo/src/modelo/UsuarioEscritorio.java</file>
-            <file>file:/C:/Users/Jero/Desktop/Agalo/src/modelo/ClaseConexion.java</file>
-            <file>file:/C:/Users/Jero/Desktop/Agalo/src/modelo/EnviarCorreo.java</file>
-            <file>file:/C:/Users/Jero/Desktop/Agalo/src/controlador/ctrlLogin.java</file>
-            <file>file:/C:/Users/Jero/Desktop/Agalo/src/controlador/ctrlValidarCodigo.java</file>
-            <file>file:/C:/Users/Jero/Desktop/Agalo/src/controlador/ctrlIngresoCorreo.java</file>
-            <file>file:/C:/Users/Jero/Desktop/Agalo/src/controlador/ctrlRegistrar.java</file>
-            <file>file:/C:/Users/Jero/Desktop/Agalo/src/vista/frmRegistro.java</file>
-            <file>file:/C:/Users/Jero/Desktop/Agalo/src/vista/frmIngresoCorreo.java</file>
+            <file>file:/C:/Users/lagal/Desktop/Agalo/src/modelo/AdministrarUsuario.java</file>
+            <file>file:/C:/Users/lagal/Desktop/Agalo/src/controlador/ctrlAdministrarUsuario.java</file>
+            <file>file:/C:/Users/lagal/Desktop/Agalo/src/vista/configuraciones.java</file>
         </group>
     </open-files>
 </project-private>
