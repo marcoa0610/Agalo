@@ -10,14 +10,13 @@ import java.sql.SQLException;
  * @author Jero
  */
 public class UsuarioEscritorio {
-   
-    private String Nombre; 
+
+    private String Nombre;
     private String Usuario;
     private String Correo;
     private String Contrasena;
-   
-    // Getters y Setters
 
+    // Getters y Setters
     public String getNombre() {
         return Nombre;
     }
@@ -49,7 +48,7 @@ public class UsuarioEscritorio {
     public void setContrasena(String Contrasena) {
         this.Contrasena = Contrasena;
     }
-   
+
     public void GuardarUsuario() {
         // Obtenemos la conexión
         Connection conexion = ClaseConexion.getConexion();
@@ -67,7 +66,7 @@ public class UsuarioEscritorio {
             // Ejecutar la consulta
             addUsuarioEscritorio.executeUpdate();
             System.out.println("Usuario guardado correctamente.");
-            
+
         } catch (SQLException ex) {
             System.out.println("Error en el método GuardarUsuario: " + ex.getMessage());
             ex.printStackTrace(); // Para más detalles del error
@@ -75,14 +74,18 @@ public class UsuarioEscritorio {
         } finally {
             // Cerrar recursos
             try {
-                if (addUsuarioEscritorio != null) addUsuarioEscritorio.close();
-                if (conexion != null) conexion.close();
+                if (addUsuarioEscritorio != null) {
+                    addUsuarioEscritorio.close();
+                }
+                if (conexion != null) {
+                    conexion.close();
+                }
             } catch (SQLException ex) {
                 System.out.println("Error al cerrar recursos: " + ex.getMessage());
             }
         }
     }
-       
+
     // Método para iniciar sesión
     public boolean iniciarSesion() {
         Connection conexion = ClaseConexion.getConexion();
@@ -109,9 +112,15 @@ public class UsuarioEscritorio {
         } finally {
             // Cerrar recursos
             try {
-                if (resultSet != null) resultSet.close();
-                if (statement != null) statement.close();
-                if (conexion != null) conexion.close();
+                if (resultSet != null) {
+                    resultSet.close();
+                }
+                if (statement != null) {
+                    statement.close();
+                }
+                if (conexion != null) {
+                    conexion.close();
+                }
             } catch (SQLException ex) {
                 System.out.println("Error al cerrar recursos: " + ex.getMessage());
             }
@@ -119,4 +128,22 @@ public class UsuarioEscritorio {
 
         return resultado;
     }
+
+    public void actualizar_contra(String correo, String contrasena) {
+        try {
+            Connection con = ClaseConexion.getConexion();
+            PreparedStatement query = con.prepareStatement("update UsuarioEscritorio set contrasena = ? where correoelectronico = ?");
+            
+            query.setString(1, contrasena);
+            query.setString(2, correo);
+            
+            int filasActualizadas = query.executeUpdate();
+            if(filasActualizadas == 0){
+                System.out.println("No se encontro el usuario");
+            }
+        }catch(Exception e){
+            System.out.println("Error al actualizar");
+        }
+    }
+
 }

@@ -1,79 +1,61 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package controlador;
-
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.*;
 import java.util.Random;
+import javax.swing.JOptionPane;
 import modelo.EnviarCorreo;
 import modelo.UsuarioEscritorio;
 import vista.frmIngresoCorreo;
+import vista.frmValidarCodigo;
 
-/**
- *
- * @author Jero
- */
-public class ctrlIngresoCorreo implements MouseListener{
+public class ctrlIngresoCorreo implements MouseListener {
     private UsuarioEscritorio modelo;
     private frmIngresoCorreo vista;
+    static Random random = new Random();
+    static int numeroAleatorio = 1000 + random.nextInt(9000);
+    static String correoEnviado;
     
-    public ctrlIngresoCorreo(UsuarioEscritorio modelo, frmIngresoCorreo vista){
+
+    public ctrlIngresoCorreo(UsuarioEscritorio modelo, frmIngresoCorreo vista) {
         this.modelo = modelo;
         this.vista = vista;
         
         vista.btnRecuperarContrasena.addMouseListener(this);
-        
     }
-
-    
-   
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        
-         if(e.getSource() == vista.btnRecuperarContrasena){
-        
-             Random random = new Random();
-        
-        // Genera un número aleatorio de 4 dígitos (1000 a 9999)
-            int numeroAleatorio = 1000 + random.nextInt(9000);
+        if (e.getSource() == vista.btnRecuperarContrasena) {
 
-            String recipient = vista.txtRecuperarContrasena.getText();
-            String subject = "Recuperacion de contraseña";
-            String content = "Este es el codigo de recuperacion" + numeroAleatorio;
+            // Genera un número aleatorio de 4 dígitos (1000 a 9999)
 
-            EnviarCorreo.enviarCorreo(recipient, subject, content);
+            correoEnviado = vista.txtRecuperarContrasena.getText();
+            
+            String subject = "Recuperación de contraseña";
+            String content = "Este es tu código de recuperación: " + numeroAleatorio;
+            System.out.println("El codigo es " + numeroAleatorio);
 
+            // Envía el correo con el código de recuperación
+            EnviarCorreo.enviarCorreo(correoEnviado, subject, content);
+            
+            frmValidarCodigo.initFrmValidarCodigo();
+            vista.dispose();
+
+            // Mostrar mensaje de éxito
+            JOptionPane.showMessageDialog(vista, "Se ha enviado un código de recuperación a tu correo.");
         }
-        
-        
-        
-        
-        
-        
-        
-        
     }
 
     @Override
-    public void mousePressed(MouseEvent e) {
-        
-    }
+    public void mousePressed(MouseEvent e) { }
 
     @Override
-    public void mouseReleased(MouseEvent e) {
-       
-    }
+    public void mouseReleased(MouseEvent e) { }
 
     @Override
-    public void mouseEntered(MouseEvent e) {
-       
-    }
+    public void mouseEntered(MouseEvent e) { }
 
     @Override
-    public void mouseExited(MouseEvent e) {
-        
-    }
+    public void mouseExited(MouseEvent e) { }
+
+
 }
