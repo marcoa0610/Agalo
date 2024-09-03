@@ -4,6 +4,9 @@
  */
 package vista;
 
+import controlador.ctrlLogin;
+import modelo.UsuarioEscritorio;
+
 /**
  *
  * @author Gudelia
@@ -15,7 +18,17 @@ public class frmLogin extends javax.swing.JFrame {
      */
     public frmLogin() {
         initComponents();
+        this.setLocationRelativeTo(this);
     }
+    
+    public static void initFrmLogin(){
+        UsuarioEscritorio modelo = new UsuarioEscritorio();
+        frmLogin vista = new frmLogin();
+        ctrlLogin controlador = new ctrlLogin (modelo,vista);
+        vista.setVisible(true);
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -33,8 +46,8 @@ public class frmLogin extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        txtEmail = new custom.TextField();
-        btnIrAregistro = new custom.Button();
+        txtUsuario = new custom.TextField();
+        btnRegister = new custom.Button();
         txtContrasena = new custom.TextField();
         jLabel2 = new javax.swing.JLabel();
         btnIngresar = new custom.Button();
@@ -88,24 +101,24 @@ public class frmLogin extends javax.swing.JFrame {
         jLabel6.setText("Contraseña");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, 120, 50));
 
-        txtEmail.addActionListener(new java.awt.event.ActionListener() {
+        txtUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEmailActionPerformed(evt);
+                txtUsuarioActionPerformed(evt);
             }
         });
-        jPanel1.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, 450, 50));
+        jPanel1.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, 450, 50));
 
-        btnIrAregistro.setBackground(new java.awt.Color(0, 0, 0));
-        btnIrAregistro.setForeground(new java.awt.Color(255, 255, 255));
-        btnIrAregistro.setText("Registrar");
-        btnIrAregistro.setToolTipText("");
-        btnIrAregistro.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        btnIrAregistro.addActionListener(new java.awt.event.ActionListener() {
+        btnRegister.setBackground(new java.awt.Color(0, 0, 0));
+        btnRegister.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegister.setText("Registrar");
+        btnRegister.setToolTipText("");
+        btnRegister.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btnRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnIrAregistroActionPerformed(evt);
+                btnRegisterActionPerformed(evt);
             }
         });
-        jPanel1.add(btnIrAregistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 730, 140, 30));
+        jPanel1.add(btnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 730, 140, 30));
 
         txtContrasena.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -145,13 +158,13 @@ public class frmLogin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
+    private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtEmailActionPerformed
+    }//GEN-LAST:event_txtUsuarioActionPerformed
 
-    private void btnIrAregistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIrAregistroActionPerformed
+    private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnIrAregistroActionPerformed
+    }//GEN-LAST:event_btnRegisterActionPerformed
 
     private void txtContrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContrasenaActionPerformed
         // TODO add your handling code here:
@@ -194,14 +207,14 @@ public class frmLogin extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frmLogin().setVisible(true);
+                initFrmLogin();
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public custom.Button btnIngresar;
-    public custom.Button btnIrAregistro;
+    public custom.Button btnRegister;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -211,6 +224,6 @@ public class frmLogin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     public custom.TextField txtContrasena;
-    public custom.TextField txtEmail;
+    public custom.TextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }

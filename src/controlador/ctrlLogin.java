@@ -26,14 +26,14 @@ public class ctrlLogin implements MouseListener {
         this.vista = vista;
 
         vista.btnIngresar.addMouseListener(this);
-        vista.btnIrAregistro.addMouseListener(this);
+        vista.btnRegister.addMouseListener(this);
         
     }
     
     @Override
     public void mouseClicked(MouseEvent e) {
         if (e.getSource() == vista.btnIngresar) {
-            modelo.setCorreo(vista.txtEmail.getText());
+            modelo.setCorreo(vista.txtUsuario.getText());
             modelo.setContrasena(vista.txtContrasena.getText());
 
             // Creo una variable llamada "comprobar" 
