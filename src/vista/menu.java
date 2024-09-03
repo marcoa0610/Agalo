@@ -63,6 +63,11 @@ public class menu extends javax.swing.JFrame {
         btnHome.setBorder(null);
         btnHome.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnHome.setMargin(new java.awt.Insets(5, 14, 2, 14));
+        btnHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHomeActionPerformed(evt);
+            }
+        });
         jPanel2.add(btnHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 220, 50));
 
         jLabel2.setForeground(new java.awt.Color(102, 102, 102));
@@ -71,7 +76,7 @@ public class menu extends javax.swing.JFrame {
 
         btnConfig.setBackground(new java.awt.Color(204, 204, 204));
         btnConfig.setForeground(new java.awt.Color(0, 0, 0));
-        btnConfig.setText("Configuracion");
+        btnConfig.setText("Gestionar administradores");
         btnConfig.setBorder(null);
         btnConfig.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnConfig.setMargin(new java.awt.Insets(5, 14, 2, 14));
@@ -92,6 +97,11 @@ public class menu extends javax.swing.JFrame {
         jButton6.setBorder(null);
         jButton6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jButton6.setMargin(new java.awt.Insets(5, 14, 2, 14));
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 220, 50));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 230, 770));
@@ -113,6 +123,14 @@ public class menu extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnHomeActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -1,18 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
+
 package vista;
 
-/**
- *
- * @author Estudiante
- */
+
 public class Dashboard extends javax.swing.JPanel {
 
-    /**
-     * Creates new form Dashboard
-     */
     public Dashboard() {
         initComponents();
     }
@@ -41,7 +32,16 @@ public class Dashboard extends javax.swing.JPanel {
             .addGap(0, 770, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    private void btnHomeActionPerformed(java.awt.event.ActionEvent evt){
+        jPCpntenedor.removeAll();
+        Dashboard panel = new Dashboard();
+        jPCpntenedor.add(panel);
+        jPCpntenedor.revalidate();
+        jPCpntenedor.repaint();
+    }
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
