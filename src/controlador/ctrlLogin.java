@@ -1,74 +1,111 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package controlador;
 
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import modelo.UsuarioEscritorio;
 import vista.frmLogin;
 import vista.frmRegistro;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.nio.charset.StandardCharsets;
 
 /**
  *
  * @author lagal
  */
-public class ctrlLogin implements MouseListener {
+public class ctrlLogin implements ActionListener {
 
-    UsuarioEscritorio modelo;
-    frmLogin vista;
-    
+    private UsuarioEscritorio modelo;
+    private frmLogin vista;
     
     public ctrlLogin(UsuarioEscritorio modelo, frmLogin vista) {
         this.modelo = modelo;
         this.vista = vista;
 
-        vista.btnIngresar.addMouseListener(this);
-        vista.btnRegister.addMouseListener(this);
-        
+        this.vista.btnIngresar.addActionListener(this); // Usar ActionListener en lugar de MouseListener
+        this.vista.btnRegister.addActionListener(this); // Añadir ActionListener para el botón de registro
     }
     
     @Override
-    public void mouseClicked(MouseEvent e) {
+    public void actionPerformed(ActionEvent e) {
         if (e.getSource() == vista.btnIngresar) {
-            modelo.setCorreo(vista.txtUsuario.getText());
-            modelo.setContrasena(vista.txtContrasena.getText());
+            String usuario = vista.txtUsuario.getText();
+            String contrasena = vista.txtContrasena.getText();
+            
+            // Validar entradas
+            if (!validarEntradas(usuario, contrasena)) {
+                return;
+            }
 
-            // Creo una variable llamada "comprobar" 
-            // que guardará el resultado de ejecutar el método iniciarSesion()            
+            // Encriptar la contraseña antes de comparar
+            String contrasenaEncriptada = encriptarContrasena(contrasena);
+            
+            modelo.setUsuario(usuario);
+            modelo.setContrasena(contrasenaEncriptada);
+            
+            // Intentar iniciar sesión
             boolean comprobar = modelo.iniciarSesion();
 
-            // Si la variable es "true" significa que sí existe el usuario ingresado    
             if (comprobar) {
-                JOptionPane.showMessageDialog(vista,"Usuario existe, ¡Bienvenido!");
+                JOptionPane.showMessageDialog(vista, "¡Bienvenido, usuario encontrado!");
             } else {
-                JOptionPane.showMessageDialog(vista, "Usuario no encontrado");
+                JOptionPane.showMessageDialog(vista, "Usuario o contraseña incorrectos", "Error", JOptionPane.ERROR_MESSAGE);
             }
-        } 
-        
-        // Clic al botón de Ir Al Registro
-        
+        } else if (e.getSource() == vista.btnRegister) {
+            // Cambiar al formulario de registro
+            frmRegistro registroForm = new frmRegistro();
+            registroForm.setVisible(true);
+            vista.dispose(); // Cierra el formulario de login actual
+        }
     }
 
-    @Override
-    public void mousePressed(MouseEvent e) {
-        // Implementar lógica si es necesario
+    /**
+     * Método para validar los campos de entrada del formulario.
+     * @return true si todas las validaciones pasan, false en caso contrario.
+     */
+    private boolean validarEntradas(String usuario, String contrasena) {
+        StringBuilder errores = new StringBuilder();
+
+        if (usuario.trim().isEmpty()) {
+            errores.append("El campo 'Usuario' no puede estar vacío.\n");
+        }
+
+        if (contrasena.trim().isEmpty()) {
+            errores.append("El campo 'Contraseña' no puede estar vacío.\n");
+        }
+
+        if (errores.length() > 0) {
+            JOptionPane.showMessageDialog(vista, errores.toString(), "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+
+        return true;
     }
 
-    @Override
-    public void mouseReleased(MouseEvent e) {
-        // Implementar lógica si es necesario
+    /**
+     * Método para encriptar la contraseña utilizando SHA-256.
+     * @param contrasena la contraseña a encriptar.
+     * @return la contraseña encriptada en formato hexadecimal.
+     */
+    private String encriptarContrasena(String contrasena) {
+        try {
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            byte[] hash = digest.digest(contrasena.getBytes(StandardCharsets.UTF_8));
+            StringBuilder hexString = new StringBuilder();
+            
+            for (byte b : hash) {
+                String hex = Integer.toHexString(0xff & b);
+                if (hex.length() == 1) hexString.append('0');
+                hexString.append(hex);
+            }
+
+            return hexString.toString();
+        } catch (NoSuchAlgorithmException e) {
+            JOptionPane.showMessageDialog(vista, "Error en la encriptación de la contraseña: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace();
+            return null;
+        }
     }
 
-    @Override
-    public void mouseEntered(MouseEvent e) {
-        // Implementar lógica si es necesario
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-        // Implementar lógica si es necesario
-    }
 }

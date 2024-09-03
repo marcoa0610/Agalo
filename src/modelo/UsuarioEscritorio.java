@@ -91,9 +91,9 @@ public class UsuarioEscritorio {
         boolean resultado = false;
 
         try {
-            String sql = "SELECT * FROM UsuarioEscritorio WHERE Correo = ? AND Contrasena = ?";
+            String sql = "SELECT * FROM UsuarioEscritorio WHERE Usuario = ? AND Contrasena = ?";
             statement = conexion.prepareStatement(sql);
-            statement.setString(1, getCorreo());
+            statement.setString(1, getUsuario());
             statement.setString(2, getContrasena());
 
             resultSet = statement.executeQuery();
