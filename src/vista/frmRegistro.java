@@ -230,7 +230,7 @@ public class frmRegistro extends javax.swing.JFrame {
     }//GEN-LAST:event_txtCorreoElectronicoActionPerformed
 
     private void txtNombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNombreFocusGained
-    if (txtNombre.getText().equals("Usuario")) {
+    if (txtNombre.getText().equals("Nombre")) {
          txtNombre.setText("");
          txtNombre.setForeground(new Color(153,153,153));
      }
@@ -240,7 +240,7 @@ public class frmRegistro extends javax.swing.JFrame {
 
     private void txtNombreFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNombreFocusLost
         if (txtNombre.getText().equals("")) {
-         txtNombre.setText("Usuario");
+         txtNombre.setText("Nombre");
          txtNombre.setForeground(new Color(153,153,153));
      }
            
@@ -294,11 +294,20 @@ public class frmRegistro extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void txtUsuarioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUsuarioFocusGained
-        // TODO add your handling code here:
+     if (txtUsuario.getText().equals("Usuario")) {
+         txtUsuario.setText("");
+         txtUsuario.setForeground(new Color(153,153,153));
+     }
+  
     }//GEN-LAST:event_txtUsuarioFocusGained
 
     private void txtUsuarioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUsuarioFocusLost
-        // TODO add your handling code here:
+       if (txtUsuario.getText().equals("")) {
+         txtUsuario.setText("Usuario");
+         txtUsuario.setForeground(new Color(153,153,153));
+     }
+        
+        
     }//GEN-LAST:event_txtUsuarioFocusLost
 
     private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
