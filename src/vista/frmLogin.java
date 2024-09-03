@@ -41,13 +41,12 @@ public class frmLogin extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         btnRegister = new custom.Button();
-        jLabel2 = new javax.swing.JLabel();
+        jOlvidarContrasena = new javax.swing.JLabel();
         btnIngresar = new custom.Button();
         txtContrasena = new custom.TextField();
         txtUsuario = new custom.TextField();
@@ -59,20 +58,15 @@ public class frmLogin extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(0, 0, 0));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/img/login.png"))); // NOI18N
-
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 480, Short.MAX_VALUE)
+            .addGap(0, 480, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(390, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(185, 185, 185))
+            .addGap(0, 830, Short.MAX_VALUE)
         );
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, -40, 480, 830));
@@ -113,10 +107,10 @@ public class frmLogin extends javax.swing.JFrame {
         });
         jPanel1.add(btnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 730, 140, 30));
 
-        jLabel2.setFont(new java.awt.Font("Calibri Light", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel2.setText("¿Olvidaste la contraseña?");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 380, 160, 20));
+        jOlvidarContrasena.setFont(new java.awt.Font("Calibri Light", 0, 14)); // NOI18N
+        jOlvidarContrasena.setForeground(new java.awt.Color(102, 102, 102));
+        jOlvidarContrasena.setText("¿Olvidaste la contraseña?");
+        jPanel1.add(jOlvidarContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 410, 160, 20));
 
         btnIngresar.setBackground(new java.awt.Color(0, 0, 0));
         btnIngresar.setForeground(new java.awt.Color(255, 255, 255));
@@ -128,9 +122,9 @@ public class frmLogin extends javax.swing.JFrame {
                 btnIngresarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 480, 190, 60));
-        jPanel1.add(txtContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, 300, 60));
-        jPanel1.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 300, 60));
+        jPanel1.add(btnIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 480, 190, 60));
+        jPanel1.add(txtContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, 540, 60));
+        jPanel1.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 530, 60));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -195,12 +189,11 @@ public class frmLogin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public custom.Button btnIngresar;
     public custom.Button btnRegister;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    public javax.swing.JLabel jOlvidarContrasena;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     public custom.TextField txtContrasena;

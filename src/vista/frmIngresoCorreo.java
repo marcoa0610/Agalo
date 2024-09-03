@@ -4,18 +4,38 @@
  */
 package vista;
 
+import controlador.ctrlIngresoCorreo;
+import modelo.UsuarioEscritorio;
+
 /**
  *
  * @author Gudelia
  */
-public class jfContrasena extends javax.swing.JFrame {
+public class frmIngresoCorreo extends javax.swing.JFrame {
 
     /**
      * Creates new form jfContrasena
      */
-    public jfContrasena() {
+    public frmIngresoCorreo() {
         initComponents();
     }
+    
+    public static void initFrmIngresoCorreo(){
+        UsuarioEscritorio modelo = new UsuarioEscritorio();
+        frmIngresoCorreo vista = new frmIngresoCorreo();
+        ctrlIngresoCorreo controlador = new ctrlIngresoCorreo(modelo, vista);
+        
+        vista.setVisible(true);
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -27,19 +47,16 @@ public class jfContrasena extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        txtRecuperarContrasena = new custom.TextField();
+        btnRecuperarContrasena = new custom.Button();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jTextField1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Correo Electronico", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 11), new java.awt.Color(51, 51, 51))); // NOI18N
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 380, 40));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setText("Recuperar Contraseña");
@@ -52,21 +69,18 @@ public class jfContrasena extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(153, 153, 153));
         jLabel3.setText("enviaremos un correo con instrucciones para recuperar tu contraseña");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
+        jPanel1.add(txtRecuperarContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 400, 80));
 
-        jButton1.setBackground(new java.awt.Color(0, 0, 0));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Enviar correo de recuperacion");
-        jButton1.setBorder(null);
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, 210, 40));
+        btnRecuperarContrasena.setBackground(new java.awt.Color(0, 0, 0));
+        btnRecuperarContrasena.setForeground(new java.awt.Color(255, 255, 255));
+        btnRecuperarContrasena.setText("Recuperar Contraseña");
+        jPanel1.add(btnRecuperarContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, 160, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 524, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -93,30 +107,31 @@ public class jfContrasena extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(jfContrasena.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmIngresoCorreo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(jfContrasena.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmIngresoCorreo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(jfContrasena.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmIngresoCorreo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(jfContrasena.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmIngresoCorreo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new jfContrasena().setVisible(true);
+                initFrmIngresoCorreo();
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    public custom.Button btnRecuperarContrasena;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
+    public custom.TextField txtRecuperarContrasena;
     // End of variables declaration//GEN-END:variables
 }
