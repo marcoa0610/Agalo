@@ -29,12 +29,12 @@ public class menu extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        btnHome = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        btnConfig = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        button1 = new custom.Button();
+        btnHome = new custom.Button();
+        btnAdd = new custom.Button();
+        button4 = new custom.Button();
+        button5 = new custom.Button();
         jPCpntenedor = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -48,51 +48,49 @@ public class menu extends javax.swing.JFrame {
         jLabel1.setText("Herramientas");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, -1, -1));
 
-        jButton2.setBackground(new java.awt.Color(204, 204, 204));
-        jButton2.setForeground(new java.awt.Color(0, 0, 0));
-        jButton2.setText("Empresas");
-        jButton2.setBorder(null);
-        jButton2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jButton2.setMargin(new java.awt.Insets(5, 14, 2, 14));
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, 220, 50));
-
-        btnHome.setBackground(new java.awt.Color(204, 204, 204));
-        btnHome.setForeground(new java.awt.Color(0, 0, 0));
-        btnHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/img/Diseño sin título (3).png"))); // NOI18N
-        btnHome.setText("Dashboard");
-        btnHome.setBorder(null);
-        btnHome.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnHome.setMargin(new java.awt.Insets(5, 14, 2, 14));
-        jPanel2.add(btnHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 220, 50));
-
         jLabel2.setForeground(new java.awt.Color(102, 102, 102));
         jLabel2.setText("Personalizar");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, -1));
 
-        btnConfig.setBackground(new java.awt.Color(204, 204, 204));
-        btnConfig.setForeground(new java.awt.Color(0, 0, 0));
-        btnConfig.setText("Configuracion");
-        btnConfig.setBorder(null);
-        btnConfig.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnConfig.setMargin(new java.awt.Insets(5, 14, 2, 14));
-        jPanel2.add(btnConfig, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 220, 50));
+        button1.setBackground(new java.awt.Color(204, 204, 204));
+        button1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/img/reporte.png"))); // NOI18N
+        button1.setText("reporte");
+        button1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jPanel2.add(button1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, 230, 60));
 
-        jButton5.setBackground(new java.awt.Color(204, 204, 204));
-        jButton5.setForeground(new java.awt.Color(0, 0, 0));
-        jButton5.setText("Reportes");
-        jButton5.setBorder(null);
-        jButton5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jButton5.setMargin(new java.awt.Insets(5, 14, 2, 14));
-        jPanel2.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, 220, 50));
+        btnHome.setBackground(new java.awt.Color(204, 204, 204));
+        btnHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/img/dashboard.png"))); // NOI18N
+        btnHome.setText("Dashboard");
+        btnHome.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHomeActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 230, 60));
 
-        jButton6.setBackground(new java.awt.Color(204, 204, 204));
-        jButton6.setForeground(new java.awt.Color(0, 0, 0));
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/img/Diseño sin título (3).png"))); // NOI18N
-        jButton6.setText("Usuarios");
-        jButton6.setBorder(null);
-        jButton6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jButton6.setMargin(new java.awt.Insets(5, 14, 2, 14));
-        jPanel2.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 220, 50));
+        btnAdd.setBackground(new java.awt.Color(204, 204, 204));
+        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/img/config.png"))); // NOI18N
+        btnAdd.setText("Administrador");
+        btnAdd.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 230, 60));
+
+        button4.setBackground(new java.awt.Color(204, 204, 204));
+        button4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/img/empresa.png"))); // NOI18N
+        button4.setText("Empresa");
+        button4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jPanel2.add(button4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 230, 60));
+
+        button5.setBackground(new java.awt.Color(204, 204, 204));
+        button5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/img/Diseño sin título (3).png"))); // NOI18N
+        button5.setText("Solicitante");
+        button5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jPanel2.add(button5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, 230, 60));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 230, 770));
 
@@ -113,6 +111,23 @@ public class menu extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
+       
+        jPCpntenedor.removeAll();
+        Dashboard panel = new Dashboard();
+        jPCpntenedor.add(panel);
+        jPCpntenedor.revalidate();
+        jPCpntenedor.repaint();
+    }//GEN-LAST:event_btnHomeActionPerformed
+
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+        jPCpntenedor.removeAll();
+        configuraciones panell = new configuraciones();
+        jPCpntenedor.add(panell);
+        jPCpntenedor.revalidate();
+        jPCpntenedor.repaint();
+    }//GEN-LAST:event_btnAddActionPerformed
 
     /**
      * @param args the command line arguments
@@ -150,11 +165,11 @@ public class menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnConfig;
-    public javax.swing.JButton btnHome;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
+    public custom.Button btnAdd;
+    public custom.Button btnHome;
+    private custom.Button button1;
+    private custom.Button button4;
+    private custom.Button button5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     public javax.swing.JPanel jPCpntenedor;

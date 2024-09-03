@@ -68,58 +68,6 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton2">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="cc" green="cc" red="cc" type="rgb"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="0" green="0" red="0" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Empresas"/>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="null"/>
-                </Property>
-                <Property name="horizontalAlignment" type="int" value="2"/>
-                <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
-                  <Insets value="[5, 14, 2, 14]"/>
-                </Property>
-              </Properties>
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="10" y="330" width="220" height="50"/>
-                </Constraint>
-              </Constraints>
-            </Component>
-            <Component class="javax.swing.JButton" name="btnHome">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="cc" green="cc" red="cc" type="rgb"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="0" green="0" red="0" type="rgb"/>
-                </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/img/img/Dise&#xf1;o sin t&#xed;tulo (3).png"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Dashboard"/>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="null"/>
-                </Property>
-                <Property name="horizontalAlignment" type="int" value="2"/>
-                <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
-                  <Insets value="[5, 14, 2, 14]"/>
-                </Property>
-              </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-              </AuxValues>
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="10" y="120" width="220" height="50"/>
-                </Constraint>
-              </Constraints>
-            </Component>
             <Component class="javax.swing.JLabel" name="jLabel2">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -133,78 +81,100 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JButton" name="btnConfig">
+            <Component class="custom.Button" name="button1">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="cc" green="cc" red="cc" type="rgb"/>
                 </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="0" green="0" red="0" type="rgb"/>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/img/img/reporte.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Configuracion"/>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="null"/>
-                </Property>
+                <Property name="text" type="java.lang.String" value="reporte"/>
                 <Property name="horizontalAlignment" type="int" value="2"/>
-                <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
-                  <Insets value="[5, 14, 2, 14]"/>
-                </Property>
               </Properties>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="0" y="400" width="230" height="60"/>
+                </Constraint>
+              </Constraints>
+            </Component>
+            <Component class="custom.Button" name="btnHome">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="cc" green="cc" red="cc" type="rgb"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/img/img/dashboard.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Dashboard"/>
+                <Property name="horizontalAlignment" type="int" value="2"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnHomeActionPerformed"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
               </AuxValues>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="10" y="170" width="220" height="50"/>
+                  <AbsoluteConstraints x="0" y="120" width="230" height="60"/>
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton5">
+            <Component class="custom.Button" name="btnAdd">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="cc" green="cc" red="cc" type="rgb"/>
                 </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="0" green="0" red="0" type="rgb"/>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/img/img/config.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Reportes"/>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="null"/>
-                </Property>
+                <Property name="text" type="java.lang.String" value="Administrador"/>
                 <Property name="horizontalAlignment" type="int" value="2"/>
-                <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
-                  <Insets value="[5, 14, 2, 14]"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="0" y="170" width="230" height="60"/>
+                </Constraint>
+              </Constraints>
+            </Component>
+            <Component class="custom.Button" name="button4">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="cc" green="cc" red="cc" type="rgb"/>
                 </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/img/img/empresa.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Empresa"/>
+                <Property name="horizontalAlignment" type="int" value="2"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="10" y="380" width="220" height="50"/>
+                  <AbsoluteConstraints x="0" y="280" width="230" height="60"/>
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton6">
+            <Component class="custom.Button" name="button5">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="cc" green="cc" red="cc" type="rgb"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="0" green="0" red="0" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/img/img/Dise&#xf1;o sin t&#xed;tulo (3).png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Usuarios"/>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="null"/>
-                </Property>
+                <Property name="text" type="java.lang.String" value="Solicitante"/>
                 <Property name="horizontalAlignment" type="int" value="2"/>
-                <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
-                  <Insets value="[5, 14, 2, 14]"/>
-                </Property>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="10" y="280" width="220" height="50"/>
+                  <AbsoluteConstraints x="0" y="340" width="230" height="60"/>
                 </Constraint>
               </Constraints>
             </Component>
