@@ -52,13 +52,13 @@ public class frmRegistro extends javax.swing.JFrame {
         txtNombre = new custom.TextField();
         txtCorreoElectronico = new custom.TextField();
         txtContra = new custom.TextField();
+        btnLogear = new custom.Button();
         btnRegistrar = new custom.Button();
         jLabel2 = new javax.swing.JLabel();
         jCondiciones = new javax.swing.JCheckBox();
         jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         txtUsuario = new custom.TextField();
-        btnLogear = new custom.Button();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -149,6 +149,11 @@ public class frmRegistro extends javax.swing.JFrame {
         });
         jPanel1.add(txtContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 570, 50));
 
+        btnLogear.setBackground(new java.awt.Color(0, 0, 0));
+        btnLogear.setForeground(new java.awt.Color(255, 255, 255));
+        btnLogear.setText("Iniciar Sesión");
+        jPanel1.add(btnLogear, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 510, 140, 30));
+
         btnRegistrar.setBackground(new java.awt.Color(0, 0, 0));
         btnRegistrar.setForeground(new java.awt.Color(255, 255, 255));
         btnRegistrar.setText("REGISTRAR");
@@ -197,9 +202,6 @@ public class frmRegistro extends javax.swing.JFrame {
         });
         jPanel1.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 570, 50));
 
-        btnLogear.setText("button1");
-        jPanel1.add(btnLogear, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 500, 130, -1));
-
         jpBackground.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 650));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -228,7 +230,7 @@ public class frmRegistro extends javax.swing.JFrame {
     }//GEN-LAST:event_txtCorreoElectronicoActionPerformed
 
     private void txtNombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNombreFocusGained
-    if (txtNombre.getText().equals("Nombre")) {
+    if (txtNombre.getText().equals("Usuario")) {
          txtNombre.setText("");
          txtNombre.setForeground(new Color(153,153,153));
      }
@@ -238,7 +240,7 @@ public class frmRegistro extends javax.swing.JFrame {
 
     private void txtNombreFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNombreFocusLost
         if (txtNombre.getText().equals("")) {
-         txtNombre.setText("Nombre");
+         txtNombre.setText("Usuario");
          txtNombre.setForeground(new Color(153,153,153));
      }
            
@@ -292,19 +294,11 @@ public class frmRegistro extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void txtUsuarioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUsuarioFocusGained
-     if (txtUsuario.getText().equals("Usuario")) {
-         txtUsuario.setText("");
-         txtUsuario.setForeground(new Color(153,153,153));
-     }
+        // TODO add your handling code here:
     }//GEN-LAST:event_txtUsuarioFocusGained
 
     private void txtUsuarioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUsuarioFocusLost
-    if (txtUsuario.getText().equals("")) {
-         txtUsuario.setText("Usuario");
-         txtUsuario.setForeground(new Color(153,153,153));
-     }
-        
-        
+        // TODO add your handling code here:
     }//GEN-LAST:event_txtUsuarioFocusLost
 
     private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
@@ -336,38 +330,6 @@ public class frmRegistro extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(frmRegistro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
