@@ -4,6 +4,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import javax.swing.JOptionPane;
 import modelo.AdministrarEmpresas; // Asegúrate de tener este modelo
 import vista.Dashboard; // Asegúrate de importar la vista correcta
 
@@ -35,10 +36,12 @@ public class ctrlAdministrarEmpresas implements MouseListener, KeyListener {
                 // Asumiendo que el ID de la empresa está en la primera columna (índice 0)
                 modelo.actualizarEstadoActivo(vista.jtSolicitudEmpresa);
                 modelo.MostrarEmpresas(vista.jtSolicitudEmpresa); // Actualizar la tabla después de la modificación
+                JOptionPane.showMessageDialog(vista, "Empresa aceptada exitosamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
             }
         } else if (e.getSource() == vista.btnRechazarSolicitud) {
             modelo.rechazarEmpresa(vista.jtSolicitudEmpresa);
             modelo.MostrarEmpresas(vista.jtSolicitudEmpresa); // Actualizar la tabla después de la eliminación
+            JOptionPane.showMessageDialog(vista, "Empresa rechazada exitosamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
         }
     }
 
