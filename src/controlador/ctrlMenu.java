@@ -7,36 +7,45 @@ import vista.*;
 
 public class ctrlMenu implements MouseListener {
 
-    private frmMenu vista;
-    private CardLayout cardLayout;
+   frmMenu vista;
+   frmAdministrarUsuarios frmAdministrarUsuarios;
+   frmDashboard frmDashboard;
+   frmEmpresa frmEmpresa; 
+   frmSolicitantes frmSolicitantes; 
+   frmTrabajos frmTrabajos;
+   
+    
 
     // Constructor con todas las vistas
-    public ctrlMenu(frmMenu vista) {
-        this.vista = vista;
-        this.cardLayout = (CardLayout) vista.jPCpntenedor.getLayout(); // Asegúrate de usar CardLayout
-
-        // Añadir MouseListeners a los botones
-        vista.btnHome.addMouseListener(this);
-        vista.btnAdministrador.addMouseListener(this);
-        vista.btnEmpresa.addMouseListener(this);
-        vista.btnSolicitante.addMouseListener(this);
-        vista.btnTrabajos.addMouseListener(this);
+    public ctrlMenu(frmMenu vista, frmAdministrarUsuarios frmAdministrarUsuarios, frmDashboard frmDashboard, frmEmpresa frmEmpresa, frmSolicitantes frmSolicitantes, frmTrabajos frmTrabajos) {
+       this.vista = vista; 
+       this.frmAdministrarUsuarios = frmAdministrarUsuarios;
+       this.frmDashboard = frmDashboard; 
+       this.frmEmpresa = frmEmpresa; 
+       this.frmSolicitantes = frmSolicitantes; 
+       this.frmTrabajos = frmTrabajos;
+       
+       vista.btnAdministrador.addMouseListener(this);
+       vista.btn
+       
+       
+       
+       
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        // Navegación entre diferentes vistas usando CardLayout
-        if (e.getSource() == vista.btnHome) {
-            cardLayout.show(vista.jPCpntenedor, "Dashboard");
-        } else if (e.getSource() == vista.btnAdministrador) {
-            cardLayout.show(vista.jPCpntenedor, "AdministrarUsuarios");
-        } else if (e.getSource() == vista.btnEmpresa) {
-            cardLayout.show(vista.jPCpntenedor, "Empresa");
-        } else if (e.getSource() == vista.btnSolicitante) {
-            cardLayout.show(vista.jPCpntenedor, "Solicitantes");
-        } else if (e.getSource() == vista.btnTrabajos) {
-            cardLayout.show(vista.jPCpntenedor, "Trabajos");
-        }
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     }
 
     @Override

@@ -29,24 +29,12 @@ public class frmMenu extends javax.swing.JFrame {
     public static void initFrmMenu() {
     // Crear todas las vistas
     frmMenu vista = new frmMenu();
-    frmDashboard dashboard = new frmDashboard();
-    frmAdministrarUsuarios administrarUsuarios = new frmAdministrarUsuarios();
-    frmEmpresa empresa = new frmEmpresa();
-    frmSolicitantes solicitantes = new frmSolicitantes();
-    frmTrabajos trabajos = new frmTrabajos();
-
-    // Establecer un CardLayout en el contenedor
-    vista.jPCpntenedor.setLayout(new CardLayout());
-
-    // Añadir todas las vistas al contenedor jPCpntenedor
-    vista.jPCpntenedor.add(dashboard, "Dashboard");
-    vista.jPCpntenedor.add(administrarUsuarios, "AdministrarUsuarios");
-    vista.jPCpntenedor.add(empresa, "Empresa");
-    vista.jPCpntenedor.add(solicitantes, "Solicitantes");
-    vista.jPCpntenedor.add(trabajos, "Trabajos");
-
-    // Crear el controlador y pasar la vista principal
-    ctrlMenu controlador = new ctrlMenu(vista);
+    frmDashboard frmDashboard = new frmDashboard();
+    frmAdministrarUsuarios frmAdministrarUsuarios = new frmAdministrarUsuarios();
+    frmEmpresa frmEmpresa = new frmEmpresa();
+    frmSolicitantes frmSolicitantes = new frmSolicitantes();
+    frmTrabajos frmTrabajos = new frmTrabajos();
+     ctrlMenu controlador = new ctrlMenu(vista, frmDashboard , frmAdministrarUsuarios, frmEmpresa, frmSolicitantes, frmTrabajos);
 
     // Mostrar la vista principal
     vista.setVisible(true);
@@ -67,7 +55,7 @@ public class frmMenu extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         btnTrabajos = new custom.Button();
-        btnHome = new custom.Button();
+        btnDashboard = new custom.Button();
         btnAdministrador = new custom.Button();
         btnEmpresa = new custom.Button();
         btnSolicitante = new custom.Button();
@@ -94,20 +82,25 @@ public class frmMenu extends javax.swing.JFrame {
         btnTrabajos.setText("Trabajos");
         btnTrabajos.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnTrabajos.setShadowColor(new java.awt.Color(0, 29, 63));
-        jPanel2.add(btnTrabajos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, 230, 60));
-
-        btnHome.setBackground(new java.awt.Color(0, 29, 63));
-        btnHome.setForeground(new java.awt.Color(255, 255, 255));
-        btnHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/img/dashboard.png"))); // NOI18N
-        btnHome.setText("Dashboard");
-        btnHome.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnHome.setShadowColor(new java.awt.Color(0, 29, 63));
-        btnHome.addActionListener(new java.awt.event.ActionListener() {
+        btnTrabajos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnHomeActionPerformed(evt);
+                btnTrabajosActionPerformed(evt);
             }
         });
-        jPanel2.add(btnHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 230, 60));
+        jPanel2.add(btnTrabajos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, 230, 60));
+
+        btnDashboard.setBackground(new java.awt.Color(0, 29, 63));
+        btnDashboard.setForeground(new java.awt.Color(255, 255, 255));
+        btnDashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/img/dashboard.png"))); // NOI18N
+        btnDashboard.setText("Dashboard");
+        btnDashboard.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnDashboard.setShadowColor(new java.awt.Color(0, 29, 63));
+        btnDashboard.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDashboardActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnDashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 230, 60));
 
         btnAdministrador.setBackground(new java.awt.Color(0, 29, 63));
         btnAdministrador.setForeground(new java.awt.Color(255, 255, 255));
@@ -163,14 +156,14 @@ public class frmMenu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
+    private void btnDashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDashboardActionPerformed
        
         jPCpntenedor.removeAll();
         frmDashboard panel = new frmDashboard();
         jPCpntenedor.add(panel);
         jPCpntenedor.revalidate();
         jPCpntenedor.repaint();
-    }//GEN-LAST:event_btnHomeActionPerformed
+    }//GEN-LAST:event_btnDashboardActionPerformed
 
     private void btnAdministradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdministradorActionPerformed
         jPCpntenedor.removeAll();
@@ -187,6 +180,10 @@ public class frmMenu extends javax.swing.JFrame {
         jPCpntenedor.revalidate();
         jPCpntenedor.repaint();
     }//GEN-LAST:event_btnEmpresaActionPerformed
+
+    private void btnTrabajosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTrabajosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnTrabajosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -226,8 +223,8 @@ public class frmMenu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public custom.Button btnAdministrador;
+    public custom.Button btnDashboard;
     public custom.Button btnEmpresa;
-    public custom.Button btnHome;
     public custom.Button btnSolicitante;
     public custom.Button btnTrabajos;
     private javax.swing.JLabel jLabel1;

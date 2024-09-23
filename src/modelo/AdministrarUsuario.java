@@ -51,9 +51,7 @@ public class AdministrarUsuario {
     
     // Métodos 
     public void Guardar() {
-        Connection conexion = ClaseConexion.getConexion();
-        try {
-            // Query corregida: eliminación del valor adicional en los parámetros
+        try (Connection conexion = ClaseConexion.getConexion()) {
             PreparedStatement addAdmin = conexion.prepareStatement(
                 "INSERT INTO UsuarioEscritorio (Nombre, Usuario, Contrasena, CorreoElectronico) VALUES (?, ?, ?, ?)"
             );
@@ -63,21 +61,19 @@ public class AdministrarUsuario {
             addAdmin.setString(4, getCorreoElectronico());
 
             addAdmin.executeUpdate();
- 
         } catch (SQLException ex) {
-            System.out.println("Error en el método Guardar: " + ex);
+            System.out.println("Error en el método Guardar: " + ex.getMessage());
         }
     }
 
     public void Mostrar(JTable jtbAdmin) {
-        Connection conexion = ClaseConexion.getConexion();
         DefaultTableModel modeloDeDatos = new DefaultTableModel();
         modeloDeDatos.setColumnIdentifiers(new Object[]{"Nombre", "Usuario", "CorreoElectronico"});
         
-        try {
-            Statement statement = conexion.createStatement();
-            ResultSet rs = statement.executeQuery("SELECT * FROM UsuarioEscritorio"); // Query corregida
-            
+        try (Connection conexion = ClaseConexion.getConexion();
+             Statement statement = conexion.createStatement();
+             ResultSet rs = statement.executeQuery("SELECT * FROM UsuarioEscritorio")) {
+             
             while (rs.next()) {
                 modeloDeDatos.addRow(new Object[]{
                     rs.getString("Nombre"), 
@@ -86,23 +82,22 @@ public class AdministrarUsuario {
                 });
             }
             jtbAdmin.setModel(modeloDeDatos);
-        } catch (Exception e) {
-            System.out.println("Error en el método Mostrar: " + e);
+        } catch (SQLException e) {
+            System.out.println("Error en el método Mostrar: " + e.getMessage());
         }
     }
 
     public void Eliminar(JTable tabla) {
-        Connection conexion = ClaseConexion.getConexion();
         int filaSeleccionada = tabla.getSelectedRow();
         
         if (filaSeleccionada != -1) {
-            String miId = tabla.getValueAt(filaSeleccionada, 0).toString();
-            try {
+            String miId = tabla.getValueAt(filaSeleccionada, 0).toString(); // Asegúrate de que esta columna sea el ID
+            try (Connection conexion = ClaseConexion.getConexion()) {
                 PreparedStatement deleteAdmin = conexion.prepareStatement("DELETE FROM UsuarioEscritorio WHERE IdAdmin = ?");
                 deleteAdmin.setString(1, miId);
                 deleteAdmin.executeUpdate();
-            } catch (Exception e) {
-                System.out.println("Error en el método Eliminar: " + e);
+            } catch (SQLException e) {
+                System.out.println("Error en el método Eliminar: " + e.getMessage());
             }
         } else {
             System.out.println("Debe seleccionar una fila para eliminar.");
@@ -123,13 +118,11 @@ public class AdministrarUsuario {
     }
 
     public void Actualizar(JTable tabla) {
-        Connection conexion = ClaseConexion.getConexion();
         int filaSeleccionada = tabla.getSelectedRow();
         
         if (filaSeleccionada != -1) {
             String miID = tabla.getValueAt(filaSeleccionada, 0).toString();
-            try {
-                // Se agregó la cláusula WHERE
+            try (Connection conexion = ClaseConexion.getConexion()) {
                 PreparedStatement updateUser = conexion.prepareStatement(
                     "UPDATE UsuarioEscritorio SET Nombre = ?, Usuario = ?, CorreoElectronico = ? WHERE IdAdmin = ?"
                 );
@@ -139,8 +132,8 @@ public class AdministrarUsuario {
                 updateUser.setString(4, miID);
 
                 updateUser.executeUpdate();
-            } catch (Exception e) {
-                System.out.println("Error en el método Actualizar: " + e);
+            } catch (SQLException e) {
+                System.out.println("Error en el método Actualizar: " + e.getMessage());
             }
         } else {
             System.out.println("Debe seleccionar una fila para actualizar.");
