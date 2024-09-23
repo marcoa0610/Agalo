@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package controlador;
 
 import java.awt.event.ActionEvent;
@@ -30,26 +26,26 @@ public class ctrlCambiarContrasena implements ActionListener {
             String nuevaContrasena = vista.txtNuevaContrasena.getText();
             String confirmarContrasena = vista.txtConfirmarContrasena.getText();
 
+            // Validar que ambas contraseñas coincidan
             if (!nuevaContrasena.equals(confirmarContrasena)) {
                 JOptionPane.showMessageDialog(vista, "Las contraseñas no coinciden.", "Error", JOptionPane.ERROR_MESSAGE);
-                String contrasena = encriptarContrasena(nuevaContrasena);
-                modelo.actualizar_contra(ctrlIngresoCorreo.correoEnviado, contrasena);
-                JOptionPane.showMessageDialog(vista, "Se cambio la contrasena correctamente"); 
-                frmLogin login = new frmLogin();
-                login.initFrmLogin();
-                vista.dispose();
-            }else{
-                JOptionPane.showMessageDialog(vista, "La contrasena no coincide");
+                return; // Sale de la función si no coinciden
             }
 
             // Encriptar la nueva contraseña antes de guardar
-            /*String nuevaContrasenaEncriptada = encriptarContrasena(nuevaContrasena);
-            modelo.setContrasena(nuevaContrasenaEncriptada);
+            String contrasenaEncriptada = encriptarContrasena(nuevaContrasena);
+            if (contrasenaEncriptada != null) {
+                // Actualizar la contraseña en la base de datos
+                modelo.actualizar_contra(ctrlIngresoCorreo.correoEnviado, contrasenaEncriptada);
+                JOptionPane.showMessageDialog(vista, "La contraseña se cambió correctamente.");
 
-            // Guardar la nueva contraseña en la base de datos
-            modelo.GuardarUsuario();
-            JOptionPane.showMessageDialog(vista, "Contraseña cambiada con éxito.");*/
-            // Cierra el formulario
+                // Redirigir al login después del cambio de contraseña
+                frmLogin login = new frmLogin();
+                login.initFrmLogin();
+                vista.dispose();
+            } else {
+                JOptionPane.showMessageDialog(vista, "Error al encriptar la contraseña.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
         }
     }
 
@@ -58,7 +54,7 @@ public class ctrlCambiarContrasena implements ActionListener {
             MessageDigest digest = MessageDigest.getInstance("SHA-256");
             byte[] hash = digest.digest(contrasena.getBytes(StandardCharsets.UTF_8));
             StringBuilder hexString = new StringBuilder();
-            
+
             for (byte b : hash) {
                 String hex = Integer.toHexString(0xff & b);
                 if (hex.length() == 1) hexString.append('0');

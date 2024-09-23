@@ -24,22 +24,22 @@ public class Dashboard extends javax.swing.JPanel {
         
         UIManager.getSystemLookAndFeelClassName();
         
-        jTableDash1.setBackground(java.awt.Color.WHITE); // Cambia el fondo de las celdas de la tabla
-        jTableDash1.setFillsViewportHeight(true); // Asegura que el fondo cubra todo el área
-        jTableDash1.getParent().setBackground(java.awt.Color.WHITE);
+        jtSolicitudEmpresa.setBackground(java.awt.Color.WHITE); // Cambia el fondo de las celdas de la tabla
+        jtSolicitudEmpresa.setFillsViewportHeight(true); // Asegura que el fondo cubra todo el área
+        jtSolicitudEmpresa.getParent().setBackground(java.awt.Color.WHITE);
         
          jScrollPane3.setBorder(javax.swing.BorderFactory.createEmptyBorder()); // Establecer borde vacío
         
         // Personalizar el encabezado de la tabla
-        jTableDash1.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD,12));
-        jTableDash1.getTableHeader().setBackground(java.awt.Color.WHITE);
-        jTableDash1.setRowHeight(45);
+        jtSolicitudEmpresa.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD,12));
+        jtSolicitudEmpresa.getTableHeader().setBackground(java.awt.Color.WHITE);
+        jtSolicitudEmpresa.setRowHeight(45);
         
         
         // Configurar las líneas horizontales de la tabla
-        jTableDash1.setGridColor(new java.awt.Color(230, 230, 230)); // Líneas gris claro
-        jTableDash1.setShowHorizontalLines(true); // Mostrar líneas horizontales
-        jTableDash1.setShowVerticalLines(false); // Ocultar líneas verticales si lo deseas
+        jtSolicitudEmpresa.setGridColor(new java.awt.Color(230, 230, 230)); // Líneas gris claro
+        jtSolicitudEmpresa.setShowHorizontalLines(true); // Mostrar líneas horizontales
+        jtSolicitudEmpresa.setShowVerticalLines(false); // Ocultar líneas verticales si lo deseas
         
          DefaultTableCellRenderer headerRenderer = new DefaultTableCellRenderer();
         headerRenderer.setBackground(java.awt.Color.WHITE); // Fondo blanco
@@ -47,12 +47,12 @@ public class Dashboard extends javax.swing.JPanel {
         headerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
         headerRenderer.setFont(new Font("Segoe UI", Font.BOLD, 12)); 
         
-        for (int i = 0; i < jTableDash1.getColumnModel().getColumnCount(); i++) {
-            jTableDash1.getColumnModel().getColumn(i).setHeaderRenderer(headerRenderer);
+        for (int i = 0; i < jtSolicitudEmpresa.getColumnModel().getColumnCount(); i++) {
+            jtSolicitudEmpresa.getColumnModel().getColumn(i).setHeaderRenderer(headerRenderer);
         }
 
-        jTableDash1.setRowHeight(25);
-        jTableDash1.setGridColor(new Color(230, 230, 230));
+        jtSolicitudEmpresa.setRowHeight(25);
+        jtSolicitudEmpresa.setGridColor(new Color(230, 230, 230));
     }
 
     /**
@@ -76,13 +76,14 @@ public class Dashboard extends javax.swing.JPanel {
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
+        btnAceptarSolicitud = new custom.Button();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTableDash1 = new javax.swing.JTable();
-        button3 = new custom.Button();
-        textField2 = new custom.TextField();
+        jtSolicitudEmpresa = new javax.swing.JTable();
+        txtBuscarEmpresa = new custom.TextField();
         jPanel9 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
+        btnRechazarSolicitud = new custom.Button();
         jpPerfil = new javax.swing.JPanel();
         btnActu = new custom.Button();
         jLabel8 = new javax.swing.JLabel();
@@ -173,7 +174,15 @@ public class Dashboard extends javax.swing.JPanel {
 
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTableDash1.setModel(new javax.swing.table.DefaultTableModel(
+        btnAceptarSolicitud.setForeground(new java.awt.Color(51, 102, 0));
+        btnAceptarSolicitud.setText("ACEPTAR SOLICITUD");
+        btnAceptarSolicitud.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAceptarSolicitudActionPerformed(evt);
+            }
+        });
+
+        jtSolicitudEmpresa.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -184,17 +193,9 @@ public class Dashboard extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane3.setViewportView(jTableDash1);
+        jScrollPane3.setViewportView(jtSolicitudEmpresa);
 
-        button3.setForeground(new java.awt.Color(51, 102, 0));
-        button3.setText("ACEPTAR SOLICITUD");
-        button3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button3ActionPerformed(evt);
-            }
-        });
-
-        textField2.setText("Buscar");
+        txtBuscarEmpresa.setText("Buscar");
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -212,6 +213,14 @@ public class Dashboard extends javax.swing.JPanel {
 
         jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/img/request.png"))); // NOI18N
 
+        btnRechazarSolicitud.setForeground(new java.awt.Color(150, 9, 9));
+        btnRechazarSolicitud.setText("RECHAZAR SOLICITUD");
+        btnRechazarSolicitud.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRechazarSolicitudActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
@@ -220,10 +229,12 @@ public class Dashboard extends javax.swing.JPanel {
                 .addGap(19, 19, 19)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addComponent(textField2, javax.swing.GroupLayout.PREFERRED_SIZE, 805, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtBuscarEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 531, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(50, 50, 50)
+                        .addComponent(btnAceptarSolicitud, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(button3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(25, 25, 25))
+                        .addComponent(btnRechazarSolicitud, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(14, 14, 14))
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel8Layout.createSequentialGroup()
@@ -234,9 +245,9 @@ public class Dashboard extends javax.swing.JPanel {
                         .addContainerGap(10, Short.MAX_VALUE))))
             .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel8Layout.createSequentialGroup()
-                    .addGap(0, 378, Short.MAX_VALUE)
+                    .addGap(0, 384, Short.MAX_VALUE)
                     .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 252, Short.MAX_VALUE)))
+                    .addGap(0, 246, Short.MAX_VALUE)))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -249,8 +260,10 @@ public class Dashboard extends javax.swing.JPanel {
                         .addComponent(jLabel14)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(button3, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textField2, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnAceptarSolicitud, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtBuscarEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnRechazarSolicitud, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29))
@@ -362,9 +375,9 @@ public class Dashboard extends javax.swing.JPanel {
         jpPerfil.repaint();
     }//GEN-LAST:event_btnActuActionPerformed
 
-    private void button3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button3ActionPerformed
+    private void btnAceptarSolicitudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarSolicitudActionPerformed
        
-    }//GEN-LAST:event_button3ActionPerformed
+    }//GEN-LAST:event_btnAceptarSolicitudActionPerformed
 
     private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
         jpPerfil.removeAll();
@@ -374,12 +387,17 @@ public class Dashboard extends javax.swing.JPanel {
         jpPerfil.repaint();
     }//GEN-LAST:event_backActionPerformed
 
+    private void btnRechazarSolicitudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRechazarSolicitudActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRechazarSolicitudActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public custom.Button back;
+    public custom.Button btnAceptarSolicitud;
     public custom.Button btnActu;
+    public custom.Button btnRechazarSolicitud;
     private custom.Button button2;
-    private custom.Button button3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -410,8 +428,8 @@ public class Dashboard extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane3;
-    public javax.swing.JTable jTableDash1;
     public javax.swing.JPanel jpPerfil;
-    private custom.TextField textField2;
+    public javax.swing.JTable jtSolicitudEmpresa;
+    public custom.TextField txtBuscarEmpresa;
     // End of variables declaration//GEN-END:variables
 }

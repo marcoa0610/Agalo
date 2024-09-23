@@ -49,40 +49,42 @@ public class UsuarioEscritorio {
         this.Contrasena = Contrasena;
     }
 
-    public void GuardarUsuario() {
-        // Obtenemos la conexión
+    public void GuardarUsuario() throws SQLException {
         Connection conexion = ClaseConexion.getConexion();
+        if (conexion == null) {
+            throw new SQLException("No se pudo establecer conexión con la base de datos.");
+        }
         PreparedStatement addUsuarioEscritorio = null;
+        PreparedStatement checkCorreo = null;
+        ResultSet rs = null;
 
         try {
-            // Ajuste en la sintaxis de la consulta
-            String sql = "INSERT INTO UsuarioEscritorio (Nombre, Usuario, CorreoElectronico, Contrasena) VALUES (?, ?, ?, ?)";
-            addUsuarioEscritorio = conexion.prepareStatement(sql);
-            addUsuarioEscritorio.setString(1, getNombre());
-            addUsuarioEscritorio.setString(2, getUsuario());
-            addUsuarioEscritorio.setString(3, getCorreo());
-            addUsuarioEscritorio.setString(4, getContrasena());
+            // Verificar si el correo ya está registrado
+            String sqlCheck = "SELECT COUNT(*) FROM UsuarioEscritorio WHERE CorreoElectronico = ?";
+            checkCorreo = conexion.prepareStatement(sqlCheck);
+            checkCorreo.setString(1, getCorreo());
+            rs = checkCorreo.executeQuery();
+            rs.next();
 
-            // Ejecutar la consulta
-            addUsuarioEscritorio.executeUpdate();
-            System.out.println("Usuario guardado correctamente.");
+            if (rs.getInt(1) > 0) {
+                // Si el correo ya está registrado, lanzar una excepción personalizada
+                throw new SQLException("El correo ya está registrado.");
+            } else {
+                // Si no existe, insertar el nuevo usuario
+                String sql = "INSERT INTO UsuarioEscritorio (Nombre, Usuario, CorreoElectronico, Contrasena, idrol) VALUES (?, ?, ?, ?, ?)";
+                addUsuarioEscritorio = conexion.prepareStatement(sql);
+                addUsuarioEscritorio.setString(1, getNombre());
+                addUsuarioEscritorio.setString(2, getUsuario());
+                addUsuarioEscritorio.setString(3, getCorreo());
+                addUsuarioEscritorio.setString(4, getContrasena());
+                addUsuarioEscritorio.setInt(5, 1);
+                addUsuarioEscritorio.executeUpdate();
+                System.out.println("Usuario guardado correctamente.");
+            }
 
         } catch (SQLException ex) {
-            System.out.println("Error en el método GuardarUsuario: " + ex.getMessage());
-            ex.printStackTrace(); // Para más detalles del error
-
-        } finally {
-            // Cerrar recursos
-            try {
-                if (addUsuarioEscritorio != null) {
-                    addUsuarioEscritorio.close();
-                }
-                if (conexion != null) {
-                    conexion.close();
-                }
-            } catch (SQLException ex) {
-                System.out.println("Error al cerrar recursos: " + ex.getMessage());
-            }
+            // Manejo de errores de la base de datos
+            throw new SQLException(ex.getMessage());
         }
     }
 
@@ -94,9 +96,9 @@ public class UsuarioEscritorio {
         boolean resultado = false;
 
         try {
-            String sql = "SELECT * FROM UsuarioEscritorio WHERE Usuario = ? AND Contrasena = ?";
+            String sql = "SELECT * FROM UsuarioEscritorio WHERE CorreoElectronico = ? AND Contrasena = ?";
             statement = conexion.prepareStatement(sql);
-            statement.setString(1, getUsuario());
+            statement.setString(1, getCorreo());
             statement.setString(2, getContrasena());
 
             resultSet = statement.executeQuery();
@@ -130,20 +132,59 @@ public class UsuarioEscritorio {
     }
 
     public void actualizar_contra(String correo, String contrasena) {
+        Connection con = null;
+        PreparedStatement query = null;
+        ResultSet rs = null;
+
+        try {
+            con = ClaseConexion.getConexion();
+
+            // Primero, verificamos si el correo existe en la base de datos
+            String sqlSelect = "SELECT COUNT(*) FROM UsuarioEscritorio WHERE correoelectronico = ?";
+            query = con.prepareStatement(sqlSelect);
+            query.setString(1, correo);
+
+            rs = query.executeQuery();
+
+            if (rs.next() && rs.getInt(1) > 0) {
+                // El correo existe, ahora actualizamos la contraseña
+                String sqlUpdate = "UPDATE UsuarioEscritorio SET contrasena = ? WHERE correoelectronico = ?";
+                query = con.prepareStatement(sqlUpdate);
+                query.setString(1, contrasena);
+                query.setString(2, correo);
+
+                int filasActualizadas = query.executeUpdate();
+                if (filasActualizadas > 0) {
+                    System.out.println("Contraseña actualizada correctamente.");
+                } else {
+                    System.out.println("Error al actualizar la contraseña.");
+                }
+            } else {
+                // No se encontró el correo
+                System.out.println("No se encontró el usuario con ese correo.");
+            }
+
+        } catch (Exception e) {
+            System.out.println("Error al actualizar la contraseña: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    public boolean verificarCorreoExistente(String correo) {
         try {
             Connection con = ClaseConexion.getConexion();
-            PreparedStatement query = con.prepareStatement("update UsuarioEscritorio set contrasena = ? where correoelectronico = ?");
-            
-            query.setString(1, contrasena);
-            query.setString(2, correo);
-            
-            int filasActualizadas = query.executeUpdate();
-            if(filasActualizadas == 0){
-                System.out.println("No se encontro el usuario");
+            String sql = "SELECT COUNT(*) FROM UsuarioEscritorio WHERE correoelectronico = ?";
+            PreparedStatement query = con.prepareStatement(sql);
+            query.setString(1, correo);
+
+            ResultSet rs = query.executeQuery();
+            if (rs.next()) {
+                return rs.getInt(1) > 0; // Retorna true si existe al menos un registro
             }
-        }catch(Exception e){
-            System.out.println("Error al actualizar");
+        } catch (Exception e) {
+            System.out.println("Error al verificar el correo: " + e.getMessage());
         }
+        return false; // Retorna false si no se encontró el correo
     }
 
 }

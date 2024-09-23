@@ -27,10 +27,10 @@ public class perfil extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel3 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lbNombre = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        lbUsuario = new javax.swing.JLabel();
+        lbCorreo = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -39,32 +39,32 @@ public class perfil extends javax.swing.JPanel {
         jLabel3.setText("Bienvenid@!");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        jLabel2.setText("Gabriela");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, -1, -1));
+        lbNombre.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        lbNombre.setText("Gabriela");
+        add(lbNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("SansSerif", 2, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(204, 204, 204));
         jLabel6.setText("Administrador");
         add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel5.setText("gbsss_16");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
+        lbUsuario.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        lbUsuario.setForeground(new java.awt.Color(102, 102, 102));
+        lbUsuario.setText("gbsss_16");
+        add(lbUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
 
-        jLabel7.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel7.setText("gbsss@gmail.com");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
+        lbCorreo.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        lbCorreo.setForeground(new java.awt.Color(102, 102, 102));
+        lbCorreo.setText("gbsss@gmail.com");
+        add(lbCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
+    public javax.swing.JLabel lbCorreo;
+    public javax.swing.JLabel lbNombre;
+    public javax.swing.JLabel lbUsuario;
     // End of variables declaration//GEN-END:variables
 }

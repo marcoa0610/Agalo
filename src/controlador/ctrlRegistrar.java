@@ -16,14 +16,15 @@ import java.nio.charset.StandardCharsets;
  * @author lagal
  */
 public class ctrlRegistrar implements ActionListener {
+
     private UsuarioEscritorio modelo;
     private frmRegistro vista;
-   
+
     // Constructor 
     public ctrlRegistrar(UsuarioEscritorio modelo, frmRegistro vista) {
         this.modelo = modelo;
         this.vista = vista;
-        
+
         this.vista.btnRegistrar.addActionListener(this); // Usar ActionListener en lugar de MouseListener
         this.vista.btnLogear.addActionListener(this);  // Agregar ActionListener para el botón de login
     }
@@ -33,28 +34,41 @@ public class ctrlRegistrar implements ActionListener {
         if (e.getSource() == vista.btnRegistrar) {
             System.out.println("Botón registrar clicado");
 
-            // Validar entradas y el checkbox
-            if (!validarEntradas() || !vista.jCondiciones.isSelected()) {
-                JOptionPane.showMessageDialog(vista, "Debe aceptar los términos y condiciones para registrarse.", "Advertencia", JOptionPane.WARNING_MESSAGE);
-                return; // Si las validaciones fallan o el checkbox no está marcado, salir del método
+           // Validar entradas primero
+            if (!validarEntradas()) {
+//                JOptionPane.showMessageDialog(vista, "Por favor, complete todos los campos requeridos.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+                return; // Si las validaciones de los campos fallan, salir del método
             }
 
+            // Luego, validar si se han aceptado los términos y condiciones
+            if (!vista.jCondiciones.isSelected()) {
+                JOptionPane.showMessageDialog(vista, "Debe aceptar los términos y condiciones para registrarse.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+                return; // Si el checkbox no está marcado, salir del método
+            }
+            
             // Configurar modelo con los datos de la vista
             modelo.setNombre(vista.txtNombre.getText());
             modelo.setUsuario(vista.txtUsuario.getText());
             modelo.setCorreo(vista.txtCorreoElectronico.getText());
-            
+
             // Encriptar la contraseña antes de guardarla
             String contrasenaEncriptada = encriptarContrasena(vista.txtContra.getText());
+            if (contrasenaEncriptada == null) {
+                JOptionPane.showMessageDialog(vista, "Error al encriptar la contraseña.", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
             modelo.setContrasena(contrasenaEncriptada);
 
             try {
                 modelo.GuardarUsuario(); // Llamada para guardar el usuario
-                JOptionPane.showMessageDialog(vista, "Usuario Guardado");
+                // Solo si no se lanza excepción mostramos el mensaje de éxito
+                JOptionPane.showMessageDialog(vista, "Usuario Guardado con éxito.");
             } catch (Exception ex) {
+                // Si ocurre una excepción, mostramos el mensaje de error
                 JOptionPane.showMessageDialog(vista, "Error al guardar el usuario: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
                 ex.printStackTrace();
             }
+
         } else if (e.getSource() == vista.btnLogear) {
             // Cambiar al formulario de login
             frmLogin loginForm = new frmLogin();
@@ -65,6 +79,7 @@ public class ctrlRegistrar implements ActionListener {
 
     /**
      * Método para validar los campos de entrada del formulario.
+     *
      * @return true si todas las validaciones pasan, false en caso contrario.
      */
     private boolean validarEntradas() {
@@ -72,22 +87,22 @@ public class ctrlRegistrar implements ActionListener {
 
         // Validación de formato de correo electrónico primero
         if (vista.txtCorreoElectronico.getText().trim().isEmpty() || vista.txtCorreoElectronico.getText().trim().equals("Correo")) {
-            errores.append("El campo 'Correo Electrónico' no puede estar vacío o contener el texto predeterminado.\n");
+            errores.append("El campo 'Correo Electrónico' no puede estar vacío.\n");
         } else if (!esCorreoValido(vista.txtCorreoElectronico.getText().trim())) {
             errores.append("El correo electrónico no tiene un formato válido.\n");
         }
 
         // Validación de campos vacíos o que contengan el texto predeterminado
         if (vista.txtNombre.getText().trim().isEmpty() || vista.txtNombre.getText().trim().equals("Nombre")) {
-            errores.append("El campo 'Nombre' no puede estar vacío o contener el texto predeterminado.\n");
+            errores.append("El campo 'Nombre' no puede estar vacío.\n");
         }
 
         if (vista.txtUsuario.getText().trim().isEmpty() || vista.txtUsuario.getText().trim().equals("Usuario")) {
-            errores.append("El campo 'Usuario' no puede estar vacío o contener el texto predeterminado.\n");
+            errores.append("El campo 'Usuario' no puede estar vacío.\n");
         }
 
         if (vista.txtContra.getText().trim().isEmpty() || vista.txtContra.getText().trim().equals("Contraseña")) {
-            errores.append("El campo 'Contraseña' no puede estar vacío o contener el texto predeterminado.\n");
+            errores.append("El campo 'Contraseña' no puede estar vacío.\n");
         } else if (vista.txtContra.getText().length() < 6) { // Validación de longitud de contraseña
             errores.append("La contraseña debe tener al menos 6 caracteres.\n");
         }
@@ -102,7 +117,9 @@ public class ctrlRegistrar implements ActionListener {
     }
 
     /**
-     * Método para validar el formato de un correo electrónico usando una expresión regular.
+     * Método para validar el formato de un correo electrónico usando una
+     * expresión regular.
+     *
      * @param correo el correo electrónico a validar.
      * @return true si el correo es válido, false en caso contrario.
      */
@@ -114,6 +131,7 @@ public class ctrlRegistrar implements ActionListener {
 
     /**
      * Método para encriptar la contraseña utilizando SHA-256.
+     *
      * @param contrasena la contraseña a encriptar.
      * @return la contraseña encriptada en formato hexadecimal.
      */
@@ -122,10 +140,12 @@ public class ctrlRegistrar implements ActionListener {
             MessageDigest digest = MessageDigest.getInstance("SHA-256");
             byte[] hash = digest.digest(contrasena.getBytes(StandardCharsets.UTF_8));
             StringBuilder hexString = new StringBuilder();
-            
+
             for (byte b : hash) {
                 String hex = Integer.toHexString(0xff & b);
-                if (hex.length() == 1) hexString.append('0');
+                if (hex.length() == 1) {
+                    hexString.append('0');
+                }
                 hexString.append(hex);
             }
 

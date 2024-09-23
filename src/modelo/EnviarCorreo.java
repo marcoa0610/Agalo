@@ -19,18 +19,16 @@ import javax.mail.internet.MimeMessage;
  * @author Jero
  */
 public class EnviarCorreo {
-    
+
     public static void enviarCorreo(String recipient, String subject, String content) {
-        
+
         //1- Propiedades del servidor de correo
         Properties properties = new Properties();
         properties.put("mail.smtp.auth", "true");
         properties.put("mail.smtp.starttls.enable", "true");
-        properties.put("mail.smtp.host", "smtp.gmail.com"); 
+        properties.put("mail.smtp.host", "smtp.gmail.com");
         properties.put("mail.smtp.port", "587");
 
-        
-        
         //2- Credenciales de la cuenta de correo
         final String myAccountEmail = "agaloempresa@gmail.com";
         final String password = "jfjt mexf oorp dgzp";
@@ -51,8 +49,6 @@ public class EnviarCorreo {
             message.setRecipient(Message.RecipientType.TO, new InternetAddress(recipient));
             message.setSubject(subject);
             message.setText(content);
-
-            
             
             // Enviar mensaje
             Transport.send(message);
@@ -60,26 +56,5 @@ public class EnviarCorreo {
         } catch (MessagingException e) {
             e.printStackTrace();
         }
-    } 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    }
 }

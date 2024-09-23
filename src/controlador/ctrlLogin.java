@@ -9,6 +9,7 @@ import vista.frmRegistro;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.nio.charset.StandardCharsets;
+import vista.menu;
 
 /**
  *
@@ -30,18 +31,18 @@ public class ctrlLogin implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == vista.btnIngresar) {
-            String usuario = vista.txtUsuario.getText();
+            String correo = vista.txtCorreo.getText();
             String contrasena = vista.txtContrasena.getText();
             
             // Validar entradas
-            if (!validarEntradas(usuario, contrasena)) {
+            if (!validarEntradas(correo, contrasena)) {
                 return;
             }
 
             // Encriptar la contraseña antes de comparar
             String contrasenaEncriptada = encriptarContrasena(contrasena);
             
-            modelo.setUsuario(usuario);
+            modelo.setCorreo(correo);
             modelo.setContrasena(contrasenaEncriptada);
             
             // Intentar iniciar sesión
@@ -49,6 +50,7 @@ public class ctrlLogin implements ActionListener {
 
             if (comprobar) {
                 JOptionPane.showMessageDialog(vista, "¡Bienvenido, usuario encontrado!");
+                menu.initfrmMenu();
             } else {
                 JOptionPane.showMessageDialog(vista, "Usuario o contraseña incorrectos", "Error", JOptionPane.ERROR_MESSAGE);
             }
@@ -107,5 +109,5 @@ public class ctrlLogin implements ActionListener {
             return null;
         }
     }
-
+    
 }

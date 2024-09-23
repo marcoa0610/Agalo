@@ -49,7 +49,7 @@ public class frmLogin extends javax.swing.JFrame {
         jOlvidarContrasena = new javax.swing.JLabel();
         btnIngresar = new custom.Button();
         txtContrasena = new custom.TextField();
-        txtUsuario = new custom.TextField();
+        txtCorreo = new custom.TextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -124,7 +124,7 @@ public class frmLogin extends javax.swing.JFrame {
         });
         jPanel1.add(btnIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 480, 190, 60));
         jPanel1.add(txtContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, 540, 60));
-        jPanel1.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 530, 60));
+        jPanel1.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 530, 60));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -197,6 +197,6 @@ public class frmLogin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     public custom.TextField txtContrasena;
-    public custom.TextField txtUsuario;
+    public custom.TextField txtCorreo;
     // End of variables declaration//GEN-END:variables
 }
