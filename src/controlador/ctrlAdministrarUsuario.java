@@ -5,16 +5,16 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import modelo.AdministrarUsuario;
-import vista.configuraciones;
+import vista.frmAdministrarUsuarios;
 
 public class ctrlAdministrarUsuario implements MouseListener, KeyListener {
     
      //1- Mandar a llamar a las otras capas (modelo y vista)
     private AdministrarUsuario modelo;
-    private configuraciones vista;
+    private frmAdministrarUsuarios vista;
     
     //2- Crear el constructor
-    public ctrlAdministrarUsuario(AdministrarUsuario modelo, configuraciones vista){
+    public ctrlAdministrarUsuario(AdministrarUsuario modelo, frmAdministrarUsuarios vista){
         this.modelo = modelo;
         this.vista = vista;
 

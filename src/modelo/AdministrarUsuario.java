@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import vista.configuraciones;
+import vista.frmAdministrarUsuarios;
 
 public class AdministrarUsuario {
     //Parametros
@@ -125,7 +125,7 @@ public class AdministrarUsuario {
             System.out.println("este es el error metodo de eliminar" + e);
         }
     }
-     public void cargarDatosTabla(configuraciones vista) {
+     public void cargarDatosTabla(frmAdministrarUsuarios vista) {
         // Obtén la fila seleccionada 
         int filaSeleccionada = vista.jtbAdmin.getSelectedRow();
 
@@ -166,7 +166,7 @@ public class AdministrarUsuario {
             System.out.println("no");
         }
         }
-        public void limpiar(configuraciones vista) {
+        public void limpiar(frmAdministrarUsuarios vista) {
         vista.txtUsuarioAdmin.setText("");
         vista.txtNombreAdmin.setText("");
         vista.txtCorreoAdmin.setText("");

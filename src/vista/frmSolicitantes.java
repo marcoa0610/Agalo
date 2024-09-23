@@ -19,12 +19,12 @@ import javax.swing.table.DefaultTableCellRenderer;
  *
  * @author Gudelia
  */
-public class frmUsers extends javax.swing.JPanel {
+public class frmSolicitantes extends javax.swing.JPanel {
 
     /**
      * Creates new form frmUsers
      */
-    public frmUsers() {
+    public frmSolicitantes() {
         initComponents();
         
         UIManager.getSystemLookAndFeelClassName();
@@ -90,7 +90,15 @@ public class frmUsers extends javax.swing.JPanel {
             }
         });
     }
-
+    
+    
+    
+    
+ public static void initFrmSolicitantes() {
+        frmSolicitantes panel = new frmSolicitantes();
+        frmMenu vista = new frmMenu();
+    }
+ 
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

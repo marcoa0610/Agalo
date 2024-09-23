@@ -14,12 +14,12 @@ import javax.swing.table.DefaultTableCellRenderer;
  *
  * @author Estudiante
  */
-public class Dashboard extends javax.swing.JPanel {
+public class frmDashboard extends javax.swing.JPanel {
 
     /**
      * Creates new form Dashboard
      */
-    public Dashboard() {
+    public frmDashboard() {
         initComponents();
         
         UIManager.getSystemLookAndFeelClassName();
@@ -53,6 +53,14 @@ public class Dashboard extends javax.swing.JPanel {
 
         jTableDash1.setRowHeight(25);
         jTableDash1.setGridColor(new Color(230, 230, 230));
+    }
+    
+    public static void initFrmDashboard() {
+        frmDashboard panel = new frmDashboard();
+        frmMenu vista = new frmMenu();
+        
+        
+        
     }
 
     /**
@@ -356,7 +364,7 @@ public class Dashboard extends javax.swing.JPanel {
 
     private void btnActuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActuActionPerformed
         jpPerfil.removeAll();
-        actualizarperfil panel2 = new actualizarperfil();
+        frmActualizarperfil panel2 = new frmActualizarperfil();
         jpPerfil.add(panel2);
         jpPerfil.revalidate();
         jpPerfil.repaint();
@@ -368,7 +376,7 @@ public class Dashboard extends javax.swing.JPanel {
 
     private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
         jpPerfil.removeAll();
-        perfil panel3 = new perfil();
+        frmPerfil panel3 = new frmPerfil();
         jpPerfil.add(panel3);
         jpPerfil.revalidate();
         jpPerfil.repaint();

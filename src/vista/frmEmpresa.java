@@ -13,12 +13,12 @@ import javax.swing.UIManager;
 import javax.swing.table.DefaultTableCellRenderer;
 
 
-public class empresa extends javax.swing.JPanel {
+public class frmEmpresa extends javax.swing.JPanel {
 
     /**
      * Creates new form empresa
      */
-    public empresa() {
+    public frmEmpresa() {
         initComponents();
          UIManager.getSystemLookAndFeelClassName();
          UIManager.put("ComboBox.border", BorderFactory.createEmptyBorder());
@@ -115,7 +115,7 @@ public class empresa extends javax.swing.JPanel {
         textField1.setText("textField1");
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jComboBox1.setBorder(javax.swing.BorderFactory.createLineBorder(null));
 
         button1.setBackground(new java.awt.Color(0, 51, 51));
         button1.setForeground(new java.awt.Color(255, 255, 255));

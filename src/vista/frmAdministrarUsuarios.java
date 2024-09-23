@@ -9,10 +9,10 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.JTableHeader;
 
 
-public class configuraciones extends javax.swing.JPanel {
+public class frmAdministrarUsuarios extends javax.swing.JPanel {
 
     
-    public configuraciones() {
+    public frmAdministrarUsuarios() {
         
         
         initComponents();
@@ -82,10 +82,26 @@ public class configuraciones extends javax.swing.JPanel {
 
         txtCorreoAdmin.setForeground(new java.awt.Color(153, 153, 153));
         txtCorreoAdmin.setText("Correo Electronico");
+        txtCorreoAdmin.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtCorreoAdminFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtCorreoAdminFocusLost(evt);
+            }
+        });
         add(txtCorreoAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 650, 50));
 
         txtContrasenaAdmin.setForeground(new java.awt.Color(153, 153, 153));
         txtContrasenaAdmin.setText("Contraseña");
+        txtContrasenaAdmin.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtContrasenaAdminFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtContrasenaAdminFocusLost(evt);
+            }
+        });
         txtContrasenaAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtContrasenaAdminActionPerformed(evt);
@@ -95,10 +111,26 @@ public class configuraciones extends javax.swing.JPanel {
 
         txtUsuarioAdmin.setForeground(new java.awt.Color(153, 153, 153));
         txtUsuarioAdmin.setText("Usuario");
+        txtUsuarioAdmin.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtUsuarioAdminFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtUsuarioAdminFocusLost(evt);
+            }
+        });
         add(txtUsuarioAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 360, 50));
 
         txtNombreAdmin.setForeground(new java.awt.Color(153, 153, 153));
         txtNombreAdmin.setText("Nombre");
+        txtNombreAdmin.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtNombreAdminFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtNombreAdminFocusLost(evt);
+            }
+        });
         txtNombreAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNombreAdminActionPerformed(evt);
@@ -109,6 +141,11 @@ public class configuraciones extends javax.swing.JPanel {
         btnAgregarAdmin.setBackground(new java.awt.Color(0, 0, 0));
         btnAgregarAdmin.setForeground(new java.awt.Color(255, 255, 255));
         btnAgregarAdmin.setText("Agregar Administrador");
+        btnAgregarAdmin.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                btnAgregarAdminFocusGained(evt);
+            }
+        });
         add(btnAgregarAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 210, 190, 50));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -160,6 +197,67 @@ public class configuraciones extends javax.swing.JPanel {
     private void txtNombreAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreAdminActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreAdminActionPerformed
+
+    private void txtUsuarioAdminFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUsuarioAdminFocusGained
+         if (txtUsuarioAdmin.getText().equals("Usuario")) {
+             txtUsuarioAdmin.setText("");
+             txtUsuarioAdmin.setForeground(new Color(153, 153, 153));
+         }
+        
+        
+    }//GEN-LAST:event_txtUsuarioAdminFocusGained
+
+    private void txtUsuarioAdminFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUsuarioAdminFocusLost
+         if (txtUsuarioAdmin.getText().equals("")) {
+             txtUsuarioAdmin.setText("Usuario");
+             txtUsuarioAdmin.setForeground(new Color(153, 153, 153));
+         }
+    }//GEN-LAST:event_txtUsuarioAdminFocusLost
+
+    private void txtNombreAdminFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNombreAdminFocusGained
+          if (txtNombreAdmin.getText().equals("Nombre")) {
+             txtNombreAdmin.setText("");
+             txtNombreAdmin.setForeground(new Color(153, 153, 153));
+         }
+    }//GEN-LAST:event_txtNombreAdminFocusGained
+
+    private void txtNombreAdminFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNombreAdminFocusLost
+                 if (txtNombreAdmin.getText().equals("")) {
+             txtNombreAdmin.setText("Nombre");
+             txtNombreAdmin.setForeground(new Color(153, 153, 153));
+         }
+        
+                 
+                 
+        
+    }//GEN-LAST:event_txtNombreAdminFocusLost
+
+    private void txtCorreoAdminFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCorreoAdminFocusGained
+        if (txtCorreoAdmin.getText().equals("Correo Electronico")) {
+             txtCorreoAdmin.setText("");
+             txtCorreoAdmin.setForeground(new Color(153, 153, 153));
+         }    }//GEN-LAST:event_txtCorreoAdminFocusGained
+
+    private void txtCorreoAdminFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCorreoAdminFocusLost
+ if (txtCorreoAdmin.getText().equals("")) {
+             txtCorreoAdmin.setText("Correo Electronico");
+             txtCorreoAdmin.setForeground(new Color(153, 153, 153));
+         }     }//GEN-LAST:event_txtCorreoAdminFocusLost
+
+    private void txtContrasenaAdminFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtContrasenaAdminFocusGained
+if (txtContrasenaAdmin.getText().equals("Contraseña")) {
+             txtContrasenaAdmin.setText("");
+             txtContrasenaAdmin.setForeground(new Color(153, 153, 153));
+         }     }//GEN-LAST:event_txtContrasenaAdminFocusGained
+
+    private void txtContrasenaAdminFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtContrasenaAdminFocusLost
+if (txtContrasenaAdmin.getText().equals("")) {
+             txtContrasenaAdmin.setText("Contraseña");
+             txtContrasenaAdmin.setForeground(new Color(153, 153, 153));
+         }     }//GEN-LAST:event_txtContrasenaAdminFocusLost
+
+    private void btnAgregarAdminFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_btnAgregarAdminFocusGained
+    }//GEN-LAST:event_btnAgregarAdminFocusGained
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
