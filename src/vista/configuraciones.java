@@ -126,6 +126,7 @@ public class configuraciones extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jtbAdmin.setToolTipText("");
         jtbAdmin.setGridColor(new java.awt.Color(255, 255, 255));
         jtbAdmin.setIntercellSpacing(new java.awt.Dimension(12, 12));
         jtbAdmin.setShowGrid(false);
