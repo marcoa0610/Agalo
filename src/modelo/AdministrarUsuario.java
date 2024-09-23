@@ -10,24 +10,13 @@ import javax.swing.table.DefaultTableModel;
 import vista.frmAdministrarUsuarios;
 
 public class AdministrarUsuario {
-    //Parametros
-    private String IdAdmin;
+    // Parámetros
     private String Nombre;
     private String Usuario;
     private String Contrasena;
     private String CorreoElectronico;  
     
-    
-    //Getters Y Setters
-
-    public String getIdAdmin() {
-        return IdAdmin;
-    }
-
-    public void setIdAdmin(String IdAdmin) {
-        this.IdAdmin = IdAdmin;
-    }
-
+    // Getters y Setters
     public String getNombre() {
         return Nombre;
     }
@@ -60,118 +49,107 @@ public class AdministrarUsuario {
         this.CorreoElectronico = CorreoElectronico;
     }
     
-    //3- Metodos 
+    // Métodos 
     public void Guardar() {
-        //Creamos una variable igual a ejecutar el método de la clase de conexión
         Connection conexion = ClaseConexion.getConexion();
         try {
-            //Creamos el PreparedStatement que ejecutará la Query
-            PreparedStatement addAdmin = conexion.prepareStatement("INSERT INTO UsuarioEscritorio(Nombre, Usuario, Contrasena, CorreoElectronico) VALUES (?, ?, ?, ?, ?)");
-            //Establecer valores de la consulta SQL
+            // Query corregida: eliminación del valor adicional en los parámetros
+            PreparedStatement addAdmin = conexion.prepareStatement(
+                "INSERT INTO UsuarioEscritorio (Nombre, Usuario, Contrasena, CorreoElectronico) VALUES (?, ?, ?, ?)"
+            );
             addAdmin.setString(1, getNombre());
             addAdmin.setString(2, getUsuario());
             addAdmin.setString(3, getContrasena());
-            addAdmin.setString(4, getContrasena());
- 
-            //Ejecutar la consulta
+            addAdmin.setString(4, getCorreoElectronico());
+
             addAdmin.executeUpdate();
  
         } catch (SQLException ex) {
-            System.out.println("este es el error en el modelo:metodo guardar " + ex);
+            System.out.println("Error en el método Guardar: " + ex);
         }
-        
     }
-    public void Mostrar(JTable jtbAdmin){
-        //Creamos una variable de la clase de conexion
+
+    public void Mostrar(JTable jtbAdmin) {
         Connection conexion = ClaseConexion.getConexion();
-        //Definimos el modelo de la tabla
         DefaultTableModel modeloDeDatos = new DefaultTableModel();
+        modeloDeDatos.setColumnIdentifiers(new Object[]{"Nombre", "Usuario", "CorreoElectronico"});
         
-        modeloDeDatos.setColumnIdentifiers(new Object[]{"Nombre", "Usuario", "Correo"});
         try {
-            //Creamos un Statement
             Statement statement = conexion.createStatement();
-            //Ejecutamos el Statement con la consulta y lo asignamos a una variable de tipo ResultSet
-            ResultSet rs = statement.executeQuery("SELECT * FROM tbVisitas");
-            //Recorremos el ResultSet
+            ResultSet rs = statement.executeQuery("SELECT * FROM UsuarioEscritorio"); // Query corregida
+            
             while (rs.next()) {
-                //Llenamos el modelo por cada vez que recorremos el resultSet
                 modeloDeDatos.addRow(new Object[]{
                     rs.getString("Nombre"), 
                     rs.getString("Usuario"), 
-                    rs.getString("CorreoElectronico")});
+                    rs.getString("CorreoElectronico")
+                });
             }
-            //Asignamos el nuevo modelo lleno a la tabla
             jtbAdmin.setModel(modeloDeDatos);
         } catch (Exception e) {
-            System.out.println("Este es el error en el modelo, metodo mostrar " + e);
+            System.out.println("Error en el método Mostrar: " + e);
         }
     }
-     public void Eliminar(JTable tabla) {
-        //Creamos una variable igual a ejecutar el método de la clase de conexión
-        Connection conexion = ClaseConexion.getConexion();
 
-        //obtenemos que fila seleccionó el usuario
+    public void Eliminar(JTable tabla) {
+        Connection conexion = ClaseConexion.getConexion();
         int filaSeleccionada = tabla.getSelectedRow();
-        //Obtenemos el id de la fila seleccionada
-        String miId = tabla.getValueAt(filaSeleccionada, 0).toString();
         
-        //borramos 
-        try {
-            PreparedStatement deleteAdmin = conexion.prepareStatement("delete from UsuarioEscritorio where IdAdmin = ?");
-            deleteAdmin.setString(1, miId);
-            deleteAdmin.executeUpdate();
-        } catch (Exception e) {
-            System.out.println("este es el error metodo de eliminar" + e);
+        if (filaSeleccionada != -1) {
+            String miId = tabla.getValueAt(filaSeleccionada, 0).toString();
+            try {
+                PreparedStatement deleteAdmin = conexion.prepareStatement("DELETE FROM UsuarioEscritorio WHERE IdAdmin = ?");
+                deleteAdmin.setString(1, miId);
+                deleteAdmin.executeUpdate();
+            } catch (Exception e) {
+                System.out.println("Error en el método Eliminar: " + e);
+            }
+        } else {
+            System.out.println("Debe seleccionar una fila para eliminar.");
         }
     }
-     public void cargarDatosTabla(frmAdministrarUsuarios vista) {
-        // Obtén la fila seleccionada 
+
+    public void cargarDatosTabla(frmAdministrarUsuarios vista) {
         int filaSeleccionada = vista.jtbAdmin.getSelectedRow();
-
-        // Debemos asegurarnos que haya una fila seleccionada antes de acceder a sus valores
         if (filaSeleccionada != -1) {
-            String NombreDeTB = vista.jtbAdmin.getValueAt(filaSeleccionada, 1).toString();
-            String UsuarioDeTB = vista.jtbAdmin.getValueAt(filaSeleccionada, 2).toString();
-            String CorreoElectronicoDeTB = vista.jtbAdmin.getValueAt(filaSeleccionada, 3).toString();
+            String nombre = vista.jtbAdmin.getValueAt(filaSeleccionada, 0).toString();
+            String usuario = vista.jtbAdmin.getValueAt(filaSeleccionada, 1).toString();
+            String correo = vista.jtbAdmin.getValueAt(filaSeleccionada, 2).toString();
 
-            // Establece los valores en los campos de texto
-            vista.txtUsuarioAdmin.setText(NombreDeTB);
-            vista.txtNombreAdmin.setText(UsuarioDeTB);
-            vista.txtCorreoAdmin.setText(CorreoElectronicoDeTB);
+            vista.txtNombreAdmin.setText(nombre);
+            vista.txtUsuarioAdmin.setText(usuario);
+            vista.txtCorreoAdmin.setText(correo);
         }
-     }
-        public void Actualizar(JTable tabla) {
-        //Creamos una variable igual a ejecutar el método de la clase de conexión
+    }
+
+    public void Actualizar(JTable tabla) {
         Connection conexion = ClaseConexion.getConexion();
-
-        //obtenemos que fila seleccionó el usuario
         int filaSeleccionada = tabla.getSelectedRow();
+        
         if (filaSeleccionada != -1) {
-            //Obtenemos el id de la fila seleccionada
             String miID = tabla.getValueAt(filaSeleccionada, 0).toString();
-            try { 
-                //Ejecutamos la Query
-                PreparedStatement updateUser = conexion.prepareStatement("update UsuarioEscritorio set Nombre= ?, Usuario = ?, CorreoElectronico = ? where IdAdmin = ?");
-
+            try {
+                // Se agregó la cláusula WHERE
+                PreparedStatement updateUser = conexion.prepareStatement(
+                    "UPDATE UsuarioEscritorio SET Nombre = ?, Usuario = ?, CorreoElectronico = ? WHERE IdAdmin = ?"
+                );
                 updateUser.setString(1, getNombre());
                 updateUser.setString(2, getUsuario());
                 updateUser.setString(3, getCorreoElectronico());
                 updateUser.setString(4, miID);
+
                 updateUser.executeUpdate();
             } catch (Exception e) {
-                System.out.println("este es el error en el metodo de actualizar" + e);
+                System.out.println("Error en el método Actualizar: " + e);
             }
         } else {
-            System.out.println("no");
+            System.out.println("Debe seleccionar una fila para actualizar.");
         }
-        }
-        public void limpiar(frmAdministrarUsuarios vista) {
-        vista.txtUsuarioAdmin.setText("");
+    }
+
+    public void limpiar(frmAdministrarUsuarios vista) {
         vista.txtNombreAdmin.setText("");
+        vista.txtUsuarioAdmin.setText("");
         vista.txtCorreoAdmin.setText("");
     }
-    }
-    
-    
-
+}
