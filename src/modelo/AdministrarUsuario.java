@@ -11,6 +11,7 @@ import vista.frmAdministrarUsuarios;
 
 
 public class AdministrarUsuario {
+    private String IDadmin;
     private String Nombre;
     private String Usuario;
     private String Contrasena;
@@ -88,11 +89,55 @@ public class AdministrarUsuario {
     // Actualizar usuario en la base de datos
     public void Actualizar(JTable jtbAdmin) {
         // Código de actualización similar al de guardar
+        Connection conexion = ClaseConexion.getConexion();
+
+        //obtenemos que fila seleccionó el usuario
+        int filaSeleccionada = jtbAdmin.getSelectedRow();
+
+        if (filaSeleccionada != -1) {
+            //Obtenemos el id de la fila seleccionada
+            String miUUId = jtbAdmin.getValueAt(filaSeleccionada, 0).toString();
+
+            try {
+                //Ejecutamos la Query
+                String sql = "update UsuarioEscritorio set nombre= ?, usuario = ?, contrasena = ?, correoelectronico = ?  where IDadmin = ?";
+                PreparedStatement updateUser = conexion.prepareStatement(sql);
+
+                updateUser.setString(1, getNombre());
+                updateUser.setString(2, getUsuario());
+                updateUser.setString(3, getContrasena());
+                updateUser.setString(4, getCorreoElectronico());
+                updateUser.setString(5, miUUId);
+                updateUser.executeUpdate();
+
+            } catch (Exception e) {
+                System.out.println("este es el error en el metodo de actualizar" + e);
+            }
+        } else {
+            System.out.println("no");
+        }
     }
 
     // Eliminar usuario
     public void Eliminar(JTable jtbAdmin) {
-        // Código para eliminar un usuario seleccionado en la tabla
+       Connection conexion = ClaseConexion.getConexion();
+
+        //obtenemos que fila seleccionó el usuario
+        int filaSeleccionada = jtbAdmin.getSelectedRow();
+        //Obtenemos el id de la fila seleccionada
+
+        String miId = jtbAdmin.getValueAt(filaSeleccionada, 0).toString();
+        //borramos 
+        try {
+            String sql = "delete from UsuarioEscritorio where IDadmin = ?";
+            PreparedStatement deleteEstudiante = conexion.prepareStatement(sql);
+            deleteEstudiante.setString(1, miId);
+            deleteEstudiante.executeUpdate();
+        } catch (Exception e) {
+            System.out.println("este es el error metodo de eliminar" + e);
+        }
+       
+        
     }
 
     // Cargar los datos del usuario seleccionado desde la tabla

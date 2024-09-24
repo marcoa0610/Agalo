@@ -31,6 +31,7 @@ public class ctrlAdministrarEmpresas implements MouseListener, KeyListener {
     @Override
     public void mouseClicked(MouseEvent e) {
         if (e.getSource() == vista.btnAceptarSolicitud) {
+            System.err.println("Ddaasd");
             int filaSeleccionada = vista.jtSolicitudEmpresa.getSelectedRow();
             if (filaSeleccionada != -1) {
                 // Asumiendo que el ID de la empresa está en la primera columna (índice 0)

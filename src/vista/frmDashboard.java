@@ -4,12 +4,15 @@
  */
 package vista;
 
-import controlador.ctrlMenu;
+import controlador.ctrlAdministrarEmpresas;
+import controlador.ctrlAdministrarUsuario;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 import javax.swing.table.DefaultTableCellRenderer;
+import modelo.AdministrarEmpresas;
+import modelo.AdministrarUsuario;
 
 /**
  *
@@ -22,6 +25,14 @@ public class frmDashboard extends javax.swing.JPanel {
      */
     public frmDashboard() {
         initComponents();
+        
+        frmDashboard frmDashboard = this;
+        AdministrarEmpresas modelo = new AdministrarEmpresas();
+        ctrlAdministrarEmpresas controlador = new ctrlAdministrarEmpresas (modelo, frmDashboard);
+        
+        
+        
+        
         
         UIManager.getSystemLookAndFeelClassName();
         
@@ -56,39 +67,22 @@ public class frmDashboard extends javax.swing.JPanel {
         jtSolicitudEmpresa.setGridColor(new Color(230, 230, 230));
     }
     
-    public static void initfrmMenu() {
-        frmMenu vista = new frmMenu();
+ public static void initDashboard() {
         frmDashboard frmDashboard = new frmDashboard();
-        frmAdministrarUsuarios frmAdministrarUsuarios = new frmAdministrarUsuarios();
-        frmEmpresa frmEmpresa = new frmEmpresa();
-        frmSolicitantes frmSolicitantes = new frmSolicitantes();
-        frmTrabajos frmTrabajos = new frmTrabajos();
-        
-      ctrlMenu controlador = new ctrlMenu(vista, frmDashboard, frmAdministrarUsuarios, frmEmpresa, frmSolicitantes, frmTrabajos);
-     
-        
-        
-        frmDashboard.setVisible(true);
-        
+        AdministrarEmpresas modelo = new AdministrarEmpresas();
+        ctrlAdministrarEmpresas controlador = new ctrlAdministrarEmpresas (modelo, frmDashboard);
+      //  frmAdministrarUsuarios.setVisible(true); 
+       
         
     }
+    
 
     
-    public static void initfrmDashboard() {
-   
-    
-    }
     
     
     
     
-    
-    
-    
-    
-    
-    
-    
+  
     
     
     

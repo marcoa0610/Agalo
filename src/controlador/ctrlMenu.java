@@ -50,7 +50,14 @@ public class ctrlMenu implements MouseListener {
         }
 
         if (e.getSource() == vista.btnHome) {
+             if (frmDashboard == null) {
+                frmDashboard = new frmDashboard();
+                frmDashboard.initDashboard();
+            }
+            // Cambiar el panel contenido
             cambiarPanel(vista.jPContenedor, frmDashboard);
+            
+         
         }
 
         if (e.getSource() == vista.btnEmpresa) {

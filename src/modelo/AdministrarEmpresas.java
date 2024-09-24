@@ -52,7 +52,7 @@ public class AdministrarEmpresas {
             Statement statement = conexion.createStatement();
             // Ejecutamos el Statement con la consulta y lo asignamos a una variable de tipo ResultSet
             ResultSet rs = statement.executeQuery(
-                    "SELECT e.IdEmpleador as Id,e.NombreEmpresa as Empresa, e.NombreRepresentante as Representante, e.CorreoElectronico as Correo Electrónico,e.NumeroTelefono as Teléfono, e.Direccion as Dirección, d.Nombre AS Departamento FROM Empleador e INNER JOIN DEPARTAMENTO d ON e.IdDepartamento = d.IdDepartamento WHERE e.Estado = 'Pendiente'"
+                    "SELECT e.IdEmpleador as Id,e.NombreEmpresa as Empresa, e.NombreRepresentante as Representante, e.CorreoElectronico as Correo,e.NumeroTelefono as Teléfono, e.Direccion as Dirección, d.Nombre AS Departamento FROM Empleador e INNER JOIN DEPARTAMENTO d ON e.IdDepartamento = d.IdDepartamento WHERE e.Estado = 'Pendiente'"
             );
 
             // Recorremos el ResultSet
@@ -62,7 +62,7 @@ public class AdministrarEmpresas {
                     rs.getString("Id"),
                     rs.getString("Empresa"),
                     rs.getString("Representante"),
-                    rs.getString("Correo Electrónico"),
+                    rs.getString("Correo"),
                     rs.getString("Teléfono"),
                     rs.getString("Dirección"),
                     rs.getString("Departamento")
@@ -107,7 +107,7 @@ public class AdministrarEmpresas {
             String idEmpleador = tabla.getValueAt(filaSeleccionada, 0).toString(); //El IdEmpleador está en la primera columna
             try {
                 // Ejecutamos la Query
-                PreparedStatement updateEmpresa = conexion.prepareStatement("UPDATE empleador SET Estado = 'activo' WHERE IdEmpleador = ?");
+                PreparedStatement updateEmpresa = conexion.prepareStatement("UPDATE empleador SET Estado = 'Activo' WHERE IdEmpleador = ?");
                 updateEmpresa.setString(1, idEmpleador);
                 updateEmpresa.executeUpdate();
             } catch (Exception e) {
