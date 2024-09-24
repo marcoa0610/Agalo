@@ -22,6 +22,7 @@ public class ctrlAdministrarUsuario implements MouseListener, KeyListener {
         vista.btnAgregarAdmin.addMouseListener(this);
         vista.btnEditarAdmin.addMouseListener(this);
         vista.btnEliminarAdmin.addMouseListener(this);
+        vista.jtbAdmin.addMouseListener(this); // Listener para la tabla
         modelo.Mostrar(vista.jtbAdmin);
     }
  
