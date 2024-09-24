@@ -20,6 +20,10 @@ public class frmAdministrarUsuarios extends javax.swing.JPanel {
         
         initComponents();
         
+        frmAdministrarUsuarios frmAdministrarUsuarios = this;
+        AdministrarUsuario modelo = new AdministrarUsuario();
+        ctrlAdministrarUsuario controlador = new ctrlAdministrarUsuario(modelo, frmAdministrarUsuarios);
+        
         UIManager.getSystemLookAndFeelClassName();
         
         jtbAdmin.setBackground(java.awt.Color.WHITE); // Cambia el fondo de las celdas de la tabla
@@ -58,7 +62,7 @@ public class frmAdministrarUsuarios extends javax.swing.JPanel {
         frmAdministrarUsuarios frmAdministrarUsuarios = new frmAdministrarUsuarios();
         AdministrarUsuario modelo = new AdministrarUsuario();
         ctrlAdministrarUsuario controlador = new ctrlAdministrarUsuario(modelo, frmAdministrarUsuarios);
-        frmAdministrarUsuarios.setVisible(true); 
+      //  frmAdministrarUsuarios.setVisible(true); 
        
         
     }
