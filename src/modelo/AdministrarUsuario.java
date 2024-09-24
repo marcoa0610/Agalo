@@ -11,6 +11,14 @@ import vista.frmAdministrarUsuarios;
 
 
 public class AdministrarUsuario {
+
+    public String getIDadmin() {
+        return IDadmin;
+    }
+
+    public void setIDadmin(String IDadmin) {
+        this.IDadmin = IDadmin;
+    }
     private String IDadmin;
     private String Nombre;
     private String Usuario;
@@ -69,12 +77,13 @@ public class AdministrarUsuario {
     // Mostrar datos en la tabla
     public void Mostrar(JTable jtbAdmin) {
         DefaultTableModel modeloDeDatos = new DefaultTableModel();
-        modeloDeDatos.setColumnIdentifiers(new Object[]{"Nombre", "Usuario", "CorreoElectronico"});
+        modeloDeDatos.setColumnIdentifiers(new Object[]{"IdAdmin","Nombre", "Usuario", "CorreoElectronico"});
         try (Connection conexion = ClaseConexion.getConexion();
              Statement statement = conexion.createStatement();
              ResultSet rs = statement.executeQuery("SELECT * FROM UsuarioEscritorio")) {
             while (rs.next()) {
                 modeloDeDatos.addRow(new Object[]{
+                    rs.getInt("IdAdmin"),
                     rs.getString("Nombre"),
                     rs.getString("Usuario"),
                     rs.getString("CorreoElectronico")
@@ -100,15 +109,14 @@ public class AdministrarUsuario {
 
             try {
                 //Ejecutamos la Query
-                String sql = "update UsuarioEscritorio set nombre= ?, usuario = ?, contrasena = ?, correoelectronico = ?  where IDadmin = ?";
+                String sql = "UPDATE UsuarioEscritorio set nombre= ?, usuario = ?, contrasena = ?, correoelectronico = ?  where IDadmin = ?";
                 PreparedStatement updateUser = conexion.prepareStatement(sql);
 
                 updateUser.setString(1, getNombre());
                 updateUser.setString(2, getUsuario());
                 updateUser.setString(3, getContrasena());
                 updateUser.setString(4, getCorreoElectronico());
-                updateUser.setString(5, miUUId);
-                updateUser.executeUpdate();
+                updateUser.executeUpdate(miUUId);
 
             } catch (Exception e) {
                 System.out.println("este es el error en el metodo de actualizar" + e);
@@ -143,5 +151,16 @@ public class AdministrarUsuario {
     // Cargar los datos del usuario seleccionado desde la tabla
     public void cargarDatosTabla(frmAdministrarUsuarios vista) {
         // Cargar datos de la tabla seleccionada
+        int filaSeleccionada = vista.jtbAdmin.getSelectedRow();
+        if(filaSeleccionada != -1){
+        String nombre = vista.jtbAdmin.getValueAt(filaSeleccionada, 0).toString();
+        String usuario = vista.jtbAdmin.getValueAt(filaSeleccionada, 1).toString();
+        String correo = vista.jtbAdmin.getValueAt(filaSeleccionada, 2).toString();
+        
+        vista.txtNombreAdmin.setText(nombre);
+        vista.txtUsuarioAdmin.setText(usuario);
+        vista.txtCorreoAdmin.setText(correo);
+        }
+        
     }
 }

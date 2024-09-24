@@ -95,6 +95,10 @@ public class ctrlAdministrarUsuario implements MouseListener, KeyListener {
  
             modelo.Actualizar(vista.jtbAdmin);
             modelo.Mostrar(vista.jtbAdmin);
+            
+        }
+        if (e.getSource() == vista.jtbAdmin) {
+            modelo.cargarDatosTabla(vista);
         }
     }
  
