@@ -4,6 +4,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import javax.swing.JOptionPane;
 import modelo.AdministrarUsuario;
 import vista.frmAdministrarUsuarios;
  
@@ -34,17 +35,22 @@ public class ctrlAdministrarUsuario implements MouseListener, KeyListener {
  
             // Validaciones
             if (nombre.equals("Nombre") || nombre.isEmpty()) {
-                System.out.println("El nombre no puede ser 'Nombre' o vacío.");
+                JOptionPane.showMessageDialog(vista, "El nombre no puede ser 'Nombre' o estar vacío.", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
- 
+
             if (usuario.equals("Usuario") || usuario.isEmpty()) {
-                System.out.println("El usuario no puede ser 'Usuario' o vacío.");
+                JOptionPane.showMessageDialog(vista, "El usuario no puede ser 'Usuario' o estar vacío.", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
- 
+
             if (contrasena.equals("Contraseña") || contrasena.length() < 6) { // Asegúrate de que el tamaño sea suficiente
-                System.out.println("La contraseña no puede ser 'Contraseña' y debe tener al menos 6 caracteres.");
+                JOptionPane.showMessageDialog(vista, "La contraseña debe tener al menos 6 caracteres.", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            if (!correo.contains("@")) {
+                JOptionPane.showMessageDialog(vista, "El correo electrónico debe ser válido.", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
  
@@ -67,37 +73,41 @@ public class ctrlAdministrarUsuario implements MouseListener, KeyListener {
         }
  
         if (e.getSource() == vista.btnEditarAdmin) {
+            // Obtener datos de los campos de texto
             String nombre = vista.txtNombreAdmin.getText();
             String usuario = vista.txtUsuarioAdmin.getText();
             String correo = vista.txtCorreoAdmin.getText();
-            String contrasena = vista.txtContrasenaAdmin.getText(); // Asegúrate de que tengas este campo
- 
+            String contrasena = vista.txtContrasenaAdmin.getText();
+
             // Validaciones
-            if (nombre.equals("Nombre") || nombre.isEmpty()) {
-                System.out.println("El nombre no puede ser 'Nombre' o vacío.");
+            if (nombre.isEmpty() || nombre.equals("Nombre")) {
+                System.out.println("El nombre no puede estar vacío o ser 'Nombre'.");
                 return;
             }
- 
-            if (usuario.equals("Usuario") || usuario.isEmpty()) {
-                System.out.println("El usuario no puede ser 'Usuario' o vacío.");
+
+            if (usuario.isEmpty() || usuario.equals("Usuario")) {
+                System.out.println("El usuario no puede estar vacío o ser 'Usuario'.");
                 return;
             }
- 
-            if (contrasena.equals("Contraseña") || contrasena.length() < 6) { // Asegúrate de que el tamaño sea suficiente
-                System.out.println("La contraseña no puede ser 'Contraseña' y debe tener al menos 6 caracteres.");
+
+            if (contrasena.isEmpty() || contrasena.length() < 6) {
+                System.out.println("La contraseña no puede estar vacía y debe tener al menos 6 caracteres.");
                 return;
             }
- 
+
+            // Asignar valores al modelo
             modelo.setNombre(nombre);
             modelo.setUsuario(usuario);
             modelo.setCorreoElectronico(correo);
-            modelo.setContrasena(contrasena); // Asegúrate de que tengas este método en tu modelo
- 
+            modelo.setContrasena(contrasena);
+
+            // Actualizar los datos del administrador seleccionado
             modelo.Actualizar(vista.jtbAdmin);
-            modelo.Mostrar(vista.jtbAdmin);
-            
+            modelo.Mostrar(vista.jtbAdmin); // Actualizar la tabla
         }
+
         if (e.getSource() == vista.jtbAdmin) {
+            // Cargar datos del administrador seleccionado en los campos de texto
             modelo.cargarDatosTabla(vista);
         }
     }

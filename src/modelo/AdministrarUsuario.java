@@ -100,30 +100,35 @@ public class AdministrarUsuario {
         // Código de actualización similar al de guardar
         Connection conexion = ClaseConexion.getConexion();
 
-        //obtenemos que fila seleccionó el usuario
-        int filaSeleccionada = jtbAdmin.getSelectedRow();
+        // Obtener la fila seleccionada
+    int filaSeleccionada = jtbAdmin.getSelectedRow();
 
-        if (filaSeleccionada != -1) {
-            //Obtenemos el id de la fila seleccionada
-            String miUUId = jtbAdmin.getValueAt(filaSeleccionada, 0).toString();
+    if (filaSeleccionada != -1) {
+        // Obtener el ID del administrador de la fila seleccionada
+        String miUUId = jtbAdmin.getValueAt(filaSeleccionada, 0).toString();
 
-            try {
-                //Ejecutamos la Query
-                String sql = "UPDATE UsuarioEscritorio set nombre= ?, usuario = ?, contrasena = ?, correoelectronico = ?  where IDadmin = ?";
-                PreparedStatement updateUser = conexion.prepareStatement(sql);
+        try {
+            // Sentencia SQL para actualizar
+            String sql = "UPDATE UsuarioEscritorio SET Nombre = ?, Usuario = ?, Contrasena = ?, CorreoElectronico = ? WHERE IdAdmin = ?";
+            PreparedStatement updateUser = conexion.prepareStatement(sql);
 
-                updateUser.setString(1, getNombre());
-                updateUser.setString(2, getUsuario());
-                updateUser.setString(3, getContrasena());
-                updateUser.setString(4, getCorreoElectronico());
-                updateUser.executeUpdate(miUUId);
+            // Asignar los nuevos valores al PreparedStatement
+            updateUser.setString(1, getNombre());
+            updateUser.setString(2, getUsuario());
+            updateUser.setString(3, getContrasena());
+            updateUser.setString(4, getCorreoElectronico());
+            updateUser.setString(5, miUUId);  // Aquí se pasa el ID como último parámetro
 
-            } catch (Exception e) {
-                System.out.println("este es el error en el metodo de actualizar" + e);
-            }
-        } else {
-            System.out.println("no");
+            // Ejecutar la actualización
+            updateUser.executeUpdate();
+
+            System.out.println("Usuario actualizado correctamente.");
+        } catch (SQLException e) {
+            System.out.println("Error al actualizar el usuario: " + e.getMessage());
         }
+    } else {
+        System.out.println("No se ha seleccionado ninguna fila.");
+    }
     }
 
     // Eliminar usuario
@@ -150,17 +155,21 @@ public class AdministrarUsuario {
 
     // Cargar los datos del usuario seleccionado desde la tabla
     public void cargarDatosTabla(frmAdministrarUsuarios vista) {
-        // Cargar datos de la tabla seleccionada
         int filaSeleccionada = vista.jtbAdmin.getSelectedRow();
-        if(filaSeleccionada != -1){
-        String nombre = vista.jtbAdmin.getValueAt(filaSeleccionada, 0).toString();
-        String usuario = vista.jtbAdmin.getValueAt(filaSeleccionada, 1).toString();
-        String correo = vista.jtbAdmin.getValueAt(filaSeleccionada, 2).toString();
-        
+
+    if (filaSeleccionada != -1) {
+        // Obtener los valores de las columnas correspondientes
+        String nombre = vista.jtbAdmin.getValueAt(filaSeleccionada, 1).toString(); // Columna Nombre
+        String usuario = vista.jtbAdmin.getValueAt(filaSeleccionada, 2).toString(); // Columna Usuario
+        String correo = vista.jtbAdmin.getValueAt(filaSeleccionada, 3).toString(); // Columna CorreoElectronico
+
+        // Asignar los valores a los campos de texto en la vista
         vista.txtNombreAdmin.setText(nombre);
         vista.txtUsuarioAdmin.setText(usuario);
         vista.txtCorreoAdmin.setText(correo);
-        }
+    } else {
+        System.out.println("No se ha seleccionado ninguna fila.");
+    }
         
     }
 }

@@ -159,7 +159,7 @@ public class frmDashboard extends javax.swing.JPanel {
         jLabel16.setForeground(new java.awt.Color(204, 204, 204));
         jLabel16.setText("Usuarios ");
         jLabel16.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 210, 60, -1));
+        jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 220, 60, -1));
 
         jLabel17.setBackground(new java.awt.Color(204, 204, 204));
         jLabel17.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N

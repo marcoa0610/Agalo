@@ -97,11 +97,9 @@ public class frmAdministrarUsuarios extends javax.swing.JPanel {
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
 
         txtCorreoAdmin.setForeground(new java.awt.Color(153, 153, 153));
-        txtCorreoAdmin.setText("Correo Electronico");
         add(txtCorreoAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 650, 50));
 
         txtContrasenaAdmin.setForeground(new java.awt.Color(153, 153, 153));
-        txtContrasenaAdmin.setText("Contraseña");
         txtContrasenaAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtContrasenaAdminActionPerformed(evt);
@@ -110,11 +108,9 @@ public class frmAdministrarUsuarios extends javax.swing.JPanel {
         add(txtContrasenaAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 450, 50));
 
         txtUsuarioAdmin.setForeground(new java.awt.Color(153, 153, 153));
-        txtUsuarioAdmin.setText("Usuario");
         add(txtUsuarioAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 360, 50));
 
         txtNombreAdmin.setForeground(new java.awt.Color(153, 153, 153));
-        txtNombreAdmin.setText("Nombre");
         txtNombreAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNombreAdminActionPerformed(evt);
