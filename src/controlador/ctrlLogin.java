@@ -9,7 +9,7 @@ import vista.frmRegistro;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.nio.charset.StandardCharsets;
-import vista.menu;
+import vista.frmMenu;
 
 /**
  *
@@ -50,7 +50,7 @@ public class ctrlLogin implements ActionListener {
 
             if (comprobar) {
                 JOptionPane.showMessageDialog(vista, "¡Bienvenido, usuario encontrado!");
-                menu.initfrmMenu();
+                frmMenu.initfrmMenu();
             } else {
                 JOptionPane.showMessageDialog(vista, "Usuario o contraseña incorrectos", "Error", JOptionPane.ERROR_MESSAGE);
             }

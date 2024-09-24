@@ -19,12 +19,12 @@ import javax.swing.table.DefaultTableCellRenderer;
  *
  * @author Gudelia
  */
-public class frmUsers extends javax.swing.JPanel {
+public class frmSolicitantes extends javax.swing.JPanel {
 
     /**
      * Creates new form frmUsers
      */
-    public frmUsers() {
+    public frmSolicitantes() {
         initComponents();
         
         UIManager.getSystemLookAndFeelClassName();

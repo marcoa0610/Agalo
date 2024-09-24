@@ -13,12 +13,12 @@ import javax.swing.UIManager;
 import javax.swing.table.DefaultTableCellRenderer;
 
 
-public class empresa extends javax.swing.JPanel {
+public class frmEmpresa extends javax.swing.JPanel {
 
     /**
      * Creates new form empresa
      */
-    public empresa() {
+    public frmEmpresa() {
         initComponents();
          UIManager.getSystemLookAndFeelClassName();
          UIManager.put("ComboBox.border", BorderFactory.createEmptyBorder());

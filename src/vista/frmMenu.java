@@ -4,22 +4,40 @@
  */
 package vista;
 
+import controlador.ctrlMenu;
+
 /**
  *
  * @author Gudelia
  */
-public class menu extends javax.swing.JFrame {
+public class frmMenu extends javax.swing.JFrame {
 
     public static void initfrmMenu() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        frmMenu vista = new frmMenu();
+        frmDashboard frmDashboard = new frmDashboard();
+        frmAdministrarUsuarios frmAdministrarUsuarios = new frmAdministrarUsuarios();
+        frmEmpresa frmEmpresa = new frmEmpresa();
+        frmSolicitantes frmSolicitantes = new frmSolicitantes();
+        frmTrabajos frmTrabajos = new frmTrabajos();
+        
+      ctrlMenu controlador = new ctrlMenu(vista, frmDashboard, frmAdministrarUsuarios, frmEmpresa, frmSolicitantes, frmTrabajos);
+        
+        
+        vista.setVisible(true);
+        
+        
     }
 
     /**
      * Creates new form menu
      */
-    public menu() {
+    public frmMenu() {
         initComponents();
     }
+    
+  
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -39,7 +57,7 @@ public class menu extends javax.swing.JFrame {
         btnAdd = new custom.Button();
         btnEmpresa = new custom.Button();
         btnsolicitantes = new custom.Button();
-        jPCpntenedor = new javax.swing.JPanel();
+        jPContenedor = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -113,9 +131,9 @@ public class menu extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 230, 800));
 
-        jPCpntenedor.setBackground(new java.awt.Color(242, 241, 241));
-        jPCpntenedor.setLayout(new java.awt.BorderLayout());
-        jPanel1.add(jPCpntenedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 1270, 800));
+        jPContenedor.setBackground(new java.awt.Color(242, 241, 241));
+        jPContenedor.setLayout(new java.awt.BorderLayout());
+        jPanel1.add(jPContenedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 1270, 800));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -132,28 +150,15 @@ public class menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
-       
-        jPCpntenedor.removeAll();
-        Dashboard panel = new Dashboard();
-        jPCpntenedor.add(panel);
-        jPCpntenedor.revalidate();
-        jPCpntenedor.repaint();
+     
     }//GEN-LAST:event_btnHomeActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        jPCpntenedor.removeAll();
-        configuraciones panell = new configuraciones();
-        jPCpntenedor.add(panell);
-        jPCpntenedor.revalidate();
-        jPCpntenedor.repaint();
+     
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmpresaActionPerformed
-        jPCpntenedor.removeAll();
-        empresa panell = new empresa();
-        jPCpntenedor.add(panell);
-        jPCpntenedor.revalidate();
-        jPCpntenedor.repaint();
+  
     }//GEN-LAST:event_btnEmpresaActionPerformed
 
     /**
@@ -173,20 +178,21 @@ public class menu extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new menu().setVisible(true);
+                initfrmMenu();
             }
         });
     }
@@ -199,7 +205,7 @@ public class menu extends javax.swing.JFrame {
     public custom.Button btnsolicitantes;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    public javax.swing.JPanel jPCpntenedor;
+    public javax.swing.JPanel jPContenedor;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables

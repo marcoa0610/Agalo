@@ -4,6 +4,7 @@
  */
 package vista;
 
+import controlador.ctrlMenu;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.SwingConstants;
@@ -14,12 +15,12 @@ import javax.swing.table.DefaultTableCellRenderer;
  *
  * @author Estudiante
  */
-public class Dashboard extends javax.swing.JPanel {
+public class frmDashboard extends javax.swing.JPanel {
 
     /**
      * Creates new form Dashboard
      */
-    public Dashboard() {
+    public frmDashboard() {
         initComponents();
         
         UIManager.getSystemLookAndFeelClassName();
@@ -54,7 +55,43 @@ public class Dashboard extends javax.swing.JPanel {
         jtSolicitudEmpresa.setRowHeight(25);
         jtSolicitudEmpresa.setGridColor(new Color(230, 230, 230));
     }
+    
+    public static void initfrmMenu() {
+        frmMenu vista = new frmMenu();
+        frmDashboard frmDashboard = new frmDashboard();
+        frmAdministrarUsuarios frmAdministrarUsuarios = new frmAdministrarUsuarios();
+        frmEmpresa frmEmpresa = new frmEmpresa();
+        frmSolicitantes frmSolicitantes = new frmSolicitantes();
+        frmTrabajos frmTrabajos = new frmTrabajos();
+        
+      ctrlMenu controlador = new ctrlMenu(vista, frmDashboard, frmAdministrarUsuarios, frmEmpresa, frmSolicitantes, frmTrabajos);
+     
+        
+        
+        frmDashboard.setVisible(true);
+        
+        
+    }
 
+    
+    public static void initfrmDashboard() {
+   
+    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -128,7 +165,7 @@ public class Dashboard extends javax.swing.JPanel {
         jLabel16.setForeground(new java.awt.Color(204, 204, 204));
         jLabel16.setText("Usuarios ");
         jLabel16.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(805, 220, 60, -1));
+        jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 210, 60, -1));
 
         jLabel17.setBackground(new java.awt.Color(204, 204, 204));
         jLabel17.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
@@ -274,7 +311,7 @@ public class Dashboard extends javax.swing.JPanel {
                     .addGap(0, 236, Short.MAX_VALUE)))
         );
 
-        jPanel3.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 1090, 490));
+        jPanel3.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 270, 1090, 490));
 
         jpPerfil.setBackground(new java.awt.Color(255, 255, 255));
         jpPerfil.setLayout(new java.awt.BorderLayout());
@@ -368,11 +405,7 @@ public class Dashboard extends javax.swing.JPanel {
     }//GEN-LAST:event_button2ActionPerformed
 
     private void btnActuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActuActionPerformed
-        jpPerfil.removeAll();
-        actualizarperfil panel2 = new actualizarperfil();
-        jpPerfil.add(panel2);
-        jpPerfil.revalidate();
-        jpPerfil.repaint();
+        
     }//GEN-LAST:event_btnActuActionPerformed
 
     private void btnAceptarSolicitudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarSolicitudActionPerformed
@@ -380,11 +413,7 @@ public class Dashboard extends javax.swing.JPanel {
     }//GEN-LAST:event_btnAceptarSolicitudActionPerformed
 
     private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
-        jpPerfil.removeAll();
-        perfil panel3 = new perfil();
-        jpPerfil.add(panel3);
-        jpPerfil.revalidate();
-        jpPerfil.repaint();
+  
     }//GEN-LAST:event_backActionPerformed
 
     private void btnRechazarSolicitudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRechazarSolicitudActionPerformed

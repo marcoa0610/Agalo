@@ -1,18 +1,21 @@
 
 package vista;
 
+import controlador.ctrlAdministrarUsuario;
+import controlador.ctrlMenu;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.JTableHeader;
+import modelo.AdministrarUsuario;
 
 
-public class configuraciones extends javax.swing.JPanel {
+public class frmAdministrarUsuarios extends javax.swing.JPanel {
 
     
-    public configuraciones() {
+    public frmAdministrarUsuarios() {
         
         
         initComponents();
@@ -49,6 +52,15 @@ public class configuraciones extends javax.swing.JPanel {
         jtbAdmin.setRowHeight(25);
         jtbAdmin.setGridColor(new Color(230, 230, 230));
  
+    }
+    
+    public static void initfrmADMIN() {
+        frmAdministrarUsuarios frmAdministrarUsuarios = new frmAdministrarUsuarios();
+        AdministrarUsuario modelo = new AdministrarUsuario();
+        ctrlAdministrarUsuario controlador = new ctrlAdministrarUsuario(modelo, frmAdministrarUsuarios);
+        frmAdministrarUsuarios.setVisible(true); 
+       
+        
     }
     
     

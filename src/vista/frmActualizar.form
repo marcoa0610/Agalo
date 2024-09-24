@@ -26,7 +26,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="textField3" max="32767" attributes="0"/>
+                          <Component id="textField3" pref="0" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Component id="textField1" min="-2" pref="183" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
@@ -67,7 +67,7 @@
                           <Group type="102" attributes="0">
                               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel2" pref="19" max="32767" attributes="0"/>
+                              <Component id="jLabel2" pref="0" max="32767" attributes="0"/>
                           </Group>
                           <Component id="button1" min="-2" pref="27" max="-2" attributes="0"/>
                       </Group>
