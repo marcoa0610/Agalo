@@ -50,7 +50,7 @@ public class ctrlAdministrarUsuario implements MouseListener, KeyListener {
                 return;
             }
 
-            if (!correo.contains("@")) {
+            if (!correo.matches("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$")) {
                 JOptionPane.showMessageDialog(vista, "El correo electrónico debe ser válido.", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }

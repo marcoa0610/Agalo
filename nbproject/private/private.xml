@@ -3,10 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/lagal/Desktop/Agalo/src/vista/frmPerfil.java</file>
-            <file>file:/C:/Users/lagal/Desktop/Agalo/src/vista/frmMenu.java</file>
-            <file>file:/C:/Users/lagal/Desktop/Agalo/src/vista/frmSolicitantes.java</file>
-            <file>file:/C:/Users/lagal/Desktop/Agalo/src/controlador/ctrlMenu.java</file>
+            <file>file:/C:/Users/Contr/OneDrive/Escritorio/Agalo/src/modelo/AdministrarUsuario.java</file>
+            <file>file:/C:/Users/Contr/OneDrive/Escritorio/Agalo/src/modelo/ClaseConexion.java</file>
+            <file>file:/C:/Users/Contr/OneDrive/Escritorio/Agalo/src/controlador/ctrlAdministrarUsuario.java</file>
         </group>
     </open-files>
 </project-private>
