@@ -41,15 +41,17 @@ public class EnviarCorreo {
             }
         });
 
-        //3- Enviar el correo
+        // 3- Enviar el correo
         try {
             // Crear mensaje
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress(myAccountEmail));
             message.setRecipient(Message.RecipientType.TO, new InternetAddress(recipient));
             message.setSubject(subject);
-            message.setText(content);
-            
+
+            // Configurar el contenido del mensaje para aceptar HTML
+            message.setContent(content, "text/html; charset=utf-8");
+
             // Enviar mensaje
             Transport.send(message);
             System.out.println("Correo enviado con éxito");
