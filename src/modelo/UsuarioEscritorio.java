@@ -11,10 +11,20 @@ import java.sql.SQLException;
  */
 public class UsuarioEscritorio {
 
+    public int getIdRol() {
+        return IdRol;
+    }
+
+    public void setIdRol(int IdRol) {
+        this.IdRol = IdRol;
+    }
+
     private String Nombre;
     private String Usuario;
     private String Correo;
     private String Contrasena;
+    private int IdRol;  // Rol del usuario
+
 
     // Getters y Setters
     public String getNombre() {
@@ -104,6 +114,7 @@ public class UsuarioEscritorio {
             resultSet = statement.executeQuery();
 
             if (resultSet.next()) {
+                this.IdRol = resultSet.getInt("IdRol"); // Obtener el rol
                 resultado = true;
             }
 

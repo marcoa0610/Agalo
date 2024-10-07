@@ -62,12 +62,14 @@ public class AdministrarUsuario {
     public void Guardar() {
         try (Connection conexion = ClaseConexion.getConexion()) {
             PreparedStatement addAdmin = conexion.prepareStatement(
-                "INSERT INTO UsuarioEscritorio (Nombre, Usuario, Contrasena, CorreoElectronico) VALUES (?, ?, ?, ?)"
+                "INSERT INTO UsuarioEscritorio (Nombre, Usuario, Contrasena, CorreoElectronico, IdRol) VALUES (?, ?, ?, ?, ?)"
             );
             addAdmin.setString(1, getNombre());
             addAdmin.setString(2, getUsuario());
             addAdmin.setString(3, getContrasena());
             addAdmin.setString(4, getCorreoElectronico());
+            addAdmin.setInt(5, 2);
+
             addAdmin.executeUpdate();
         } catch (SQLException ex) {
             System.out.println("Error en el método Guardar: " + ex.getMessage());

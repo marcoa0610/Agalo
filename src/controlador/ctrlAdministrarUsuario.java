@@ -4,6 +4,9 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import javax.swing.JOptionPane;
 import modelo.AdministrarUsuario;
 import vista.frmAdministrarUsuarios;
@@ -33,7 +36,13 @@ public class ctrlAdministrarUsuario implements MouseListener, KeyListener {
             String usuario = vista.txtUsuarioAdmin.getText();
             String correo = vista.txtCorreoAdmin.getText();
             String contrasena = vista.txtContrasenaAdmin.getText(); // Asegúrate de que tengas este campo
- 
+           
+           // Encriptar la contraseña antes de guardarla
+            String contrasenaEncriptada = encriptarContrasena(vista.txtContrasenaAdmin.getText());
+            if (contrasenaEncriptada == null) {
+                JOptionPane.showMessageDialog(vista, "Error al encriptar la contraseña.", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
             // Validaciones
             if (nombre.equals("Nombre") || nombre.isEmpty()) {
                 JOptionPane.showMessageDialog(vista, "El nombre no puede ser 'Nombre' o estar vacío.", "Error", JOptionPane.ERROR_MESSAGE);
@@ -58,7 +67,7 @@ public class ctrlAdministrarUsuario implements MouseListener, KeyListener {
             modelo.setNombre(nombre);
             modelo.setUsuario(usuario);
             modelo.setCorreoElectronico(correo);
-            modelo.setContrasena(contrasena); // Asegúrate de que tengas este método en tu modelo
+            modelo.setContrasena(contrasenaEncriptada);
  
             modelo.Guardar();
             modelo.Mostrar(vista.jtbAdmin);
@@ -140,4 +149,33 @@ public class ctrlAdministrarUsuario implements MouseListener, KeyListener {
     @Override
     public void keyReleased(KeyEvent e) {
     }
+        
+    /**
+     * Método para encriptar la contraseña utilizando SHA-256.
+     *
+     * @param contrasena la contraseña a encriptar.
+     * @return la contraseña encriptada en formato hexadecimal.
+     */
+     private String encriptarContrasena(String contrasena) {
+        try {
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            byte[] hash = digest.digest(contrasena.getBytes(StandardCharsets.UTF_8));
+            StringBuilder hexString = new StringBuilder();
+
+            for (byte b : hash) {
+                String hex = Integer.toHexString(0xff & b);
+                if (hex.length() == 1) {
+                    hexString.append('0');
+                }
+                hexString.append(hex);
+            }
+
+            return hexString.toString();
+        } catch (NoSuchAlgorithmException e) {
+            JOptionPane.showMessageDialog(vista, "Error en la encriptación de la contraseña: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace();
+            return null;
+        }
+    }
 }
+
