@@ -78,7 +78,7 @@ public class frmRegistro extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(98, Short.MAX_VALUE)
+                .addContainerGap(104, Short.MAX_VALUE)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -152,7 +152,7 @@ public class frmRegistro extends javax.swing.JFrame {
         btnLogear.setBackground(new java.awt.Color(0, 0, 0));
         btnLogear.setForeground(new java.awt.Color(255, 255, 255));
         btnLogear.setText("Iniciar Sesión");
-        jPanel1.add(btnLogear, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 510, 140, 30));
+        jPanel1.add(btnLogear, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 470, 140, 30));
 
         btnRegistrar.setBackground(new java.awt.Color(0, 0, 0));
         btnRegistrar.setForeground(new java.awt.Color(255, 255, 255));
@@ -167,7 +167,7 @@ public class frmRegistro extends javax.swing.JFrame {
 
         jLabel2.setForeground(new java.awt.Color(102, 102, 102));
         jLabel2.setText("¿Ya tienes cuenta? ");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 510, 150, 20));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 470, 150, 20));
 
         jCondiciones.setBackground(new java.awt.Color(255, 255, 255));
         jCondiciones.setFont(new java.awt.Font("Calibri Light", 0, 11)); // NOI18N

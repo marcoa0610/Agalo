@@ -2,6 +2,8 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import javax.swing.JOptionPane;
 import modelo.UsuarioEscritorio;
 import vista.frmLogin;
@@ -9,13 +11,14 @@ import vista.frmRegistro;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.nio.charset.StandardCharsets;
+import vista.frmIngresoCorreo;
 import vista.frmMenu;
 
 /**
  *
  * @author lagal
  */
-public class ctrlLogin implements ActionListener {
+public class ctrlLogin implements ActionListener, MouseListener {
 
     private UsuarioEscritorio modelo;
     private frmLogin vista;
@@ -51,14 +54,14 @@ public class ctrlLogin implements ActionListener {
             if (comprobar) {
                 JOptionPane.showMessageDialog(vista, "¡Bienvenido, usuario encontrado!");
                 frmMenu.initfrmMenu();
+                vista.dispose();
             } else {
                 JOptionPane.showMessageDialog(vista, "Usuario o contraseña incorrectos", "Error", JOptionPane.ERROR_MESSAGE);
             }
         } else if (e.getSource() == vista.btnRegister) {
-            // Cambiar al formulario de registro
-            frmRegistro registroForm = new frmRegistro();
-            registroForm.setVisible(true);
-            vista.dispose(); // Cierra el formulario de login actual
+            
+            frmRegistro.initFrmRegistro();
+            vista.dispose(); 
         }
     }
 
@@ -108,6 +111,43 @@ public class ctrlLogin implements ActionListener {
             e.printStackTrace();
             return null;
         }
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        
+        
+     if (e.getSource() == vista.jOlvidarContrasena) {
+          frmIngresoCorreo.initFrmIngresoCorreo(); 
+          vista.dispose();
+        
+        
+    }
+    }
+    
+    
+    
+    
+    
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+        
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+        
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+        
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+        
     }
     
 }
