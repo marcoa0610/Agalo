@@ -5,6 +5,7 @@
 package vista;
 
 import controlador.ctrlMenu;
+import modelo.UsuarioEscritorio;
 
 /**
  *
@@ -12,20 +13,17 @@ import controlador.ctrlMenu;
  */
 public class frmMenu extends javax.swing.JFrame {
 
-    public static void initfrmMenu() {
+   public static void initfrmMenu(UsuarioEscritorio modelo) {
         frmMenu vista = new frmMenu();
         frmDashboard frmDashboard = new frmDashboard();
         frmAdministrarUsuarios frmAdministrarUsuarios = new frmAdministrarUsuarios();
         frmEmpresa frmEmpresa = new frmEmpresa();
         frmSolicitantes frmSolicitantes = new frmSolicitantes();
         frmTrabajos frmTrabajos = new frmTrabajos();
-        
-      ctrlMenu controlador = new ctrlMenu(vista, frmDashboard, frmAdministrarUsuarios, frmEmpresa, frmSolicitantes, frmTrabajos);
-        
-        
+
+        ctrlMenu controlador = new ctrlMenu(vista, frmDashboard, frmAdministrarUsuarios, frmEmpresa, frmSolicitantes, frmTrabajos, modelo);
+
         vista.setVisible(true);
-        
-        
     }
 
     /**
@@ -191,9 +189,10 @@ public class frmMenu extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                initfrmMenu();
-            }
+             public void run() {
+            UsuarioEscritorio modelo = new UsuarioEscritorio(); // Crea un objeto UsuarioEscritorio
+            initfrmMenu(modelo); // Pasa el objeto al método initfrmMenu
+        }
         });
     }
 

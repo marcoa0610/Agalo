@@ -45,15 +45,17 @@ public class ctrlLogin implements ActionListener, MouseListener {
             // Encriptar la contraseña antes de comparar
             String contrasenaEncriptada = encriptarContrasena(contrasena);
             
+            int idRol = modelo.obtenerRol(correo, contrasenaEncriptada);
+
             modelo.setCorreo(correo);
             modelo.setContrasena(contrasenaEncriptada);
             
             // Intentar iniciar sesión
             boolean comprobar = modelo.iniciarSesion();
 
-            if (comprobar) {
+             if (comprobar) {
                 JOptionPane.showMessageDialog(vista, "¡Bienvenido, usuario encontrado!");
-                frmMenu.initfrmMenu();
+                frmMenu.initfrmMenu(modelo); // Pasa el modelo al controlador ctrlMenu
                 vista.dispose();
             } else {
                 JOptionPane.showMessageDialog(vista, "Usuario o contraseña incorrectos", "Error", JOptionPane.ERROR_MESSAGE);
