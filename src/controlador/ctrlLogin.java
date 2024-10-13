@@ -22,6 +22,8 @@ public class ctrlLogin implements ActionListener, MouseListener {
 
     private UsuarioEscritorio modelo;
     private frmLogin vista;
+    public static String CorreoUsuario;
+ 
     
     public ctrlLogin(UsuarioEscritorio modelo, frmLogin vista) {
         this.modelo = modelo;
@@ -35,6 +37,7 @@ public class ctrlLogin implements ActionListener, MouseListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == vista.btnIngresar) {
             String correo = vista.txtCorreo.getText();
+            CorreoUsuario = correo;
             String contrasena = vista.txtContrasena.getText();
             
             // Validar entradas
