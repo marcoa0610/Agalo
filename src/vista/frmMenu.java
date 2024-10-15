@@ -22,7 +22,7 @@ public class frmMenu extends javax.swing.JFrame {
 
     public static void initfrmMenu() {
         frmMenu vista = new frmMenu();
-        frmDashboard frmDashboard = new frmDashboard();
+        frmGestionarEmpresa frmDashboard = new frmGestionarEmpresa();
         frmAdministrarUsuarios frmAdministrarUsuarios = new frmAdministrarUsuarios();
         frmEmpresa frmEmpresa = new frmEmpresa();
         frmSolicitantes frmSolicitantes = new frmSolicitantes();
