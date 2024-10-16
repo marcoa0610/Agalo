@@ -4,15 +4,8 @@
  */
 package vista;
 
-import com.formdev.flatlaf.FlatLaf;
-import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
-import com.formdev.flatlaf.themes.FlatMacDarkLaf;
 import controlador.ctrlMenu;
-import custom.MyDrawerBuilder;
-import java.awt.Font;
-import javax.swing.UIManager;
-import raven.drawer.Drawer;
-import raven.popup.GlassPanePopup;
+import modelo.UsuarioEscritorio;
 
 /**
  *
@@ -20,29 +13,23 @@ import raven.popup.GlassPanePopup;
  */
 public class frmMenu extends javax.swing.JFrame {
 
-    public static void initfrmMenu() {
+   public static void initfrmMenu(UsuarioEscritorio modelo) {
         frmMenu vista = new frmMenu();
-        frmGestionarEmpresa frmDashboard = new frmGestionarEmpresa();
+        frmDashboard frmDashboard = new frmDashboard();
         frmAdministrarUsuarios frmAdministrarUsuarios = new frmAdministrarUsuarios();
         frmEmpresa frmEmpresa = new frmEmpresa();
         frmSolicitantes frmSolicitantes = new frmSolicitantes();
         frmTrabajos frmTrabajos = new frmTrabajos();
-        
-      ctrlMenu controlador = new ctrlMenu(vista, frmDashboard, frmAdministrarUsuarios, frmEmpresa, frmSolicitantes, frmTrabajos);
-        
-        
+
+        ctrlMenu controlador = new ctrlMenu(vista, frmDashboard, frmAdministrarUsuarios, frmEmpresa, frmSolicitantes, frmTrabajos, modelo);
+
         vista.setVisible(true);
-        
-        
     }
 
     /**
      * Creates new form menu
      */
     public frmMenu() {
-        GlassPanePopup.install(this);
-        MyDrawerBuilder myDrawerBuilder=new MyDrawerBuilder();
-        Drawer.getInstance().setDrawerBuilder(myDrawerBuilder);
         initComponents();
     }
     
@@ -68,7 +55,6 @@ public class frmMenu extends javax.swing.JFrame {
         btnAdd = new custom.Button();
         btnEmpresa = new custom.Button();
         btnsolicitantes = new custom.Button();
-        button1 = new custom.Button();
         jPContenedor = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -141,14 +127,6 @@ public class frmMenu extends javax.swing.JFrame {
         btnsolicitantes.setShadowColor(new java.awt.Color(0, 29, 63));
         jPanel2.add(btnsolicitantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, 230, 60));
 
-        button1.setText("≣");
-        button1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button1ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(button1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
-
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 230, 800));
 
         jPContenedor.setBackground(new java.awt.Color(242, 241, 241));
@@ -169,6 +147,10 @@ public class frmMenu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
+     
+    }//GEN-LAST:event_btnHomeActionPerformed
+
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
      
     }//GEN-LAST:event_btnAddActionPerformed
@@ -177,26 +159,40 @@ public class frmMenu extends javax.swing.JFrame {
   
     }//GEN-LAST:event_btnEmpresaActionPerformed
 
-    private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
-
-    }//GEN-LAST:event_btnHomeActionPerformed
-
-    private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
-      Drawer.getInstance().showDrawer();
-    }//GEN-LAST:event_button1ActionPerformed
-
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        FlatRobotoFont.install();
-        FlatLaf.registerCustomDefaultsSource("custom");
-        UIManager.put("defaultFont", new Font(FlatRobotoFont.FAMILY, Font.PLAIN, 13));
-        FlatMacDarkLaf.setup();
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                initfrmMenu();
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
             }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(frmMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(frmMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(frmMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(frmMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+             public void run() {
+            UsuarioEscritorio modelo = new UsuarioEscritorio(); // Crea un objeto UsuarioEscritorio
+            initfrmMenu(modelo); // Pasa el objeto al método initfrmMenu
+        }
         });
     }
 
@@ -206,7 +202,6 @@ public class frmMenu extends javax.swing.JFrame {
     public custom.Button btnHome;
     public custom.Button btnTrabajos;
     public custom.Button btnsolicitantes;
-    public custom.Button button1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     public javax.swing.JPanel jPContenedor;

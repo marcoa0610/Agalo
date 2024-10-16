@@ -98,6 +98,23 @@ public class UsuarioEscritorio {
         }
     }
 
+    public int obtenerRol(String correo, String contrasena) {
+    String query = "SELECT idRol FROM UsuarioEscritorio WHERE CorreoElectronico = ? AND Contrasena = ?";
+    try (Connection conexion = ClaseConexion.getConexion();
+         PreparedStatement pst = conexion.prepareStatement(query)) {
+        pst.setString(1, correo);
+        pst.setString(2, contrasena);
+        try (ResultSet rs = pst.executeQuery()) {
+            if (rs.next()) {
+                return rs.getInt("IdRol");
+            }
+        }
+    } catch (SQLException e) {
+        System.out.println("Error en la consulta SQL: " + e.getMessage());
+        e.printStackTrace();
+    }
+    return -1;  // Retorna -1 si no se encuentra el Usuario
+}
     // Método para iniciar sesión
     public boolean iniciarSesion() {
         Connection conexion = ClaseConexion.getConexion();
