@@ -59,7 +59,7 @@ public class frmRegistro extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         txtUsuario = new custom.TextField();
-        txtContra1 = new custom.TextField();
+        txtContra = new custom.TextField();
         txtEdadRegistro = new custom.TextField();
         txtPaisRegistro = new custom.TextField();
 
@@ -205,22 +205,22 @@ public class frmRegistro extends javax.swing.JFrame {
         });
         jPanel1.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 570, 50));
 
-        txtContra1.setForeground(new java.awt.Color(153, 153, 153));
-        txtContra1.setText("Contraseña");
-        txtContra1.addFocusListener(new java.awt.event.FocusAdapter() {
+        txtContra.setForeground(new java.awt.Color(153, 153, 153));
+        txtContra.setText("Contraseña");
+        txtContra.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                txtContra1FocusGained(evt);
+                txtContraFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                txtContra1FocusLost(evt);
+                txtContraFocusLost(evt);
             }
         });
-        txtContra1.addActionListener(new java.awt.event.ActionListener() {
+        txtContra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtContra1ActionPerformed(evt);
+                txtContraActionPerformed(evt);
             }
         });
-        jPanel1.add(txtContra1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 570, 50));
+        jPanel1.add(txtContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 570, 50));
 
         txtEdadRegistro.setForeground(new java.awt.Color(153, 153, 153));
         txtEdadRegistro.setText("Edad");
@@ -320,19 +320,22 @@ public class frmRegistro extends javax.swing.JFrame {
     }//GEN-LAST:event_txtCorreoElectronicoFocusLost
 
     private void txtCiudadRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCiudadRegistroActionPerformed
-        // TODO add your handling code here:
+        if (txtCiudadRegistro.getText().equals("Ciudad")) {
+            txtCiudadRegistro.setText("");
+            txtCiudadRegistro.setForeground(new Color(153,153,153));
+        }
     }//GEN-LAST:event_txtCiudadRegistroActionPerformed
 
     private void txtCiudadRegistroFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCiudadRegistroFocusLost
         if (txtCiudadRegistro.getText().equals("")) {
-            txtCiudadRegistro.setText("Contraseña");
+            txtCiudadRegistro.setText("Ciudad");
             txtCiudadRegistro.setForeground(new Color(153,153,153));
         }
 
     }//GEN-LAST:event_txtCiudadRegistroFocusLost
 
     private void txtCiudadRegistroFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCiudadRegistroFocusGained
-        if (txtCiudadRegistro.getText().equals("Contraseña")) {
+        if (txtCiudadRegistro.getText().equals("Ciudad")) {
             txtCiudadRegistro.setText("");
             txtCiudadRegistro.setForeground(new Color(153,153,153));
         }
@@ -368,17 +371,17 @@ public class frmRegistro extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUsuarioActionPerformed
 
-    private void txtContra1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtContra1FocusGained
+    private void txtContraFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtContraFocusGained
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtContra1FocusGained
+    }//GEN-LAST:event_txtContraFocusGained
 
-    private void txtContra1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtContra1FocusLost
+    private void txtContraFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtContraFocusLost
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtContra1FocusLost
+    }//GEN-LAST:event_txtContraFocusLost
 
-    private void txtContra1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContra1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtContra1ActionPerformed
+    private void txtContraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContraActionPerformed
+      
+    }//GEN-LAST:event_txtContraActionPerformed
 
     private void txtEdadRegistroFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEdadRegistroFocusGained
         // TODO add your handling code here:
@@ -484,7 +487,7 @@ public class frmRegistro extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jpBackground;
     public custom.TextField txtCiudadRegistro;
-    public custom.TextField txtContra1;
+    public custom.TextField txtContra;
     public custom.TextField txtCorreoElectronico;
     public custom.TextField txtEdadRegistro;
     public custom.TextField txtNombre;

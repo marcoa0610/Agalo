@@ -66,7 +66,7 @@ public class frmDashboard extends javax.swing.JPanel {
 
         panelRedondeado21.setBackground(new java.awt.Color(255, 255, 255));
 
-        txtCredenciales2.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        txtCredenciales2.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         txtCredenciales2.setText("Credenciales");
 
         txtNombreDashboard.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
@@ -84,10 +84,10 @@ public class frmDashboard extends javax.swing.JPanel {
             .addGroup(panelRedondeado21Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelRedondeado21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtCredenciales2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtNombreDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtEmailDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(354, Short.MAX_VALUE))
+                    .addComponent(txtEmailDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCredenciales2))
+                .addContainerGap(330, Short.MAX_VALUE))
         );
         panelRedondeado21Layout.setVerticalGroup(
             panelRedondeado21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -98,7 +98,7 @@ public class frmDashboard extends javax.swing.JPanel {
                 .addComponent(txtNombreDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtEmailDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         roundPanel2.add(panelRedondeado21);
@@ -106,7 +106,7 @@ public class frmDashboard extends javax.swing.JPanel {
 
         panelRedondeado22.setBackground(new java.awt.Color(255, 255, 255));
 
-        txtCredenciales1.setFont(new java.awt.Font("Microsoft JhengHei", 1, 14)); // NOI18N
+        txtCredenciales1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         txtCredenciales1.setText("Sobre mí ");
 
         txtEdadDashboard.setFont(new java.awt.Font("Microsoft JhengHei", 0, 12)); // NOI18N
@@ -150,7 +150,7 @@ public class frmDashboard extends javax.swing.JPanel {
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtCiudadDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(241, Short.MAX_VALUE))
+                .addContainerGap(235, Short.MAX_VALUE))
         );
         panelRedondeado22Layout.setVerticalGroup(
             panelRedondeado22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -169,13 +169,13 @@ public class frmDashboard extends javax.swing.JPanel {
                 .addGroup(panelRedondeado22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(txtCiudadDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         roundPanel2.add(panelRedondeado22);
         panelRedondeado22.setBounds(30, 290, 460, 200);
 
-        txtUsuarioDashboard.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        txtUsuarioDashboard.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
         txtUsuarioDashboard.setText("Usuario");
         roundPanel2.add(txtUsuarioDashboard);
         txtUsuarioDashboard.setBounds(120, 40, 100, 30);
@@ -213,9 +213,9 @@ public class frmDashboard extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(41, 41, 41)
+                .addGap(65, 65, 65)
                 .addComponent(roundPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 517, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(104, 104, 104)
+                .addGap(80, 80, 80)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(roundPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE)
                     .addComponent(roundPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -224,15 +224,16 @@ public class frmDashboard extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(48, 48, 48)
+                        .addGap(68, 68, 68)
                         .addComponent(roundPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(58, 58, 58)
                         .addComponent(roundPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(roundPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 624, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(24, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(roundPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 624, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

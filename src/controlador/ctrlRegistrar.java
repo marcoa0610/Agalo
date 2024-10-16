@@ -11,10 +11,6 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.nio.charset.StandardCharsets;
 
-/**
- *
- * @author lagal
- */
 public class ctrlRegistrar implements ActionListener {
 
     private UsuarioEscritorio modelo;
@@ -34,9 +30,8 @@ public class ctrlRegistrar implements ActionListener {
         if (e.getSource() == vista.btnRegistrar) {
             System.out.println("Botón registrar clicado");
 
-           // Validar entradas primero
+            // Validar entradas primero
             if (!validarEntradas()) {
-//                JOptionPane.showMessageDialog(vista, "Por favor, complete todos los campos requeridos.", "Advertencia", JOptionPane.WARNING_MESSAGE);
                 return; // Si las validaciones de los campos fallan, salir del método
             }
 
@@ -50,6 +45,11 @@ public class ctrlRegistrar implements ActionListener {
             modelo.setNombre(vista.txtNombre.getText());
             modelo.setUsuario(vista.txtUsuario.getText());
             modelo.setCorreo(vista.txtCorreoElectronico.getText());
+            
+            // Nuevos campos agregados
+            modelo.setEdad(Integer.parseInt(vista.txtEdadRegistro.getText()));
+            modelo.setCiudad(vista.txtCiudadRegistro.getText());
+            modelo.setPais(vista.txtPaisRegistro.getText());
 
             // Encriptar la contraseña antes de guardarla
             String contrasenaEncriptada = encriptarContrasena(vista.txtCiudadRegistro.getText());
@@ -107,6 +107,30 @@ public class ctrlRegistrar implements ActionListener {
             errores.append("El campo 'Contraseña' no puede estar vacío.\n");
         } else if (vista.txtCiudadRegistro.getText().length() < 6) { // Validación de longitud de contraseña
             errores.append("La contraseña debe tener al menos 6 caracteres.\n");
+        }
+
+        // Validación de edad
+        if (vista.txtEdadRegistro.getText().trim().isEmpty()) {
+            errores.append("El campo 'Edad' no puede estar vacío.\n");
+        } else {
+            try {
+                int edad = Integer.parseInt(vista.txtEdadRegistro.getText());
+                if (edad < 18) {
+                    errores.append("Debe tener al menos 18 años para registrarse.\n");
+                }
+            } catch (NumberFormatException e) {
+                errores.append("El campo 'Edad' debe ser un número válido.\n");
+            }
+        }
+
+        // Validación de ciudad
+        if (vista.txtCiudadRegistro.getText().trim().isEmpty()) {
+            errores.append("El campo 'Ciudad' no puede estar vacío.\n");
+        }
+
+        // Validación de país
+        if (vista.txtPaisRegistro.getText().trim().isEmpty()) {
+            errores.append("El campo 'País' no puede estar vacío.\n");
         }
 
         // Mostrar errores si existen

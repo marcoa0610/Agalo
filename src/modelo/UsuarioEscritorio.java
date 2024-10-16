@@ -10,55 +10,99 @@ import java.sql.SQLException;
  * @author Jero
  */
 public class UsuarioEscritorio {
-
-    public int getIdRol() {
-        return IdRol;
-    }
-
-    public void setIdRol(int IdRol) {
-        this.IdRol = IdRol;
-    }
-
+    private int IdAdmin;
     private String Nombre;
     private String Usuario;
-    private String Correo;
     private String Contrasena;
-    private int IdRol;  // Rol del usuario
-
+    private String Foto;
+    private String Correo;
+    private int Edad_Escritorio;
+    private String Pais_Escritorio;
+    private String Ciudad_Escritorio;
+    private int IdRol;
 
     // Getters y Setters
+    public int getIdAdmin() {
+        return IdAdmin;
+    }
+
+    public void setIdAdmin(int idAdmin) {
+        this.IdAdmin = idAdmin;
+    }
+
     public String getNombre() {
         return Nombre;
     }
 
-    public void setNombre(String Nombre) {
-        this.Nombre = Nombre;
+    public void setNombre(String nombre) {
+        this.Nombre = nombre;
     }
 
     public String getUsuario() {
         return Usuario;
     }
 
-    public void setUsuario(String Usuario) {
-        this.Usuario = Usuario;
-    }
-
-    public String getCorreo() {
-        return Correo;
-    }
-
-    public void setCorreo(String Correo) {
-        this.Correo = Correo;
+    public void setUsuario(String usuario) {
+        this.Usuario = usuario;
     }
 
     public String getContrasena() {
         return Contrasena;
     }
 
-    public void setContrasena(String Contrasena) {
-        this.Contrasena = Contrasena;
+    public void setContrasena(String contrasena) {
+        this.Contrasena = contrasena;
     }
 
+    public String getFoto() {
+        return Foto;
+    }
+
+    public void setFoto(String foto) {
+        this.Foto = foto;
+    }
+
+    public String getCorreo() {
+        return Correo;
+    }
+
+    public void setCorreoElectronico(String correoElectronico) {
+        this.Correo = correoElectronico;
+    }
+
+    public int getEdad_Escritorio() {
+        return Edad_Escritorio;
+    }
+
+    public void setEdad_Escritorio(int edad_Escritorio) {
+        this.Edad_Escritorio = edad_Escritorio;
+    }
+
+    public String getPais_Escritorio() {
+        return Pais_Escritorio;
+    }
+
+    public void setPais_Escritorio(String pais_Escritorio) {
+        this.Pais_Escritorio = pais_Escritorio;
+    }
+
+    public String getCiudad_Escritorio() {
+        return Ciudad_Escritorio;
+    }
+
+    public void setCiudad_Escritorio(String ciudad_Escritorio) {
+        this.Ciudad_Escritorio = ciudad_Escritorio;
+    }
+
+    public int getIdRol() {
+        return IdRol;
+    }
+
+    public void setIdRol(int idRol) {
+        this.IdRol = idRol;
+    }
+
+    // Método para guardar el usuario en la base de datos
     public void GuardarUsuario() throws SQLException {
         Connection conexion = ClaseConexion.getConexion();
         if (conexion == null) {
@@ -77,27 +121,32 @@ public class UsuarioEscritorio {
             rs.next();
 
             if (rs.getInt(1) > 0) {
-                // Si el correo ya está registrado, lanzar una excepción personalizada
                 throw new SQLException("El correo ya está registrado.");
             } else {
                 // Si no existe, insertar el nuevo usuario
-                String sql = "INSERT INTO UsuarioEscritorio (Nombre, Usuario, CorreoElectronico, Contrasena, idrol) VALUES (?, ?, ?, ?, ?)";
+                String sql = "INSERT INTO UsuarioEscritorio (Nombre, Usuario, CorreoElectronico, Contrasena, Edad, Ciudad, Pais, IdRol) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
                 addUsuarioEscritorio = conexion.prepareStatement(sql);
                 addUsuarioEscritorio.setString(1, getNombre());
                 addUsuarioEscritorio.setString(2, getUsuario());
                 addUsuarioEscritorio.setString(3, getCorreo());
                 addUsuarioEscritorio.setString(4, getContrasena());
-                addUsuarioEscritorio.setInt(5, 1);
+                addUsuarioEscritorio.setInt(5, getEdad_Escritorio());
+                addUsuarioEscritorio.setString(6, getCiudad_Escritorio());
+                addUsuarioEscritorio.setString(7, getPais_Escritorio());
+                addUsuarioEscritorio.setInt(8, getIdRol());
+
                 addUsuarioEscritorio.executeUpdate();
                 System.out.println("Usuario guardado correctamente.");
             }
 
         } catch (SQLException ex) {
-            // Manejo de errores de la base de datos
             throw new SQLException(ex.getMessage());
         }
     }
 
+    // Otros métodos como iniciarSesion, obtenerRol, actualizar_contra, etc.
+    // Se mantienen igual
+    
     public int obtenerRol(String correo, String contrasena) {
     String query = "SELECT idRol FROM UsuarioEscritorio WHERE CorreoElectronico = ? AND Contrasena = ?";
     try (Connection conexion = ClaseConexion.getConexion();
