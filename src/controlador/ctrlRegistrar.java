@@ -52,7 +52,7 @@ public class ctrlRegistrar implements ActionListener {
             modelo.setCorreo(vista.txtCorreoElectronico.getText());
 
             // Encriptar la contraseña antes de guardarla
-            String contrasenaEncriptada = encriptarContrasena(vista.txtContra.getText());
+            String contrasenaEncriptada = encriptarContrasena(vista.txtCiudadRegistro.getText());
             if (contrasenaEncriptada == null) {
                 JOptionPane.showMessageDialog(vista, "Error al encriptar la contraseña.", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
@@ -103,9 +103,9 @@ public class ctrlRegistrar implements ActionListener {
             errores.append("El campo 'Usuario' no puede estar vacío.\n");
         }
 
-        if (vista.txtContra.getText().trim().isEmpty() || vista.txtContra.getText().trim().equals("Contraseña")) {
+        if (vista.txtCiudadRegistro.getText().trim().isEmpty() || vista.txtCiudadRegistro.getText().trim().equals("Contraseña")) {
             errores.append("El campo 'Contraseña' no puede estar vacío.\n");
-        } else if (vista.txtContra.getText().length() < 6) { // Validación de longitud de contraseña
+        } else if (vista.txtCiudadRegistro.getText().length() < 6) { // Validación de longitud de contraseña
             errores.append("La contraseña debe tener al menos 6 caracteres.\n");
         }
 
