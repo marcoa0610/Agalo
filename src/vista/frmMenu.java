@@ -15,7 +15,7 @@ public class frmMenu extends javax.swing.JFrame {
 
    public static void initfrmMenu(UsuarioEscritorio modelo) {
         frmMenu vista = new frmMenu();
-        frmDashboard frmDashboard = new frmDashboard();
+        fasfasf frmDashboard = new fasfasf();
         frmAdministrarUsuarios frmAdministrarUsuarios = new frmAdministrarUsuarios();
         frmEmpresa frmEmpresa = new frmEmpresa();
         frmSolicitantes frmSolicitantes = new frmSolicitantes();
