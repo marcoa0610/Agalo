@@ -372,11 +372,20 @@ public class frmRegistro extends javax.swing.JFrame {
     }//GEN-LAST:event_txtUsuarioActionPerformed
 
     private void txtContraFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtContraFocusGained
-        // TODO add your handling code here:
+   
+        if (txtContra.getText().equals("Contraseña")) {
+         txtContra.setText("");
+         txtContra.setForeground(new Color(153,153,153));
+     }
+ 
     }//GEN-LAST:event_txtContraFocusGained
 
     private void txtContraFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtContraFocusLost
-        // TODO add your handling code here:
+       if (txtContra.getText().equals("")) {
+         txtContra.setText("Contraseña");
+         txtContra.setForeground(new Color(153,153,153));
+           }
+       
     }//GEN-LAST:event_txtContraFocusLost
 
     private void txtContraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContraActionPerformed
@@ -384,11 +393,25 @@ public class frmRegistro extends javax.swing.JFrame {
     }//GEN-LAST:event_txtContraActionPerformed
 
     private void txtEdadRegistroFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEdadRegistroFocusGained
-        // TODO add your handling code here:
+     
+         if (txtEdadRegistro.getText().equals("Edad")) {
+         txtEdadRegistro.setText("");
+         txtEdadRegistro.setForeground(new Color(153,153,153));
+           }
+        
+        
+        
     }//GEN-LAST:event_txtEdadRegistroFocusGained
 
     private void txtEdadRegistroFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEdadRegistroFocusLost
-        // TODO add your handling code here:
+
+         if (txtEdadRegistro.getText().equals("")) {
+         txtEdadRegistro.setText("Edad");
+         txtEdadRegistro.setForeground(new Color(153,153,153));
+           }
+        
+        
+        
     }//GEN-LAST:event_txtEdadRegistroFocusLost
 
     private void txtEdadRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEdadRegistroActionPerformed
@@ -396,11 +419,18 @@ public class frmRegistro extends javax.swing.JFrame {
     }//GEN-LAST:event_txtEdadRegistroActionPerformed
 
     private void txtPaisRegistroFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPaisRegistroFocusGained
-        // TODO add your handling code here:
+    if (txtPaisRegistro.getText().equals("País")) {
+         txtPaisRegistro.setText("");
+         txtPaisRegistro.setForeground(new Color(153,153,153));
+           }
+        
     }//GEN-LAST:event_txtPaisRegistroFocusGained
 
     private void txtPaisRegistroFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPaisRegistroFocusLost
-        // TODO add your handling code here:
+        if (txtPaisRegistro.getText().equals("")) {
+         txtPaisRegistro.setText("País");
+         txtPaisRegistro.setForeground(new Color(153,153,153));
+           }
     }//GEN-LAST:event_txtPaisRegistroFocusLost
 
     private void txtPaisRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPaisRegistroActionPerformed
