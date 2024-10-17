@@ -74,6 +74,11 @@ public class frmIngresoCorreo extends javax.swing.JFrame {
         btnRecuperarContrasena.setBackground(new java.awt.Color(0, 0, 0));
         btnRecuperarContrasena.setForeground(new java.awt.Color(255, 255, 255));
         btnRecuperarContrasena.setText("Recuperar Contraseña");
+        btnRecuperarContrasena.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRecuperarContrasenaActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnRecuperarContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, 160, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -89,6 +94,10 @@ public class frmIngresoCorreo extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnRecuperarContrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRecuperarContrasenaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRecuperarContrasenaActionPerformed
 
     /**
      * @param args the command line arguments
