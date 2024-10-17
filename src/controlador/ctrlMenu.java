@@ -4,7 +4,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JOptionPane;
 import vista.frmAdministrarUsuarios;
-import vista.fasfasf;
+import vista.frmDashboard;
 import vista.frmEmpresa;
 import vista.frmMenu;
 import vista.frmSolicitantes;
@@ -15,7 +15,7 @@ import modelo.UsuarioEscritorio;
 public class ctrlMenu implements MouseListener {
 
     frmMenu vista;
-    fasfasf frmDashboard;
+    frmDashboard frmDashboard;
     frmEmpresa frmEmpresa;
     frmSolicitantes frmSolicitantes;
     frmTrabajos frmTrabajos;
@@ -23,7 +23,7 @@ public class ctrlMenu implements MouseListener {
 
     private UsuarioEscritorio modelo;
 
-    public ctrlMenu(frmMenu vista, fasfasf frmDashboard, frmAdministrarUsuarios frmAdministrarUsuarios,
+    public ctrlMenu(frmMenu vista, frmDashboard frmDashboard, frmAdministrarUsuarios frmAdministrarUsuarios,
             frmEmpresa frmEmpresa, frmSolicitantes frmSolicitantes, frmTrabajos frmTrabajos, UsuarioEscritorio modelo) {
         this.vista = vista;
         this.frmDashboard = frmDashboard;
@@ -62,8 +62,8 @@ public class ctrlMenu implements MouseListener {
 
         if (e.getSource() == vista.btnHome) {
             if (frmDashboard == null) {
-                frmDashboard = new fasfasf();
-                
+                frmDashboard = new frmDashboard();
+                frmDashboard.initDashboard();
             }
             // Cambiar el panel contenido
             cambiarPanel(vista.jPContenedor, frmDashboard);
