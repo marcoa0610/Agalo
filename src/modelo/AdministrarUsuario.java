@@ -68,7 +68,7 @@ public class AdministrarUsuario {
             addAdmin.setString(2, getUsuario());
             addAdmin.setString(3, getContrasena());
             addAdmin.setString(4, getCorreoElectronico());
-            addAdmin.setInt(5, 2);
+            addAdmin.setInt(5, 1);
 
             addAdmin.executeUpdate();
         } catch (SQLException ex) {

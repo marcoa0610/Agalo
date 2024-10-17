@@ -4,6 +4,7 @@
  */
 package vista;
 
+import controlador.ctrlAdministrarSolicitantes;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
@@ -14,38 +15,44 @@ import javax.swing.JList;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 import javax.swing.table.DefaultTableCellRenderer;
+import modelo.AdministrarSolicitantes;
 
 /**
  *
  * @author Gudelia
  */
 public class frmSolicitantes extends javax.swing.JPanel {
+  
+    private ctrlAdministrarSolicitantes controlador; // Instancia del controlador
 
     /**
      * Creates new form frmUsers
      */
     public frmSolicitantes() {
         initComponents();
+        // Inicializar el modelo y el controlador
+        AdministrarSolicitantes modelo = new AdministrarSolicitantes();
+        controlador = new ctrlAdministrarSolicitantes(modelo, this); // Pasar el modelo y la vista al controlador
         
         UIManager.getSystemLookAndFeelClassName();
          UIManager.put("ComboBox.border", BorderFactory.createEmptyBorder());
         
-        jtUsers.setBackground(java.awt.Color.WHITE); // Cambia el fondo de las celdas de la tabla
-        jtUsers.setFillsViewportHeight(true); // Asegura que el fondo cubra todo el área
-        jtUsers.getParent().setBackground(java.awt.Color.WHITE);
+        jtSolicitantes.setBackground(java.awt.Color.WHITE); // Cambia el fondo de las celdas de la tabla
+        jtSolicitantes.setFillsViewportHeight(true); // Asegura que el fondo cubra todo el área
+        jtSolicitantes.getParent().setBackground(java.awt.Color.WHITE);
         
          jScrollPane1.setBorder(javax.swing.BorderFactory.createEmptyBorder()); // Establecer borde vacío
         
         // Personalizar el encabezado de la tabla
-        jtUsers.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD,12));
-        jtUsers.getTableHeader().setBackground(java.awt.Color.WHITE);
-        jtUsers.setRowHeight(45);
+        jtSolicitantes.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD,12));
+        jtSolicitantes.getTableHeader().setBackground(java.awt.Color.WHITE);
+        jtSolicitantes.setRowHeight(45);
         
         
         // Configurar las líneas horizontales de la tabla
-        jtUsers.setGridColor(new java.awt.Color(230, 230, 230)); // Líneas gris claro
-        jtUsers.setShowHorizontalLines(true); // Mostrar líneas horizontales
-        jtUsers.setShowVerticalLines(false); // Ocultar líneas verticales si lo deseas
+        jtSolicitantes.setGridColor(new java.awt.Color(230, 230, 230)); // Líneas gris claro
+        jtSolicitantes.setShowHorizontalLines(true); // Mostrar líneas horizontales
+        jtSolicitantes.setShowVerticalLines(false); // Ocultar líneas verticales si lo deseas
         
          DefaultTableCellRenderer headerRenderer = new DefaultTableCellRenderer();
         headerRenderer.setBackground(java.awt.Color.WHITE); // Fondo blanco
@@ -53,42 +60,42 @@ public class frmSolicitantes extends javax.swing.JPanel {
         headerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
         headerRenderer.setFont(new Font("Segoe UI", Font.BOLD, 12)); 
         
-        for (int i = 0; i < jtUsers.getColumnModel().getColumnCount(); i++) {
-            jtUsers.getColumnModel().getColumn(i).setHeaderRenderer(headerRenderer);
+        for (int i = 0; i < jtSolicitantes.getColumnModel().getColumnCount(); i++) {
+            jtSolicitantes.getColumnModel().getColumn(i).setHeaderRenderer(headerRenderer);
         }
 
-        jtUsers.setRowHeight(25);
-        jtUsers.setGridColor(new Color(230, 230, 230));
+        jtSolicitantes.setRowHeight(25);
+        jtSolicitantes.setGridColor(new Color(230, 230, 230));
         
-        // Personalizar el JComboBox
-        jComboBoxUser.setBackground(new Color(255, 255, 255)); // Fondo blanco
-        jComboBoxUser.setForeground(new Color(50, 50, 50)); // Texto gris oscuro
-        jComboBoxUser.setFont(new Font("Segoe UI", Font.PLAIN, 14)); // Fuente minimalista
-        
-        // Crear un borde rectangular y aplicarlo al JComboBox
-        jComboBoxUser.setBorder(BorderFactory.createLineBorder(new Color(200, 200, 200), 1)); // Borde rectangular de 1px
-
-        // Establecer el renderer personalizado para los items del JComboBox
-        jComboBoxUser.setRenderer(new DefaultListCellRenderer() {
-            @Override
-            public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
-                JLabel renderer = (JLabel) super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
-                
-                // Colores minimalistas
-                if (isSelected) {
-                    renderer.setBackground(new Color(220, 220, 220)); // Color de selección minimalista
-                    renderer.setForeground(new Color(0, 0, 0)); // Texto negro
-                } else {
-                    renderer.setBackground(Color.WHITE); // Fondo blanco
-                    renderer.setForeground(new Color(50, 50, 50)); // Texto gris oscuro
-                }
-
-                // Margen y alineación minimalista
-                renderer.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10)); // Margen interno
-                renderer.setHorizontalAlignment(SwingConstants.LEFT); // Alineación izquierda
-                return renderer;
-            }
-        });
+//        // Personalizar el JComboBox
+//        jComboBoxUser.setBackground(new Color(255, 255, 255)); // Fondo blanco
+//        jComboBoxUser.setForeground(new Color(50, 50, 50)); // Texto gris oscuro
+//        jComboBoxUser.setFont(new Font("Segoe UI", Font.PLAIN, 14)); // Fuente minimalista
+//        
+//        // Crear un borde rectangular y aplicarlo al JComboBox
+//        jComboBoxUser.setBorder(BorderFactory.createLineBorder(new Color(200, 200, 200), 1)); // Borde rectangular de 1px
+//
+//        // Establecer el renderer personalizado para los items del JComboBox
+//        jComboBoxUser.setRenderer(new DefaultListCellRenderer() {
+//            @Override
+//            public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
+//                JLabel renderer = (JLabel) super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+//                
+//                // Colores minimalistas
+//                if (isSelected) {
+//                    renderer.setBackground(new Color(220, 220, 220)); // Color de selección minimalista
+//                    renderer.setForeground(new Color(0, 0, 0)); // Texto negro
+//                } else {
+//                    renderer.setBackground(Color.WHITE); // Fondo blanco
+//                    renderer.setForeground(new Color(50, 50, 50)); // Texto gris oscuro
+//                }
+//
+//                // Margen y alineación minimalista
+//                renderer.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10)); // Margen interno
+//                renderer.setHorizontalAlignment(SwingConstants.LEFT); // Alineación izquierda
+//                return renderer;
+//            }
+//        });
     }
 
     /**
@@ -103,11 +110,10 @@ public class frmSolicitantes extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jComboBoxUser = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jtUsers = new javax.swing.JTable();
-        button1 = new custom.Button();
-        textField1 = new custom.TextField();
+        jtSolicitantes = new javax.swing.JTable();
+        btnRestringirSolicitante = new custom.Button();
+        txtBuscarSolicitante = new custom.TextField();
 
         setBackground(new java.awt.Color(250, 249, 249));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -119,24 +125,23 @@ public class frmSolicitantes extends javax.swing.JPanel {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/img/useeeer.png"))); // NOI18N
 
-        jComboBoxUser.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jtUsers.setModel(new javax.swing.table.DefaultTableModel(
+        jtSolicitantes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5"
             }
         ));
-        jScrollPane1.setViewportView(jtUsers);
+        jScrollPane1.setViewportView(jtSolicitantes);
 
-        button1.setText("button1");
+        btnRestringirSolicitante.setForeground(new java.awt.Color(255, 0, 0));
+        btnRestringirSolicitante.setText("Restringir Solicitante");
 
-        textField1.setText("textField1");
+        txtBuscarSolicitante.setText("textField1");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -155,11 +160,9 @@ public class frmSolicitantes extends javax.swing.JPanel {
                         .addGap(6, 6, 6)
                         .addComponent(jScrollPane1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(textField1, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
-                        .addComponent(jComboBoxUser, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtBuscarSolicitante, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnRestringirSolicitante, javax.swing.GroupLayout.DEFAULT_SIZE, 325, Short.MAX_VALUE)))
                 .addGap(73, 73, 73))
         );
         jPanel1Layout.setVerticalGroup(
@@ -171,12 +174,11 @@ public class frmSolicitantes extends javax.swing.JPanel {
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBoxUser, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtBuscarSolicitante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRestringirSolicitante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 527, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 1010, 690));
@@ -184,13 +186,12 @@ public class frmSolicitantes extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private custom.Button button1;
-    public javax.swing.JComboBox<String> jComboBoxUser;
+    public custom.Button btnRestringirSolicitante;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    public javax.swing.JTable jtUsers;
-    private custom.TextField textField1;
+    public javax.swing.JTable jtSolicitantes;
+    public custom.TextField txtBuscarSolicitante;
     // End of variables declaration//GEN-END:variables
 }
