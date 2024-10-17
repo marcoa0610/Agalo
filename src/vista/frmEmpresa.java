@@ -1,6 +1,7 @@
 
 package vista;
 
+import controlador.ctrlAdministrarEmpleadores;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
@@ -11,6 +12,7 @@ import javax.swing.JList;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 import javax.swing.table.DefaultTableCellRenderer;
+import modelo.AdministrarEmpleadores;
 
 
 public class frmEmpresa extends javax.swing.JPanel {
@@ -18,8 +20,15 @@ public class frmEmpresa extends javax.swing.JPanel {
     /**
      * Creates new form empresa
      */
+    private ctrlAdministrarEmpleadores controlador; // Instancia del controlador
+
     public frmEmpresa() {
+        
         initComponents();
+        
+        AdministrarEmpleadores modelo = new AdministrarEmpleadores();
+        controlador = new ctrlAdministrarEmpleadores(modelo, this); // Inicializar el controlador
+
          UIManager.getSystemLookAndFeelClassName();
          UIManager.put("ComboBox.border", BorderFactory.createEmptyBorder());
         
@@ -54,34 +63,34 @@ public class frmEmpresa extends javax.swing.JPanel {
         jtEmpresa.setGridColor(new Color(230, 230, 230));
         
         // Personalizar el JComboBox
-        jComboBox1.setBackground(new Color(255, 255, 255)); // Fondo blanco
-        jComboBox1.setForeground(new Color(50, 50, 50)); // Texto gris oscuro
-        jComboBox1.setFont(new Font("Segoe UI", Font.PLAIN, 14)); // Fuente minimalista
-        
-        // Crear un borde rectangular y aplicarlo al JComboBox
-        jComboBox1.setBorder(BorderFactory.createLineBorder(new Color(200, 200, 200), 1)); // Borde rectangular de 1px
-
-        // Establecer el renderer personalizado para los items del JComboBox
-        jComboBox1.setRenderer(new DefaultListCellRenderer() {
-            @Override
-            public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
-                JLabel renderer = (JLabel) super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
-                
-                // Colores minimalistas
-                if (isSelected) {
-                    renderer.setBackground(new Color(220, 220, 220)); // Color de selección minimalista
-                    renderer.setForeground(new Color(0, 0, 0)); // Texto negro
-                } else {
-                    renderer.setBackground(Color.WHITE); // Fondo blanco
-                    renderer.setForeground(new Color(50, 50, 50)); // Texto gris oscuro
-                }
-
-                // Margen y alineación minimalista
-                renderer.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10)); // Margen interno
-                renderer.setHorizontalAlignment(SwingConstants.LEFT); // Alineación izquierda
-                return renderer;
-            }
-        });
+//        jComboBox1.setBackground(new Color(255, 255, 255)); // Fondo blanco
+//        jComboBox1.setForeground(new Color(50, 50, 50)); // Texto gris oscuro
+//        jComboBox1.setFont(new Font("Segoe UI", Font.PLAIN, 14)); // Fuente minimalista
+//        
+//        // Crear un borde rectangular y aplicarlo al JComboBox
+//        jComboBox1.setBorder(BorderFactory.createLineBorder(new Color(200, 200, 200), 1)); // Borde rectangular de 1px
+//
+//        // Establecer el renderer personalizado para los items del JComboBox
+//        jComboBox1.setRenderer(new DefaultListCellRenderer() {
+//            @Override
+//            public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
+//                JLabel renderer = (JLabel) super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+//                
+//                // Colores minimalistas
+//                if (isSelected) {
+//                    renderer.setBackground(new Color(220, 220, 220)); // Color de selección minimalista
+//                    renderer.setForeground(new Color(0, 0, 0)); // Texto negro
+//                } else {
+//                    renderer.setBackground(Color.WHITE); // Fondo blanco
+//                    renderer.setForeground(new Color(50, 50, 50)); // Texto gris oscuro
+//                }
+//
+//                // Margen y alineación minimalista
+//                renderer.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10)); // Margen interno
+//                renderer.setHorizontalAlignment(SwingConstants.LEFT); // Alineación izquierda
+//                return renderer;
+//            }
+//        });
     }
 
     /**
@@ -96,11 +105,10 @@ public class frmEmpresa extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        textField1 = new custom.TextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        button1 = new custom.Button();
+        txtBuscarEmpleador = new custom.TextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtEmpresa = new javax.swing.JTable();
+        btnRestringirEmpleador = new custom.Button();
 
         setBackground(new java.awt.Color(250, 249, 249));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -110,16 +118,9 @@ public class frmEmpresa extends javax.swing.JPanel {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/img/empresa_1.png"))); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
-        jLabel2.setText("Gestion de Empresas");
+        jLabel2.setText("Gestion de Empleadores");
 
-        textField1.setText("textField1");
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        button1.setBackground(new java.awt.Color(0, 51, 51));
-        button1.setForeground(new java.awt.Color(255, 255, 255));
-        button1.setText("Generar Informe");
+        txtBuscarEmpleador.setText("textField1");
 
         jtEmpresa.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -134,6 +135,14 @@ public class frmEmpresa extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(jtEmpresa);
 
+        btnRestringirEmpleador.setForeground(new java.awt.Color(255, 0, 0));
+        btnRestringirEmpleador.setText("Restringir Empleador");
+        btnRestringirEmpleador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRestringirEmpleadorActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -141,21 +150,18 @@ public class frmEmpresa extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(txtBuscarEmpleador, javax.swing.GroupLayout.PREFERRED_SIZE, 603, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnRestringirEmpleador, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(29, 29, 29)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel2))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(textField1, javax.swing.GroupLayout.PREFERRED_SIZE, 603, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(53, 53, 53)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(button1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(18, 18, 18))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 979, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(45, 45, 45)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 979, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(26, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -170,9 +176,8 @@ public class frmEmpresa extends javax.swing.JPanel {
                         .addComponent(jLabel2)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textField1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtBuscarEmpleador, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRestringirEmpleador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 523, Short.MAX_VALUE)
                 .addContainerGap())
@@ -181,15 +186,18 @@ public class frmEmpresa extends javax.swing.JPanel {
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 42, 1050, 710));
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnRestringirEmpleadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestringirEmpleadorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRestringirEmpleadorActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private custom.Button button1;
-    private javax.swing.JComboBox<String> jComboBox1;
+    public custom.Button btnRestringirEmpleador;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTable jtEmpresa;
-    private custom.TextField textField1;
+    public custom.TextField txtBuscarEmpleador;
     // End of variables declaration//GEN-END:variables
 }

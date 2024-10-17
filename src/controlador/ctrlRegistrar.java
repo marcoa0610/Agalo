@@ -64,6 +64,7 @@ public class ctrlRegistrar implements ActionListener {
                 modelo.GuardarUsuario(); // Llamada para guardar el usuario
                 // Solo si no se lanza excepción mostramos el mensaje de éxito
                 JOptionPane.showMessageDialog(vista, "Usuario Guardado con éxito.");
+                frmLogin login = new frmLogin();
                 frmLogin.initFrmLogin();
                 vista.dispose();
             } catch (Exception ex) {

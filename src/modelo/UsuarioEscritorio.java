@@ -59,44 +59,43 @@ public class UsuarioEscritorio {
         this.Contrasena = Contrasena;
     }
 
-    public void GuardarUsuario() throws SQLException {
-        Connection conexion = ClaseConexion.getConexion();
-        if (conexion == null) {
-            throw new SQLException("No se pudo establecer conexión con la base de datos.");
-        }
-        PreparedStatement addUsuarioEscritorio = null;
-        PreparedStatement checkCorreo = null;
-        ResultSet rs = null;
-
-        try {
-            // Verificar si el correo ya está registrado
-            String sqlCheck = "SELECT COUNT(*) FROM UsuarioEscritorio WHERE CorreoElectronico = ?";
-            checkCorreo = conexion.prepareStatement(sqlCheck);
-            checkCorreo.setString(1, getCorreo());
-            rs = checkCorreo.executeQuery();
-            rs.next();
-
-            if (rs.getInt(1) > 0) {
-                // Si el correo ya está registrado, lanzar una excepción personalizada
-                throw new SQLException("El correo ya está registrado.");
-            } else {
-                // Si no existe, insertar el nuevo usuario
-                String sql = "INSERT INTO UsuarioEscritorio (Nombre, Usuario, CorreoElectronico, Contrasena, idrol) VALUES (?, ?, ?, ?, ?)";
-                addUsuarioEscritorio = conexion.prepareStatement(sql);
-                addUsuarioEscritorio.setString(1, getNombre());
-                addUsuarioEscritorio.setString(2, getUsuario());
-                addUsuarioEscritorio.setString(3, getCorreo());
-                addUsuarioEscritorio.setString(4, getContrasena());
-                addUsuarioEscritorio.setInt(5, 1);
-                addUsuarioEscritorio.executeUpdate();
-                System.out.println("Usuario guardado correctamente.");
-            }
-
-        } catch (SQLException ex) {
-            // Manejo de errores de la base de datos
-            throw new SQLException(ex.getMessage());
-        }
+   public void GuardarUsuario() throws SQLException {
+    Connection conexion = ClaseConexion.getConexion();
+    if (conexion == null) {
+        throw new SQLException("No se pudo establecer conexión con la base de datos.");
     }
+    PreparedStatement addUsuarioEscritorio = null;
+    PreparedStatement checkSuperAdmin = null;
+    ResultSet rs = null;
+
+    try {
+        // Verificar si ya existe un superadmin
+        String sqlCheckSuperAdmin = "SELECT COUNT(*) FROM UsuarioEscritorio WHERE idrol = 2";
+        checkSuperAdmin = conexion.prepareStatement(sqlCheckSuperAdmin);
+        rs = checkSuperAdmin.executeQuery();
+        rs.next();
+
+        if (rs.getInt(1) > 0) {
+            // Si ya existe un superadmin, lanzar una excepción
+            throw new SQLException("Ya existe un Super Admin registrado, para poder tener una cuenta con los privilegios necesarios, comunicarse con la empresa.");
+        } else {
+            // Si no existe, insertar el nuevo usuario
+            String sqlInsert = "INSERT INTO UsuarioEscritorio (Nombre, Usuario, CorreoElectronico, Contrasena, idrol) VALUES (?, ?, ?, ?, ?)";
+            addUsuarioEscritorio = conexion.prepareStatement(sqlInsert);
+            addUsuarioEscritorio.setString(1, getNombre());
+            addUsuarioEscritorio.setString(2, getUsuario());
+            addUsuarioEscritorio.setString(3, getCorreo());
+            addUsuarioEscritorio.setString(4, getContrasena());
+            addUsuarioEscritorio.setInt(5, 2); // Asignar rol 2 (superadmin)
+            addUsuarioEscritorio.executeUpdate();
+            System.out.println("Usuario guardado correctamente.");
+        }
+
+    } catch (SQLException ex) {
+        // Manejo de errores de la base de datos
+        throw new SQLException(ex.getMessage());
+    } 
+}
 
     public int obtenerRol(String correo, String contrasena) {
     String query = "SELECT idRol FROM UsuarioEscritorio WHERE CorreoElectronico = ? AND Contrasena = ?";
