@@ -6,6 +6,7 @@ package vista;
 
 import controlador.ctrlCambiarContrasena;
 import controlador.ctrlIngresoCorreo;
+import java.awt.Color;
 import modelo.UsuarioEscritorio;
 import static vista.frmIngresoCorreo.initFrmIngresoCorreo;
 
@@ -51,43 +52,91 @@ public class frmCambiarContrasena extends javax.swing.JFrame {
         txtNuevaContrasena = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
 
-        btnCambiarContrasena.setText("jButton1");
+        btnCambiarContrasena.setBackground(new java.awt.Color(0, 0, 0));
+        btnCambiarContrasena.setText("Cambiar Contraseña");
 
+        txtConfirmarContrasena.setText("Repetir Contraseña");
         txtConfirmarContrasena.setToolTipText("");
+        txtConfirmarContrasena.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtConfirmarContrasenaFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtConfirmarContrasenaFocusLost(evt);
+            }
+        });
 
+        txtNuevaContrasena.setForeground(new java.awt.Color(255, 255, 255));
+        txtNuevaContrasena.setText("Escriba Su Nueva Contraseña");
         txtNuevaContrasena.setToolTipText("");
+        txtNuevaContrasena.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtNuevaContrasenaFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtNuevaContrasenaFocusLost(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtNuevaContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(146, 146, 146)
-                            .addComponent(btnCambiarContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(103, 103, 103)
-                            .addComponent(txtConfirmarContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(130, Short.MAX_VALUE))
+                .addGap(55, 55, 55)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtNuevaContrasena, javax.swing.GroupLayout.DEFAULT_SIZE, 465, Short.MAX_VALUE)
+                    .addComponent(txtConfirmarContrasena))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(215, Short.MAX_VALUE)
+                .addComponent(btnCambiarContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(210, 210, 210))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(45, Short.MAX_VALUE)
+                .addContainerGap(16, Short.MAX_VALUE)
                 .addComponent(txtNuevaContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addGap(40, 40, 40)
                 .addComponent(txtConfirmarContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(37, 37, 37)
                 .addComponent(btnCambiarContrasena)
-                .addGap(66, 66, 66))
+                .addGap(33, 33, 33))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtNuevaContrasenaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNuevaContrasenaFocusGained
+        if (txtNuevaContrasena.getText().equals("Escriba Su Nueva Contraseña")) {
+         txtNuevaContrasena.setText("");
+         txtNuevaContrasena.setForeground(new Color(153,153,153));
+     }
+    }//GEN-LAST:event_txtNuevaContrasenaFocusGained
+
+    private void txtConfirmarContrasenaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtConfirmarContrasenaFocusLost
+        if (txtConfirmarContrasena.getText().equals("")) {
+         txtConfirmarContrasena.setText("Repetir Contraseña");
+         txtConfirmarContrasena.setForeground(new Color(153,153,153));
+           }
+    }//GEN-LAST:event_txtConfirmarContrasenaFocusLost
+
+    private void txtConfirmarContrasenaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtConfirmarContrasenaFocusGained
+          if (txtConfirmarContrasena.getText().equals("Repetir Contraseña")) {
+         txtConfirmarContrasena.setText("");
+         txtConfirmarContrasena.setForeground(new Color(153,153,153));
+           }
+    }//GEN-LAST:event_txtConfirmarContrasenaFocusGained
+
+    private void txtNuevaContrasenaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNuevaContrasenaFocusLost
+         if (txtNuevaContrasena.getText().equals("")) {
+         txtNuevaContrasena.setText("Escriba Su Nueva Contraseña");
+         txtNuevaContrasena.setForeground(new Color(153,153,153));
+           }
+    }//GEN-LAST:event_txtNuevaContrasenaFocusLost
 
     /**
      * @param args the command line arguments

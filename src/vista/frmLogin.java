@@ -43,7 +43,6 @@ public class frmLogin extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         btnRegister = new custom.Button();
@@ -51,12 +50,15 @@ public class frmLogin extends javax.swing.JFrame {
         btnIngresar = new custom.Button();
         txtContrasena = new custom.TextField();
         txtCorreo = new custom.TextField();
+        jLabel7 = new javax.swing.JLabel();
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/img/delgadita.jpg (1).png"))); // NOI18N
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setMinimumSize(new java.awt.Dimension(1060, 650));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1060, 650));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel3.setBackground(new java.awt.Color(0, 0, 0));
@@ -78,25 +80,19 @@ public class frmLogin extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Calibri Light", 0, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(51, 51, 51));
         jLabel3.setText("INICIAR SESIÓN");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 10, 290, 50));
-
-        jLabel4.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel4.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel4.setText("¡Bienvenido de nuevo! Accede a tu cuenta para continuar.");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, 450, 50));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 0, 290, 50));
 
         jLabel5.setBackground(new java.awt.Color(0, 0, 0));
         jLabel5.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(51, 51, 51));
         jLabel5.setText("Email");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, 120, 50));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 120, 50));
 
         jLabel6.setBackground(new java.awt.Color(0, 0, 0));
         jLabel6.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(51, 51, 51));
         jLabel6.setText("Contraseña");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 320, 120, 50));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 120, 50));
 
         btnRegister.setBackground(new java.awt.Color(0, 0, 0));
         btnRegister.setForeground(new java.awt.Color(255, 255, 255));
@@ -113,7 +109,7 @@ public class frmLogin extends javax.swing.JFrame {
         jOlvidarContrasena.setFont(new java.awt.Font("Calibri Light", 0, 14)); // NOI18N
         jOlvidarContrasena.setForeground(new java.awt.Color(102, 102, 102));
         jOlvidarContrasena.setText("¿Olvidaste la contraseña?");
-        jPanel1.add(jOlvidarContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 440, 160, 20));
+        jPanel1.add(jOlvidarContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 510, 160, 20));
 
         btnIngresar.setBackground(new java.awt.Color(0, 0, 0));
         btnIngresar.setForeground(new java.awt.Color(255, 255, 255));
@@ -125,15 +121,23 @@ public class frmLogin extends javax.swing.JFrame {
                 btnIngresarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 630, 190, 60));
-        jPanel1.add(txtContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 360, 790, 60));
-        jPanel1.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, 780, 60));
+        jPanel1.add(btnIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, 1060, 60));
+        jPanel1.add(txtContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 1040, 60));
+        jPanel1.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 1050, 60));
+
+        jLabel7.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel7.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel7.setText("¡Bienvenido de nuevo! Accede a tu cuenta para continuar.");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 40, 450, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1092, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -194,9 +198,9 @@ public class frmLogin extends javax.swing.JFrame {
     public custom.Button btnRegister;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     public javax.swing.JLabel jOlvidarContrasena;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;

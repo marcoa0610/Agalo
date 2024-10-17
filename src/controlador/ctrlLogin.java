@@ -58,6 +58,7 @@ public class ctrlLogin implements ActionListener, MouseListener {
 
              if (comprobar) {
                 JOptionPane.showMessageDialog(vista, "¡Bienvenido, usuario encontrado!");
+                frmLogin login = new frmLogin();
                 frmMenu.initfrmMenu(modelo); // Pasa el modelo al controlador ctrlMenu
                 vista.dispose();
             } else {

@@ -10,6 +10,7 @@ import java.util.regex.Pattern;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.nio.charset.StandardCharsets;
+import vista.frmAdministrarUsuarios;
 
 /**
  *
