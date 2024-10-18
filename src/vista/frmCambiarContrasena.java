@@ -50,12 +50,22 @@ public class frmCambiarContrasena extends javax.swing.JFrame {
         btnCambiarContrasena = new javax.swing.JButton();
         txtConfirmarContrasena = new javax.swing.JTextField();
         txtNuevaContrasena = new javax.swing.JTextField();
+        button1 = new custom.Button();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnCambiarContrasena.setBackground(new java.awt.Color(0, 0, 0));
+        btnCambiarContrasena.setForeground(new java.awt.Color(255, 255, 255));
         btnCambiarContrasena.setText("Cambiar Contraseña");
+        btnCambiarContrasena.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCambiarContrasenaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnCambiarContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 430, 210, 50));
 
         txtConfirmarContrasena.setText("Repetir Contraseña");
         txtConfirmarContrasena.setToolTipText("");
@@ -67,8 +77,8 @@ public class frmCambiarContrasena extends javax.swing.JFrame {
                 txtConfirmarContrasenaFocusLost(evt);
             }
         });
+        getContentPane().add(txtConfirmarContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 350, 510, 40));
 
-        txtNuevaContrasena.setForeground(new java.awt.Color(255, 255, 255));
         txtNuevaContrasena.setText("Escriba Su Nueva Contraseña");
         txtNuevaContrasena.setToolTipText("");
         txtNuevaContrasena.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -79,33 +89,13 @@ public class frmCambiarContrasena extends javax.swing.JFrame {
                 txtNuevaContrasenaFocusLost(evt);
             }
         });
+        getContentPane().add(txtNuevaContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 280, 510, 50));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtNuevaContrasena, javax.swing.GroupLayout.DEFAULT_SIZE, 465, Short.MAX_VALUE)
-                    .addComponent(txtConfirmarContrasena))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(215, Short.MAX_VALUE)
-                .addComponent(btnCambiarContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(210, 210, 210))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(16, Short.MAX_VALUE)
-                .addComponent(txtNuevaContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
-                .addComponent(txtConfirmarContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
-                .addComponent(btnCambiarContrasena)
-                .addGap(33, 33, 33))
-        );
+        button1.setBackground(new java.awt.Color(6, 6, 20));
+        getContentPane().add(button1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 230, 590, 370));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/img/fondor.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, 0, 1400, 720));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -137,6 +127,10 @@ public class frmCambiarContrasena extends javax.swing.JFrame {
          txtNuevaContrasena.setForeground(new Color(153,153,153));
            }
     }//GEN-LAST:event_txtNuevaContrasenaFocusLost
+
+    private void btnCambiarContrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiarContrasenaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCambiarContrasenaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -175,6 +169,8 @@ public class frmCambiarContrasena extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnCambiarContrasena;
+    private custom.Button button1;
+    private javax.swing.JLabel jLabel1;
     public javax.swing.JTextField txtConfirmarContrasena;
     public javax.swing.JTextField txtNuevaContrasena;
     // End of variables declaration//GEN-END:variables

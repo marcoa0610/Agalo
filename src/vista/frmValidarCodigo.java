@@ -48,6 +48,8 @@ public class frmValidarCodigo extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         btnValidar = new javax.swing.JButton();
         txtCodigo = new custom.TextField();
+        button1 = new custom.Button();
+        jLabel1 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -63,9 +65,12 @@ public class frmValidarCodigo extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnValidar.setBackground(new java.awt.Color(0, 0, 0));
+        btnValidar.setForeground(new java.awt.Color(255, 255, 255));
         btnValidar.setText("Enviar");
+        jPanel1.add(btnValidar, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 430, 240, 35));
 
         txtCodigo.setText("Ingrese el codigo");
         txtCodigo.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -76,29 +81,14 @@ public class frmValidarCodigo extends javax.swing.JFrame {
                 txtCodigoFocusLost(evt);
             }
         });
+        jPanel1.add(txtCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 380, 491, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(219, 219, 219)
-                .addComponent(btnValidar, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(55, Short.MAX_VALUE)
-                .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(98, Short.MAX_VALUE)
-                .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
-                .addComponent(btnValidar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(59, 59, 59))
-        );
+        button1.setBackground(new java.awt.Color(6, 6, 20));
+        button1.setText("button1");
+        jPanel1.add(button1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 230, 750, 340));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/img/fondor.png"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-1, 0, 1400, 720));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -168,6 +158,8 @@ if (txtCodigo.getText().equals("Ingrese el codigo")) {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnValidar;
+    private custom.Button button1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel8;
     public custom.TextField txtCodigo;

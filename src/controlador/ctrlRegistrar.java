@@ -76,7 +76,7 @@ public class ctrlRegistrar implements ActionListener {
         } else if (e.getSource() == vista.btnLogear) {
             // Cambiar al formulario de login
             frmLogin loginForm = new frmLogin();
-            loginForm.setVisible(true);
+            frmLogin.initFrmLogin();
             vista.dispose(); // Cierra el formulario actual
         }
     }

@@ -31,6 +31,7 @@ public class ctrlLogin implements ActionListener, MouseListener {
 
         this.vista.btnIngresar.addActionListener(this); // Usar ActionListener en lugar de MouseListener
         this.vista.btnRegister.addActionListener(this); // Añadir ActionListener para el botón de registro
+        this.vista.jOlvidarContrasena.addMouseListener(this);
     }
     
     @Override
@@ -123,7 +124,9 @@ public class ctrlLogin implements ActionListener, MouseListener {
     public void mouseClicked(MouseEvent e) {
         
         
-     if (e.getSource() == vista.jOlvidarContrasena) {
+     if (e.getSource() == vista.jOlvidarContrasena)
+     {
+          frmIngresoCorreo ingresocorreo = new frmIngresoCorreo();
           frmIngresoCorreo.initFrmIngresoCorreo(); 
           vista.dispose();
         

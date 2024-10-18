@@ -52,6 +52,8 @@ public class frmIngresoCorreo extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         txtRecuperarContrasena = new custom.TextField();
         btnRecuperarContrasena = new custom.Button();
+        button1 = new custom.Button();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -59,17 +61,24 @@ public class frmIngresoCorreo extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Recuperar Contraseña");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 240, -1, -1));
 
         jLabel2.setForeground(new java.awt.Color(153, 153, 153));
         jLabel2.setText("Ingresa tu direcion de correo electronico que utilizaste para crear tu cuenta, nosotros");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 280, -1, 80));
 
         jLabel3.setForeground(new java.awt.Color(153, 153, 153));
         jLabel3.setText("enviaremos un correo con instrucciones para recuperar tu contraseña");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
-        jPanel1.add(txtRecuperarContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 400, 80));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 330, -1, -1));
+
+        txtRecuperarContrasena.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtRecuperarContrasenaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtRecuperarContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 360, 520, 50));
 
         btnRecuperarContrasena.setBackground(new java.awt.Color(0, 0, 0));
         btnRecuperarContrasena.setForeground(new java.awt.Color(255, 255, 255));
@@ -79,13 +88,19 @@ public class frmIngresoCorreo extends javax.swing.JFrame {
                 btnRecuperarContrasenaActionPerformed(evt);
             }
         });
-        jPanel1.add(btnRecuperarContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, 160, -1));
+        jPanel1.add(btnRecuperarContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 430, 160, -1));
+
+        button1.setBackground(new java.awt.Color(6, 6, 20));
+        jPanel1.add(button1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 230, 610, 310));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/img/fondor.png"))); // NOI18N
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1400, 720));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 524, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -98,6 +113,10 @@ public class frmIngresoCorreo extends javax.swing.JFrame {
     private void btnRecuperarContrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRecuperarContrasenaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnRecuperarContrasenaActionPerformed
+
+    private void txtRecuperarContrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRecuperarContrasenaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtRecuperarContrasenaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -137,9 +156,11 @@ public class frmIngresoCorreo extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public custom.Button btnRecuperarContrasena;
+    private custom.Button button1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     public custom.TextField txtRecuperarContrasena;
     // End of variables declaration//GEN-END:variables

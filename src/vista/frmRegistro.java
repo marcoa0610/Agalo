@@ -46,19 +46,18 @@ public class frmRegistro extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox<>();
         jpBackground = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtNombre = new custom.TextField();
         txtCorreoElectronico = new custom.TextField();
+        jLabel2 = new javax.swing.JLabel();
         btnLogear = new custom.Button();
         btnRegistrar = new custom.Button();
-        jLabel2 = new javax.swing.JLabel();
         jCondiciones = new javax.swing.JCheckBox();
         jLabel4 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         txtUsuario = new custom.TextField();
         txtContra = new custom.TextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -69,36 +68,14 @@ public class frmRegistro extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel3.setBackground(new java.awt.Color(0, 0, 0));
-
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/img/AGALO_1.png"))); // NOI18N
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(104, Short.MAX_VALUE)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(150, Short.MAX_VALUE)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 433, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(117, 117, 117))
-        );
-
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, -40, 450, 700));
-
         jLabel3.setBackground(new java.awt.Color(0, 0, 0));
         jLabel3.setFont(new java.awt.Font("Calibri", 0, 36)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel3.setText("CREAR CUENTA");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 370, 50));
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Crea tu cuenta como Administrador");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, 530, 50));
 
-        txtNombre.setForeground(new java.awt.Color(153, 153, 153));
+        txtNombre.setBackground(new java.awt.Color(6, 6, 20));
+        txtNombre.setForeground(new java.awt.Color(255, 255, 255));
         txtNombre.setText("Nombre");
         txtNombre.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -113,9 +90,10 @@ public class frmRegistro extends javax.swing.JFrame {
                 txtNombreActionPerformed(evt);
             }
         });
-        jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 570, 50));
+        jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 260, 340, 50));
 
-        txtCorreoElectronico.setForeground(new java.awt.Color(153, 153, 153));
+        txtCorreoElectronico.setBackground(new java.awt.Color(6, 6, 20));
+        txtCorreoElectronico.setForeground(new java.awt.Color(255, 255, 255));
         txtCorreoElectronico.setText("Correo Electrónico");
         txtCorreoElectronico.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -130,12 +108,17 @@ public class frmRegistro extends javax.swing.JFrame {
                 txtCorreoElectronicoActionPerformed(evt);
             }
         });
-        jPanel1.add(txtCorreoElectronico, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 570, 50));
+        jPanel1.add(txtCorreoElectronico, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, 570, 50));
 
-        btnLogear.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel2.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel2.setText("¿Ya tienes cuenta? ");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, 150, 30));
+
+        btnLogear.setBackground(new java.awt.Color(6, 6, 20));
         btnLogear.setForeground(new java.awt.Color(255, 255, 255));
         btnLogear.setText("Iniciar Sesión");
-        jPanel1.add(btnLogear, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 480, 140, 30));
+        btnLogear.setShadowColor(new java.awt.Color(6, 6, 20));
+        jPanel1.add(btnLogear, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, 140, 30));
 
         btnRegistrar.setBackground(new java.awt.Color(0, 0, 0));
         btnRegistrar.setForeground(new java.awt.Color(255, 255, 255));
@@ -146,15 +129,11 @@ public class frmRegistro extends javax.swing.JFrame {
                 btnRegistrarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, 570, 60));
+        jPanel1.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 480, 570, 60));
 
-        jLabel2.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel2.setText("¿Ya tienes cuenta? ");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 480, 150, 20));
-
-        jCondiciones.setBackground(new java.awt.Color(255, 255, 255));
+        jCondiciones.setBackground(new java.awt.Color(6, 6, 20));
         jCondiciones.setFont(new java.awt.Font("Calibri Light", 0, 11)); // NOI18N
-        jCondiciones.setForeground(new java.awt.Color(153, 153, 153));
+        jCondiciones.setForeground(new java.awt.Color(255, 255, 255));
         jCondiciones.setText("Acepto las Condiciones del servicio y la Política de privacidad de Agalo");
         jCondiciones.setToolTipText("");
         jCondiciones.addActionListener(new java.awt.event.ActionListener() {
@@ -162,13 +141,11 @@ public class frmRegistro extends javax.swing.JFrame {
                 jCondicionesActionPerformed(evt);
             }
         });
-        jPanel1.add(jCondiciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 390, 30));
+        jPanel1.add(jCondiciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 420, 390, 30));
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 410, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/img/delgadita.jpg (1).png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 410, -1, 60));
-
-        txtUsuario.setForeground(new java.awt.Color(153, 153, 153));
+        txtUsuario.setBackground(new java.awt.Color(6, 6, 20));
+        txtUsuario.setForeground(new java.awt.Color(255, 255, 255));
         txtUsuario.setText("Usuario");
         txtUsuario.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -183,9 +160,10 @@ public class frmRegistro extends javax.swing.JFrame {
                 txtUsuarioActionPerformed(evt);
             }
         });
-        jPanel1.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 570, 50));
+        jPanel1.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, 220, 50));
 
-        txtContra.setForeground(new java.awt.Color(153, 153, 153));
+        txtContra.setBackground(new java.awt.Color(6, 6, 20));
+        txtContra.setForeground(new java.awt.Color(255, 255, 255));
         txtContra.setText("Contraseña");
         txtContra.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -200,9 +178,17 @@ public class frmRegistro extends javax.swing.JFrame {
                 txtContraActionPerformed(evt);
             }
         });
-        jPanel1.add(txtContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 570, 50));
+        jPanel1.add(txtContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 370, 570, 50));
 
-        jpBackground.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 650));
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 51, 255));
+        jLabel1.setText(".");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 120, 60, -1));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/img/fondor.png"))); // NOI18N
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1360, 890));
+
+        jpBackground.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1360, 890));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -392,7 +378,6 @@ public class frmRegistro extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jpBackground;
     public custom.TextField txtContra;
     public custom.TextField txtCorreoElectronico;
