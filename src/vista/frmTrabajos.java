@@ -105,7 +105,7 @@ public class frmTrabajos extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtTrabajos = new javax.swing.JTable();
-        button1 = new custom.Button();
+        btnGenerarReporte = new custom.Button();
         textField1 = new custom.TextField();
 
         setBackground(new java.awt.Color(250, 249, 249));
@@ -133,9 +133,7 @@ public class frmTrabajos extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(jtTrabajos);
 
-        button1.setText("button1");
-
-        textField1.setText("textField1");
+        btnGenerarReporte.setText("Generar Reporte");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -156,7 +154,7 @@ public class frmTrabajos extends javax.swing.JPanel {
                                 .addGap(116, 116, 116)
                                 .addComponent(jComboBoxTrabajos, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btnGenerarReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 922, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(0, 49, Short.MAX_VALUE))
         );
@@ -171,7 +169,7 @@ public class frmTrabajos extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBoxTrabajos, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnGenerarReporte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(48, Short.MAX_VALUE))
@@ -182,7 +180,7 @@ public class frmTrabajos extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private custom.Button button1;
+    private custom.Button btnGenerarReporte;
     public javax.swing.JComboBox<String> jComboBoxTrabajos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
