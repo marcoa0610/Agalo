@@ -22,7 +22,7 @@ import modelo.AdministrarSolicitantes;
  * @author Gudelia
  */
 public class frmSolicitantes extends javax.swing.JPanel {
-  
+
     private ctrlAdministrarSolicitantes controlador; // Instancia del controlador
 
     /**
@@ -33,40 +33,39 @@ public class frmSolicitantes extends javax.swing.JPanel {
         // Inicializar el modelo y el controlador
         AdministrarSolicitantes modelo = new AdministrarSolicitantes();
         controlador = new ctrlAdministrarSolicitantes(modelo, this); // Pasar el modelo y la vista al controlador
-        
+
         UIManager.getSystemLookAndFeelClassName();
-         UIManager.put("ComboBox.border", BorderFactory.createEmptyBorder());
-        
+        UIManager.put("ComboBox.border", BorderFactory.createEmptyBorder());
+
         jtSolicitantes.setBackground(java.awt.Color.WHITE); // Cambia el fondo de las celdas de la tabla
         jtSolicitantes.setFillsViewportHeight(true); // Asegura que el fondo cubra todo el área
         jtSolicitantes.getParent().setBackground(java.awt.Color.WHITE);
-        
-         jScrollPane1.setBorder(javax.swing.BorderFactory.createEmptyBorder()); // Establecer borde vacío
-        
+
+        jScrollPane1.setBorder(javax.swing.BorderFactory.createEmptyBorder()); // Establecer borde vacío
+
         // Personalizar el encabezado de la tabla
-        jtSolicitantes.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD,12));
+        jtSolicitantes.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
         jtSolicitantes.getTableHeader().setBackground(java.awt.Color.WHITE);
         jtSolicitantes.setRowHeight(45);
-        
-        
+
         // Configurar las líneas horizontales de la tabla
         jtSolicitantes.setGridColor(new java.awt.Color(230, 230, 230)); // Líneas gris claro
         jtSolicitantes.setShowHorizontalLines(true); // Mostrar líneas horizontales
         jtSolicitantes.setShowVerticalLines(false); // Ocultar líneas verticales si lo deseas
-        
-         DefaultTableCellRenderer headerRenderer = new DefaultTableCellRenderer();
+
+        DefaultTableCellRenderer headerRenderer = new DefaultTableCellRenderer();
         headerRenderer.setBackground(java.awt.Color.WHITE); // Fondo blanco
         headerRenderer.setForeground(new Color(0, 0, 0)); // Texto en color negro
         headerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
-        headerRenderer.setFont(new Font("Segoe UI", Font.BOLD, 12)); 
-        
+        headerRenderer.setFont(new Font("Segoe UI", Font.BOLD, 12));
+
         for (int i = 0; i < jtSolicitantes.getColumnModel().getColumnCount(); i++) {
             jtSolicitantes.getColumnModel().getColumn(i).setHeaderRenderer(headerRenderer);
         }
 
         jtSolicitantes.setRowHeight(25);
         jtSolicitantes.setGridColor(new Color(230, 230, 230));
-        
+
 //        // Personalizar el JComboBox
 //        jComboBoxUser.setBackground(new Color(255, 255, 255)); // Fondo blanco
 //        jComboBoxUser.setForeground(new Color(50, 50, 50)); // Texto gris oscuro
@@ -141,7 +140,15 @@ public class frmSolicitantes extends javax.swing.JPanel {
         btnRestringirSolicitante.setForeground(new java.awt.Color(255, 0, 0));
         btnRestringirSolicitante.setText("Restringir Solicitante");
 
-        txtBuscarSolicitante.setText("textField1");
+        txtBuscarSolicitante.setText("Buscar");
+        txtBuscarSolicitante.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtBuscarSolicitanteFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtBuscarSolicitanteFocusLost(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -183,6 +190,20 @@ public class frmSolicitantes extends javax.swing.JPanel {
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 1010, 690));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtBuscarSolicitanteFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtBuscarSolicitanteFocusGained
+        if (txtBuscarSolicitante.getText().equals("Buscar")) {
+            txtBuscarSolicitante.setText("");
+        }
+
+    }//GEN-LAST:event_txtBuscarSolicitanteFocusGained
+
+    private void txtBuscarSolicitanteFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtBuscarSolicitanteFocusLost
+        if (txtBuscarSolicitante.getText().equals("")) {
+            txtBuscarSolicitante.setText("Buscar");
+        }
+
+    }//GEN-LAST:event_txtBuscarSolicitanteFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

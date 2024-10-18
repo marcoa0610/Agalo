@@ -118,34 +118,32 @@ public class AdministrarEmpresas {
         }
     }
 
-    // Buscar empresa por nombre
     public void buscarEmpresa(JTable jtSolicitudEmpresa, JTextField txtBuscarEmpresa) {
         Connection conexion = ClaseConexion.getConexion();
-        DefaultTableModel modelo = new DefaultTableModel();
+        DefaultTableModel modelo = (DefaultTableModel) jtSolicitudEmpresa.getModel(); // Reutiliza el modelo existente
 
-        modelo.setColumnIdentifiers(new Object[]{
-            "Id", "Empresa", "Representante", "Correo Electrónico", "Teléfono",
-            "Dirección", "Departamento"
-        });
+        // Limpia el modelo antes de llenarlo con los nuevos resultados
+        modelo.setRowCount(0); // Limpia las filas existentes
 
         try {
             PreparedStatement ps = conexion.prepareStatement(
-                    "SELECT e.IdEmpleador as Id,e.NombreEmpresa as Empresa, e.NombreRepresentante as Representante, e.CorreoElectronico as Correo Electrónico,e.NumeroTelefono as Teléfono, e.Direccion as Dirección, d.Nombre AS Departamento FROM Empleador e INNER JOIN DEPARTAMENTO d ON e.IdDepartamento = d.IdDepartamento WHERE e.NombreEmpresa LIKE ? || '%' AND e.Estado = 'Pendiente'"
+                    "SELECT e.IdEmpleador as Id, e.NombreEmpresa as Empresa, e.NombreRepresentante as Representante, e.CorreoElectronico as Correo, e.NumeroTelefono as Teléfono, e.Direccion as Dirección, d.Nombre as Departamento FROM Empleador e INNER JOIN DEPARTAMENTO d ON e.IdDepartamento = d.IdDepartamento WHERE e.NombreEmpresa LIKE ? AND e.Estado = 'Pendiente'"
             );
-            ps.setString(1, txtBuscarEmpresa.getText());
+            ps.setString(1, txtBuscarEmpresa.getText() + "%"); // Agregar el '%' aquí
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
                 modelo.addRow(new Object[]{
-                    rs.getInt("Id"), // Asumiendo que IdEmpleador es un entero
+                    rs.getString("Id"),
                     rs.getString("Empresa"),
                     rs.getString("Representante"),
-                    rs.getString("Correo Electrónico"),
+                    rs.getString("Correo"),
                     rs.getString("Teléfono"),
                     rs.getString("Dirección"),
                     rs.getString("Departamento")
                 });
             }
+            // Asigna el modelo actualizado a la tabla
             jtSolicitudEmpresa.setModel(modelo);
         } catch (Exception e) {
             System.out.println("Error en buscar empresa: " + e);

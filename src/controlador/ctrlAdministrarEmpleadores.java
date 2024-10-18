@@ -16,11 +16,12 @@ import vista.frmEmpresa;
  *
  * @author Contr
  */
-public class ctrlAdministrarEmpleadores implements MouseListener, KeyListener{
+public class ctrlAdministrarEmpleadores implements MouseListener, KeyListener {
+
     private AdministrarEmpleadores modelo;
     private frmEmpresa vista;
-    
-     public ctrlAdministrarEmpleadores(AdministrarEmpleadores modelo, frmEmpresa vista) {
+
+    public ctrlAdministrarEmpleadores(AdministrarEmpleadores modelo, frmEmpresa vista) {
         this.modelo = modelo;
         this.vista = vista;
 
@@ -31,11 +32,10 @@ public class ctrlAdministrarEmpleadores implements MouseListener, KeyListener{
         // Cargar los datos al inicializar
         modelo.MostrarEmpleadores(vista.jtEmpresa); // Asegúrate de que este método esté en tu modelo
     }
-    
 
     @Override
     public void mouseClicked(MouseEvent e) {
-          if (e.getSource() == vista.btnRestringirEmpleador) {
+        if (e.getSource() == vista.btnRestringirEmpleador) {
             System.err.println("Ddaasd");
             int filaSeleccionada = vista.jtEmpresa.getSelectedRow();
             if (filaSeleccionada != -1) {
@@ -65,6 +65,9 @@ public class ctrlAdministrarEmpleadores implements MouseListener, KeyListener{
 
     @Override
     public void keyTyped(KeyEvent e) {
+        if (e.getSource() == vista.txtBuscarEmpleador) {
+            modelo.buscarEmpleador(vista.jtEmpresa, vista.txtBuscarEmpleador);
+        }
     }
 
     @Override
@@ -74,5 +77,5 @@ public class ctrlAdministrarEmpleadores implements MouseListener, KeyListener{
     @Override
     public void keyReleased(KeyEvent e) {
     }
-    
+
 }

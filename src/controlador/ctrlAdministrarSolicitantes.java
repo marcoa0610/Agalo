@@ -16,11 +16,11 @@ import vista.frmSolicitantes;
  *
  * @author Contr
  */
-public class ctrlAdministrarSolicitantes implements MouseListener, KeyListener{
+public class ctrlAdministrarSolicitantes implements MouseListener, KeyListener {
 
     private AdministrarSolicitantes modelo;
     private frmSolicitantes vista;
-   
+
     public ctrlAdministrarSolicitantes(AdministrarSolicitantes modelo, frmSolicitantes vista) {
         this.modelo = modelo;
         this.vista = vista;
@@ -32,9 +32,10 @@ public class ctrlAdministrarSolicitantes implements MouseListener, KeyListener{
         // Cargar los datos al inicializar
         modelo.MostrarSolicitantes(vista.jtSolicitantes); // Asegúrate de que este método esté en tu modelo
     }
+
     @Override
     public void mouseClicked(MouseEvent e) {
-             if (e.getSource() == vista.btnRestringirSolicitante) {
+        if (e.getSource() == vista.btnRestringirSolicitante) {
             System.err.println("Ddaasd");
             int filaSeleccionada = vista.jtSolicitantes.getSelectedRow();
             if (filaSeleccionada != -1) {
@@ -64,6 +65,10 @@ public class ctrlAdministrarSolicitantes implements MouseListener, KeyListener{
 
     @Override
     public void keyTyped(KeyEvent e) {
+        if (e.getSource() == vista.txtBuscarSolicitante) {
+            modelo.buscarSolicitante(vista.jtSolicitantes, vista.txtBuscarSolicitante);
+        }
+
     }
 
     @Override
