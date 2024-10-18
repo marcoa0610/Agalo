@@ -1,4 +1,3 @@
-
 package vista;
 
 import controlador.ctrlAdministrarEmpleadores;
@@ -14,7 +13,6 @@ import javax.swing.UIManager;
 import javax.swing.table.DefaultTableCellRenderer;
 import modelo.AdministrarEmpleadores;
 
-
 public class frmEmpresa extends javax.swing.JPanel {
 
     /**
@@ -23,45 +21,44 @@ public class frmEmpresa extends javax.swing.JPanel {
     private ctrlAdministrarEmpleadores controlador; // Instancia del controlador
 
     public frmEmpresa() {
-        
+
         initComponents();
-        
+
         AdministrarEmpleadores modelo = new AdministrarEmpleadores();
         controlador = new ctrlAdministrarEmpleadores(modelo, this); // Inicializar el controlador
 
-         UIManager.getSystemLookAndFeelClassName();
-         UIManager.put("ComboBox.border", BorderFactory.createEmptyBorder());
-        
+        UIManager.getSystemLookAndFeelClassName();
+        UIManager.put("ComboBox.border", BorderFactory.createEmptyBorder());
+
         jtEmpresa.setBackground(java.awt.Color.WHITE); // Cambia el fondo de las celdas de la tabla
         jtEmpresa.setFillsViewportHeight(true); // Asegura que el fondo cubra todo el área
         jtEmpresa.getParent().setBackground(java.awt.Color.WHITE);
-        
-         jScrollPane1.setBorder(javax.swing.BorderFactory.createEmptyBorder()); // Establecer borde vacío
-        
+
+        jScrollPane1.setBorder(javax.swing.BorderFactory.createEmptyBorder()); // Establecer borde vacío
+
         // Personalizar el encabezado de la tabla
-        jtEmpresa.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD,12));
+        jtEmpresa.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
         jtEmpresa.getTableHeader().setBackground(java.awt.Color.WHITE);
         jtEmpresa.setRowHeight(45);
-        
-        
+
         // Configurar las líneas horizontales de la tabla
         jtEmpresa.setGridColor(new java.awt.Color(230, 230, 230)); // Líneas gris claro
         jtEmpresa.setShowHorizontalLines(true); // Mostrar líneas horizontales
         jtEmpresa.setShowVerticalLines(false); // Ocultar líneas verticales si lo deseas
-        
-         DefaultTableCellRenderer headerRenderer = new DefaultTableCellRenderer();
+
+        DefaultTableCellRenderer headerRenderer = new DefaultTableCellRenderer();
         headerRenderer.setBackground(java.awt.Color.WHITE); // Fondo blanco
         headerRenderer.setForeground(new Color(0, 0, 0)); // Texto en color negro
         headerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
-        headerRenderer.setFont(new Font("Segoe UI", Font.BOLD, 12)); 
-        
+        headerRenderer.setFont(new Font("Segoe UI", Font.BOLD, 12));
+
         for (int i = 0; i < jtEmpresa.getColumnModel().getColumnCount(); i++) {
             jtEmpresa.getColumnModel().getColumn(i).setHeaderRenderer(headerRenderer);
         }
 
         jtEmpresa.setRowHeight(25);
         jtEmpresa.setGridColor(new Color(230, 230, 230));
-        
+
         // Personalizar el JComboBox
 //        jComboBox1.setBackground(new Color(255, 255, 255)); // Fondo blanco
 //        jComboBox1.setForeground(new Color(50, 50, 50)); // Texto gris oscuro
@@ -120,7 +117,15 @@ public class frmEmpresa extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
         jLabel2.setText("Gestion de Empleadores");
 
-        txtBuscarEmpleador.setText("textField1");
+        txtBuscarEmpleador.setText("Buscar");
+        txtBuscarEmpleador.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtBuscarEmpleadorFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtBuscarEmpleadorFocusLost(evt);
+            }
+        });
 
         jtEmpresa.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -189,6 +194,16 @@ public class frmEmpresa extends javax.swing.JPanel {
     private void btnRestringirEmpleadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestringirEmpleadorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnRestringirEmpleadorActionPerformed
+
+    private void txtBuscarEmpleadorFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtBuscarEmpleadorFocusGained
+        if (txtBuscarEmpleador.getText().equals("Buscar")) {
+            txtBuscarEmpleador.setText("");
+        }    }//GEN-LAST:event_txtBuscarEmpleadorFocusGained
+
+    private void txtBuscarEmpleadorFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtBuscarEmpleadorFocusLost
+        if (txtBuscarEmpleador.getText().equals("")) {
+            txtBuscarEmpleador.setText("Buscar");
+        }    }//GEN-LAST:event_txtBuscarEmpleadorFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

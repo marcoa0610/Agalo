@@ -25,18 +25,14 @@ public class frmDashboard extends javax.swing.JPanel {
      */
     public frmDashboard() {
         initComponents();
-        
+
         frmDashboard frmDashboard = this;
         AdministrarEmpresas modelo = new AdministrarEmpresas();
-        ctrlAdministrarEmpresas controlador = new ctrlAdministrarEmpresas (modelo, frmDashboard);
-        
-        
-        
-        
-        
+        ctrlAdministrarEmpresas controlador = new ctrlAdministrarEmpresas(modelo, frmDashboard);
+
         UIManager.getSystemLookAndFeelClassName();
-        
-        jtSolicitudEmpresa.setBackground(java.awt.Color.WHITE); // Cambia el fondo de las celdas de la tabla
+
+         jtSolicitudEmpresa.setBackground(java.awt.Color.WHITE); // Cambia el fondo de las celdas de la tabla
         jtSolicitudEmpresa.setFillsViewportHeight(true); // Asegura que el fondo cubra todo el área
         jtSolicitudEmpresa.getParent().setBackground(java.awt.Color.WHITE);
         
@@ -65,27 +61,17 @@ public class frmDashboard extends javax.swing.JPanel {
 
         jtSolicitudEmpresa.setRowHeight(25);
         jtSolicitudEmpresa.setGridColor(new Color(230, 230, 230));
-    }
-    
- public static void initDashboard() {
-        frmDashboard frmDashboard = new frmDashboard();
-        AdministrarEmpresas modelo = new AdministrarEmpresas();
-        ctrlAdministrarEmpresas controlador = new ctrlAdministrarEmpresas (modelo, frmDashboard);
-      //  frmAdministrarUsuarios.setVisible(true); 
-       
         
     }
-    
 
-    
-    
-    
-    
-    
-  
-    
-    
-    
+    public static void initDashboard() {
+        frmDashboard frmDashboard = new frmDashboard();
+        AdministrarEmpresas modelo = new AdministrarEmpresas();
+        ctrlAdministrarEmpresas controlador = new ctrlAdministrarEmpresas(modelo, frmDashboard);
+        //  frmAdministrarUsuarios.setVisible(true); 
+
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -227,6 +213,19 @@ public class frmDashboard extends javax.swing.JPanel {
         jScrollPane3.setViewportView(jtSolicitudEmpresa);
 
         txtBuscarEmpresa.setText("Buscar");
+        txtBuscarEmpresa.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtBuscarEmpresaFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtBuscarEmpresaFocusLost(evt);
+            }
+        });
+        txtBuscarEmpresa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtBuscarEmpresaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -395,24 +394,40 @@ public class frmDashboard extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button2ActionPerformed
-        
+
     }//GEN-LAST:event_button2ActionPerformed
 
     private void btnActuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActuActionPerformed
-        
+
     }//GEN-LAST:event_btnActuActionPerformed
 
     private void btnAceptarSolicitudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarSolicitudActionPerformed
-       
+
     }//GEN-LAST:event_btnAceptarSolicitudActionPerformed
 
     private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
-  
+
     }//GEN-LAST:event_backActionPerformed
 
     private void btnRechazarSolicitudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRechazarSolicitudActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnRechazarSolicitudActionPerformed
+
+    private void txtBuscarEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarEmpresaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBuscarEmpresaActionPerformed
+
+    private void txtBuscarEmpresaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtBuscarEmpresaFocusGained
+        if (txtBuscarEmpresa.getText().equals("Buscar")) {
+            txtBuscarEmpresa.setText("");
+        }
+    }//GEN-LAST:event_txtBuscarEmpresaFocusGained
+
+    private void txtBuscarEmpresaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtBuscarEmpresaFocusLost
+        if (txtBuscarEmpresa.getText().equals("")) {
+            txtBuscarEmpresa.setText("Buscar");
+        }
+    }//GEN-LAST:event_txtBuscarEmpresaFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

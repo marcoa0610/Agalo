@@ -1,4 +1,3 @@
-
 package vista;
 
 import controlador.ctrlAdministrarUsuario;
@@ -11,66 +10,57 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.JTableHeader;
 import modelo.AdministrarUsuario;
 
-
 public class frmAdministrarUsuarios extends javax.swing.JPanel {
 
-    
     public frmAdministrarUsuarios() {
-        
-        
+
         initComponents();
-        
+
         frmAdministrarUsuarios frmAdministrarUsuarios = this;
         AdministrarUsuario modelo = new AdministrarUsuario();
         ctrlAdministrarUsuario controlador = new ctrlAdministrarUsuario(modelo, frmAdministrarUsuarios);
-        
+
         UIManager.getSystemLookAndFeelClassName();
-        
+
         jtbAdmin.setBackground(java.awt.Color.WHITE); // Cambia el fondo de las celdas de la tabla
         jtbAdmin.setFillsViewportHeight(true); // Asegura que el fondo cubra todo el área
         jtbAdmin.getParent().setBackground(java.awt.Color.WHITE);
-        
-         jScrollPane1.setBorder(javax.swing.BorderFactory.createEmptyBorder()); // Establecer borde vacío
-        
+
+        jScrollPane1.setBorder(javax.swing.BorderFactory.createEmptyBorder()); // Establecer borde vacío
+
         // Personalizar el encabezado de la tabla
-        jtbAdmin.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD,12));
+        jtbAdmin.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
         jtbAdmin.getTableHeader().setBackground(java.awt.Color.WHITE);
         jtbAdmin.setRowHeight(45);
-        
-        
+
         // Configurar las líneas horizontales de la tabla
         jtbAdmin.setGridColor(new java.awt.Color(230, 230, 230)); // Líneas gris claro
         jtbAdmin.setShowHorizontalLines(true); // Mostrar líneas horizontales
         jtbAdmin.setShowVerticalLines(false); // Ocultar líneas verticales si lo deseas
-        
-         DefaultTableCellRenderer headerRenderer = new DefaultTableCellRenderer();
+
+        DefaultTableCellRenderer headerRenderer = new DefaultTableCellRenderer();
         headerRenderer.setBackground(java.awt.Color.WHITE); // Fondo blanco
         headerRenderer.setForeground(new Color(0, 0, 0)); // Texto en color negro
         headerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
-        headerRenderer.setFont(new Font("Segoe UI", Font.BOLD, 12)); 
-        
+        headerRenderer.setFont(new Font("Segoe UI", Font.BOLD, 12));
+
         for (int i = 0; i < jtbAdmin.getColumnModel().getColumnCount(); i++) {
             jtbAdmin.getColumnModel().getColumn(i).setHeaderRenderer(headerRenderer);
         }
 
         jtbAdmin.setRowHeight(25);
         jtbAdmin.setGridColor(new Color(230, 230, 230));
- 
+
     }
-    
+
     public static void initfrmADMIN() {
         frmAdministrarUsuarios frmAdministrarUsuarios = new frmAdministrarUsuarios();
         AdministrarUsuario modelo = new AdministrarUsuario();
         ctrlAdministrarUsuario controlador = new ctrlAdministrarUsuario(modelo, frmAdministrarUsuarios);
-      //  frmAdministrarUsuarios.setVisible(true); 
-       
-        
-    }
-    
-    
-    
+        //  frmAdministrarUsuarios.setVisible(true); 
 
-    
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -84,7 +74,7 @@ public class frmAdministrarUsuarios extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtbAdmin = new javax.swing.JTable();
-        textField1 = new custom.TextField();
+        txtBuscarUsuarios = new custom.TextField();
         btnEditarAdmin = new custom.Button();
         btnEliminarAdmin = new custom.Button();
         jLabel2 = new javax.swing.JLabel();
@@ -184,8 +174,17 @@ public class frmAdministrarUsuarios extends javax.swing.JPanel {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 1010, 410));
 
-        textField1.setBackground(new java.awt.Color(255, 252, 250));
-        jPanel1.add(textField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 520, 50));
+        txtBuscarUsuarios.setBackground(new java.awt.Color(255, 252, 250));
+        txtBuscarUsuarios.setText("Buscar");
+        txtBuscarUsuarios.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtBuscarUsuariosFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtBuscarUsuariosFocusLost(evt);
+            }
+        });
+        jPanel1.add(txtBuscarUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 520, 50));
 
         btnEditarAdmin.setBorder(null);
         btnEditarAdmin.setForeground(new java.awt.Color(0, 0, 0));
@@ -203,7 +202,7 @@ public class frmAdministrarUsuarios extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtContrasenaAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContrasenaAdminActionPerformed
-        
+
     }//GEN-LAST:event_txtContrasenaAdminActionPerformed
 
     private void txtNombreAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreAdminActionPerformed
@@ -211,60 +210,74 @@ public class frmAdministrarUsuarios extends javax.swing.JPanel {
     }//GEN-LAST:event_txtNombreAdminActionPerformed
 
     private void txtUsuarioAdminFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUsuarioAdminFocusGained
-      if (txtUsuarioAdmin.getText().equals("Usuario Administrador")) {
-         txtUsuarioAdmin.setText("");
-        txtUsuarioAdmin.setForeground(new Color(153,153,153));
-     }
+        if (txtUsuarioAdmin.getText().equals("Usuario Administrador")) {
+            txtUsuarioAdmin.setText("");
+            txtUsuarioAdmin.setForeground(new Color(153, 153, 153));
+        }
     }//GEN-LAST:event_txtUsuarioAdminFocusGained
 
     private void txtUsuarioAdminFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUsuarioAdminFocusLost
-            if (txtUsuarioAdmin.getText().equals("")) {
-        txtUsuarioAdmin.setText("Usuario Administrador");
-      txtUsuarioAdmin.setForeground(new Color(153,153,153));
-     }
+        if (txtUsuarioAdmin.getText().equals("")) {
+            txtUsuarioAdmin.setText("Usuario Administrador");
+            txtUsuarioAdmin.setForeground(new Color(153, 153, 153));
+        }
     }//GEN-LAST:event_txtUsuarioAdminFocusLost
 
     private void txtNombreAdminFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNombreAdminFocusGained
-         if (txtNombreAdmin.getText().equals("Nombre Administrador")) {
-         txtNombreAdmin.setText("");
-         txtNombreAdmin.setForeground(new Color(153,153,153));
-     }
+        if (txtNombreAdmin.getText().equals("Nombre Administrador")) {
+            txtNombreAdmin.setText("");
+            txtNombreAdmin.setForeground(new Color(153, 153, 153));
+        }
     }//GEN-LAST:event_txtNombreAdminFocusGained
 
     private void txtNombreAdminFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNombreAdminFocusLost
-              if (txtNombreAdmin.getText().equals("")) {
-         txtNombreAdmin.setText("Nombre Administrador");
-         txtNombreAdmin.setForeground(new Color(153,153,153));
-     }
+        if (txtNombreAdmin.getText().equals("")) {
+            txtNombreAdmin.setText("Nombre Administrador");
+            txtNombreAdmin.setForeground(new Color(153, 153, 153));
+        }
     }//GEN-LAST:event_txtNombreAdminFocusLost
 
     private void txtCorreoAdminFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCorreoAdminFocusGained
-                if (txtCorreoAdmin.getText().equals("Correo Electronico Administrador")) {
-      txtCorreoAdmin.setText("");
-       txtCorreoAdmin.setForeground(new Color(153,153,153));
-     }
+        if (txtCorreoAdmin.getText().equals("Correo Electronico Administrador")) {
+            txtCorreoAdmin.setText("");
+            txtCorreoAdmin.setForeground(new Color(153, 153, 153));
+        }
     }//GEN-LAST:event_txtCorreoAdminFocusGained
 
     private void txtCorreoAdminFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCorreoAdminFocusLost
-               if (txtNombreAdmin.getText().equals("")) {
-         txtNombreAdmin.setText("Correo Electronico Administrador");
-         txtNombreAdmin.setForeground(new Color(153,153,153));
-     }
+        if (txtNombreAdmin.getText().equals("")) {
+            txtNombreAdmin.setText("Correo Electronico Administrador");
+            txtNombreAdmin.setForeground(new Color(153, 153, 153));
+        }
     }//GEN-LAST:event_txtCorreoAdminFocusLost
 
     private void txtContrasenaAdminFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtContrasenaAdminFocusGained
-      if (txtContrasenaAdmin.getText().equals("Contraseña Administrador")) {
-         txtContrasenaAdmin.setText("");
-         txtContrasenaAdmin.setForeground(new Color(153,153,153));
-     }
+        if (txtContrasenaAdmin.getText().equals("Contraseña Administrador")) {
+            txtContrasenaAdmin.setText("");
+            txtContrasenaAdmin.setForeground(new Color(153, 153, 153));
+        }
     }//GEN-LAST:event_txtContrasenaAdminFocusGained
 
     private void txtContrasenaAdminFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtContrasenaAdminFocusLost
-         if (txtContrasenaAdmin.getText().equals("")) {
-         txtContrasenaAdmin.setText("Contraseña Administrador");
-         txtContrasenaAdmin.setForeground(new Color(153,153,153));
-     }
+        if (txtContrasenaAdmin.getText().equals("")) {
+            txtContrasenaAdmin.setText("Contraseña Administrador");
+            txtContrasenaAdmin.setForeground(new Color(153, 153, 153));
+        }
     }//GEN-LAST:event_txtContrasenaAdminFocusLost
+
+    private void txtBuscarUsuariosFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtBuscarUsuariosFocusGained
+        if (txtBuscarUsuarios.getText().equals("Buscar")) {
+            txtBuscarUsuarios.setText("");
+        }
+
+    }//GEN-LAST:event_txtBuscarUsuariosFocusGained
+
+    private void txtBuscarUsuariosFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtBuscarUsuariosFocusLost
+        if (txtBuscarUsuarios.getText().equals("")) {
+            txtBuscarUsuarios.setText("Buscar");
+        }
+
+    }//GEN-LAST:event_txtBuscarUsuariosFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -276,7 +289,7 @@ public class frmAdministrarUsuarios extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTable jtbAdmin;
-    private custom.TextField textField1;
+    public custom.TextField txtBuscarUsuarios;
     public custom.PasswordField txtContrasenaAdmin;
     public custom.TextField txtCorreoAdmin;
     public custom.TextField txtNombreAdmin;

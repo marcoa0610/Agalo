@@ -3,39 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Jero/Desktop/Agalo/src/modelo/AdministrarTrabajos.java</file>
-            <file>file:/C:/Users/Jero/Desktop/Agalo/src/vista/frmEmpresa.java</file>
-            <file>file:/C:/Users/Jero/Desktop/Agalo/src/modelo/EnviarCorreo.java</file>
-            <file>file:/C:/Users/Jero/Desktop/Agalo/src/vista/fasfasf.java</file>
-            <file>file:/C:/Users/Jero/Desktop/Agalo/src/controlador/ctrlIngresoCorreo.java</file>
-            <file>file:/C:/Users/Jero/Desktop/Agalo/src/controlador/ctrlRegistrar.java</file>
-            <file>file:/C:/Users/Jero/Desktop/Agalo/src/vista/frmValidarCodigo.java</file>
-            <file>file:/C:/Users/Jero/Desktop/Agalo/src/controlador/ctrlAdministrarEmpresas.java</file>
-            <file>file:/C:/Users/Jero/Desktop/Agalo/src/vista/frmTrabajos.java</file>
-            <file>file:/C:/Users/Jero/Desktop/Agalo/src/vista/frmDashboard.java</file>
-            <file>file:/C:/Users/Jero/Desktop/Agalo/src/vista/frmAdministrarUsuarios.java</file>
-            <file>file:/C:/Users/Jero/Desktop/Agalo/src/controlador/ctrlAdministrarTrabajo.java</file>
-            <file>file:/C:/Users/Jero/Desktop/Agalo/src/vista/frmCambiarContrasena.java</file>
-            <file>file:/C:/Users/Jero/Desktop/Agalo/src/modelo/AdministrarSolicitantes.java</file>
-            <file>file:/C:/Users/Jero/Desktop/Agalo/src/controlador/ctrlValidarCodigo.java</file>
-            <file>file:/C:/Users/Jero/Desktop/Agalo/src/vista/frmActualizar.java</file>
-            <file>file:/C:/Users/Jero/Desktop/Agalo/nbproject/build-impl.xml</file>
-            <file>file:/C:/Users/Jero/Desktop/Agalo/src/modelo/ClaseConexion.java</file>
-            <file>file:/C:/Users/Jero/Desktop/Agalo/src/modelo/AdministrarEmpresas.java</file>
-            <file>file:/C:/Users/Jero/Desktop/Agalo/src/controlador/ctrlLogin.java</file>
-            <file>file:/C:/Users/Jero/Desktop/Agalo/src/vista/jfSplashScreen.java</file>
-            <file>file:/C:/Users/Jero/Desktop/Agalo/src/controlador/ctrlAdministrarUsuario.java</file>
-            <file>file:/C:/Users/Jero/Desktop/Agalo/src/modelo/AdministrarEmpleadores.java</file>
-            <file>file:/C:/Users/Jero/Desktop/Agalo/src/controlador/ctrlMenu.java</file>
-            <file>file:/C:/Users/Jero/Desktop/Agalo/src/vista/frmRegistro.java</file>
-            <file>file:/C:/Users/Jero/Desktop/Agalo/src/vista/frmSolicitantes.java</file>
-            <file>file:/C:/Users/Jero/Desktop/Agalo/src/controlador/AdministrarSolicitantes.java</file>
-            <file>file:/C:/Users/Jero/Desktop/Agalo/src/modelo/UsuarioEscritorio.java</file>
-            <file>file:/C:/Users/Jero/Desktop/Agalo/src/controlador/ctrlCambiarContrasena.java</file>
-            <file>file:/C:/Users/Jero/Desktop/Agalo/src/vista/frmMenu.java</file>
-            <file>file:/C:/Users/Jero/Desktop/Agalo/src/vista/frmLogin.java</file>
-            <file>file:/C:/Users/Jero/Desktop/Agalo/src/modelo/AdministrarUsuario.java</file>
-            <file>file:/C:/Users/Jero/Desktop/Agalo/src/vista/frmIngresoCorreo.java</file>
+            <file>file:/C:/Users/Contr/OneDrive/Escritorio/Agalo/build/built-jar.properties</file>
         </group>
     </open-files>
 </project-private>
