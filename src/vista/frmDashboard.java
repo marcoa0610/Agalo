@@ -82,16 +82,15 @@ public class frmDashboard extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel3 = new javax.swing.JPanel();
-        back = new custom.Button();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
+        txtEmpresas = new javax.swing.JLabel();
+        txtUsers = new javax.swing.JLabel();
+        txtWorks = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         btnAceptarSolicitud = new custom.Button();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -101,19 +100,17 @@ public class frmDashboard extends javax.swing.JPanel {
         jLabel14 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         btnRechazarSolicitud = new custom.Button();
-        jpPerfil = new javax.swing.JPanel();
         btnActu = new custom.Button();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
+        txtCorreo = new javax.swing.JLabel();
+        txtNombre = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         button2 = new custom.Button();
+        jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -132,62 +129,53 @@ public class frmDashboard extends javax.swing.JPanel {
         jPanel3.setPreferredSize(new java.awt.Dimension(1120, 780));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/img/back.png"))); // NOI18N
-        back.setShadowColor(new java.awt.Color(255, 255, 255));
-        back.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backActionPerformed(evt);
-            }
-        });
-        jPanel3.add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 60, 30, 40));
-
         jLabel16.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(204, 204, 204));
         jLabel16.setText("Usuarios ");
         jLabel16.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 220, 60, -1));
+        jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 220, 60, -1));
 
         jLabel17.setBackground(new java.awt.Color(204, 204, 204));
         jLabel17.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(204, 204, 204));
         jLabel17.setText("Registrados");
-        jPanel3.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(795, 230, 70, -1));
+        jPanel3.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 230, 70, -1));
 
         jLabel18.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(204, 204, 204));
         jLabel18.setText("Empresas");
-        jPanel3.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(905, 220, -1, -1));
+        jPanel3.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 220, -1, -1));
 
         jLabel19.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(204, 204, 204));
         jLabel19.setText("Asociadas");
-        jPanel3.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(905, 230, -1, -1));
+        jPanel3.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 230, -1, -1));
 
         jLabel20.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(204, 204, 204));
         jLabel20.setText("Trabajos");
-        jPanel3.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 220, -1, -1));
+        jPanel3.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 220, -1, -1));
 
         jLabel21.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(204, 204, 204));
         jLabel21.setText("Publicados");
-        jPanel3.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(1012, 230, -1, -1));
+        jPanel3.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 230, -1, -1));
 
-        jLabel22.setFont(new java.awt.Font("Segoe UI", 1, 33)); // NOI18N
-        jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel22.setText("4567");
-        jPanel3.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(885, 180, 100, -1));
+        txtEmpresas.setFont(new java.awt.Font("Segoe UI", 1, 33)); // NOI18N
+        txtEmpresas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtEmpresas.setText("4567");
+        jPanel3.add(txtEmpresas, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 180, 100, -1));
 
-        jLabel23.setFont(new java.awt.Font("Segoe UI", 1, 33)); // NOI18N
-        jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel23.setText("1233");
-        jLabel23.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel3.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 180, 90, -1));
+        txtUsers.setFont(new java.awt.Font("Segoe UI", 1, 33)); // NOI18N
+        txtUsers.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtUsers.setText("1233");
+        txtUsers.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel3.add(txtUsers, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 180, 90, -1));
 
-        jLabel24.setFont(new java.awt.Font("Segoe UI", 1, 33)); // NOI18N
-        jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel24.setText("7865");
-        jPanel3.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(997, 180, 100, -1));
+        txtWorks.setFont(new java.awt.Font("Segoe UI", 1, 33)); // NOI18N
+        txtWorks.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtWorks.setText("7865");
+        jPanel3.add(txtWorks, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 180, 100, -1));
 
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -304,11 +292,7 @@ public class frmDashboard extends javax.swing.JPanel {
                     .addGap(0, 236, Short.MAX_VALUE)))
         );
 
-        jPanel3.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 270, 1090, 490));
-
-        jpPerfil.setBackground(new java.awt.Color(255, 255, 255));
-        jpPerfil.setLayout(new java.awt.BorderLayout());
-        jPanel3.add(jpPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 60, 390, 170));
+        jPanel3.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 1090, 490));
 
         btnActu.setBackground(new java.awt.Color(103, 70, 136));
         btnActu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/img/config.png"))); // NOI18N
@@ -319,39 +303,23 @@ public class frmDashboard extends javax.swing.JPanel {
         });
         jPanel3.add(btnActu, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 40, 30));
 
-        jLabel8.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel8.setText("gbsss@gmail.com");
-        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 150, -1, -1));
+        txtCorreo.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        txtCorreo.setForeground(new java.awt.Color(102, 102, 102));
+        txtCorreo.setText("¡Bienvenido al panel de control! Aquí encontrarás un resumen general del estado actual de la plataforma, permitiéndote administrar y monitorear las actividades clave de manera rápida y eficiente.");
+        jPanel3.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 90, 210, 70));
 
-        jLabel9.setFont(new java.awt.Font("SansSerif", 2, 12)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel9.setText("Administrador");
-        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 100, -1, -1));
-
-        jLabel10.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel10.setText("gbsss_16");
-        jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 130, -1, -1));
-
-        jLabel11.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        jLabel11.setText("Gabriela");
-        jPanel3.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 80, -1, -1));
+        txtNombre.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jPanel3.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 80, -1, -1));
 
         jLabel12.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel12.setText("Bienvenid@!");
         jPanel3.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 80, -1, -1));
 
-        jLabel6.setFont(new java.awt.Font("SansSerif", 2, 12)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel6.setText("Administrador");
-        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 100, -1, -1));
-
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/img/perfillll_4.png"))); // NOI18N
-        jPanel3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 770, 290));
+        jPanel3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 720, 290));
 
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/img/estadisticas.png"))); // NOI18N
-        jPanel3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 40, -1, -1));
+        jPanel3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 40, -1, -1));
 
         button2.setText("button2");
         button2.addActionListener(new java.awt.event.ActionListener() {
@@ -360,6 +328,19 @@ public class frmDashboard extends javax.swing.JPanel {
             }
         });
         jPanel3.add(button2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 200, 130, 40));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        jPanel3.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 30, -1, -1));
 
         add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 780));
 
@@ -372,6 +353,19 @@ public class frmDashboard extends javax.swing.JPanel {
         jLabel7.setForeground(new java.awt.Color(102, 102, 102));
         jLabel7.setText("gbsss@gmail.com");
         add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 150, -1, -1));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 350, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 230, Short.MAX_VALUE)
+        );
+
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 30, 350, 230));
 
         jPanel5.setBackground(new java.awt.Color(250, 249, 249));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -405,10 +399,6 @@ public class frmDashboard extends javax.swing.JPanel {
 
     }//GEN-LAST:event_btnAceptarSolicitudActionPerformed
 
-    private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
-
-    }//GEN-LAST:event_backActionPerformed
-
     private void btnRechazarSolicitudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRechazarSolicitudActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnRechazarSolicitudActionPerformed
@@ -431,14 +421,11 @@ public class frmDashboard extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public custom.Button back;
     public custom.Button btnAceptarSolicitud;
     public custom.Button btnActu;
     public custom.Button btnRechazarSolicitud;
     private custom.Button button2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -450,24 +437,24 @@ public class frmDashboard extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane3;
-    public javax.swing.JPanel jpPerfil;
     public javax.swing.JTable jtSolicitudEmpresa;
     public custom.TextField txtBuscarEmpresa;
+    public javax.swing.JLabel txtCorreo;
+    public javax.swing.JLabel txtEmpresas;
+    public javax.swing.JLabel txtNombre;
+    public javax.swing.JLabel txtUsers;
+    public javax.swing.JLabel txtWorks;
     // End of variables declaration//GEN-END:variables
 }

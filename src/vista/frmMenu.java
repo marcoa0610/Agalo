@@ -74,11 +74,9 @@ public class frmMenu extends javax.swing.JFrame {
 
         btnTrabajos.setBackground(new java.awt.Color(0, 29, 63));
         btnTrabajos.setForeground(new java.awt.Color(255, 255, 255));
-        btnTrabajos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/img/reporte.png"))); // NOI18N
-        btnTrabajos.setText("Trabajos");
         btnTrabajos.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnTrabajos.setShadowColor(new java.awt.Color(0, 29, 63));
-        jPanel2.add(btnTrabajos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, 230, 60));
+        jPanel2.add(btnTrabajos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 660, 230, 60));
 
         btnHome.setBackground(new java.awt.Color(0, 29, 63));
         btnHome.setForeground(new java.awt.Color(255, 255, 255));
